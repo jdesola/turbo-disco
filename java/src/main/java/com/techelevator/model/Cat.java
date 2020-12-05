@@ -9,6 +9,22 @@ public class Cat {
 	private int priorExperienceMonths;
 	private String previousJobs;
 	private String description;
+	private long id;
+	
+	
+	
+	private Cat createCat() {
+		return null;
+	}
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public int getAge() {
 		return age;
 	}
@@ -51,6 +67,8 @@ public class Cat {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
 	
 
 
