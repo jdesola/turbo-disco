@@ -1,27 +1,25 @@
 <template>
   <div class="header-main">
-     <!-- <svg src="/assets/small-logo.svg" />  -->
-    <img src="/assets/small-logo.jpg"/>
-    <smallLogo/>
+    <img :src="logoSmall" />
+    <small-logo />
+    <h1>This is the main-header</h1>
   </div>
 </template>
 
 <script>
-import smallLogo from './assets/small-logo.svg';
-
+import SmallLogo from '../assets/svg/small-logo.svg';
 export default {
   name: "header-main",
-  components: {
-    smallLogo,
-
-  },
+     components: {
+     SmallLogo
+},
+  data() {
+    return {
+      logoSmall: require('../assets/svg/small-logo.svg')
+    }
+  }
 };
 </script>
 
 <style>
-svg {
-  width: 100%;
-  height: auto;
-
-}
 </style>
