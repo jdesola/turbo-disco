@@ -11,12 +11,6 @@ public class Cat {
 	private String description;
 	private long id;
 	
-	
-	
-	private Cat createCat() {
-		return null;
-	}
-	
 	public long getId() {
 		return id;
 	}
