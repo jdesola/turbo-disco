@@ -7,10 +7,12 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import com.techelevator.dao.CatDAO;
 import com.techelevator.model.Cat;
 
+@Component
 public class CatJDBC implements CatDAO{
 	
 	private final JdbcTemplate jdbcTemplate;
@@ -40,6 +42,7 @@ public class CatJDBC implements CatDAO{
 		}
 		return catList;
 	}
+	
 
 	
 	private Cat mapRowToCat(SqlRowSet row ) {
