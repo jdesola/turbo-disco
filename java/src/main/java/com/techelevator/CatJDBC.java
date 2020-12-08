@@ -34,7 +34,7 @@ public class CatJDBC implements CatDAO{
 	@Override
 	public List<Cat> listCats() {
 		List<Cat> catList = new ArrayList <Cat>();
-		String sql = "select name, age, skills, hair_length, prior_experience_months, prior_jobs, description from catch_cats";
+		String sql = "select name, age, skills, hair_length, prior_experience_months, prior_jobs, description, color from catch_cats";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 		while(results.next()) {
 			Cat cat = mapRowToCat(results);

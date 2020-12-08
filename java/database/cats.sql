@@ -76,7 +76,7 @@ ALTER TABLE ONLY public.catch_cats ALTER COLUMN id SET DEFAULT nextval('public.c
 
 COPY public.catch_cats (id, name, age, skills, hair_length, prior_experience_months, prior_jobs, description, color) FROM stdin;
 1	Test Name	3	Test Skills	Long	16	Test Job	Test Description     Test
-2	Rachelle	13	Coding, assisting, giving breaks	Long	23	Tech Elevator Assistant Instructor	Our lady of perpetual breaks, loves Brittany Spears, has a dog named Turkey   Brown
+2	Rachelle	13	Coding, assisting, giving breaks	Long	23	Tech Elevator Assistant Instructor       Our lady of perpetual breaks, loves Brittany Spears, has a dog named Turkey     Brown
        
 \.
 
