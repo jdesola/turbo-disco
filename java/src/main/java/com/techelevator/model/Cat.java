@@ -10,6 +10,7 @@ public class Cat {
 	private String previousJobs;
 	private String description;
 	private long id;
+	private String color;
 	
 	public long getId() {
 		return id;
@@ -60,6 +61,14 @@ public class Cat {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
 	}
 	
 	

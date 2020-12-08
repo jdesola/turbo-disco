@@ -30,6 +30,7 @@ public class JDBC_CatDAO_IntergrationTest extends DAOIntegrationTest{
 		testCat.setPreviousJobs("Hokage");
 		testCat.setSkills("Rasengan, Rasen-Shuriken");
 		testCat.setPriorExperienceMonths(6);
+		testCat.setColor("Brown");
 	}
 	
 	@Test
