@@ -4,7 +4,7 @@
 
 -- Dumped from database version 11.6
 -- Dumped by pg_dump version 11.6
-drop table catch_cats;
+
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -34,7 +34,7 @@ CREATE TABLE public.catch_cats (
     prior_experience_months integer NOT NULL,
     prior_jobs character varying(255),
     description character varying(255) NOT NULL,
-    color character varying(255) NOT NULL
+    color character varying(255)
     CONSTRAINT chk_hair_length CHECK (((hair_length)::text = ANY ((ARRAY['Long'::character varying, 'Short'::character varying, 'Hairless'::character varying])::text[])))
 );
 
@@ -74,9 +74,9 @@ ALTER TABLE ONLY public.catch_cats ALTER COLUMN id SET DEFAULT nextval('public.c
 -- Data for Name: catch_cats; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.catch_cats (id, name, age, skills, hair_length, prior_experience_months, prior_jobs, description, color) FROM stdin;
-1	Test Name	3	Test Skills	Long	16	Test Job	Test Description     Test
-2	Rachelle	13	Coding, assisting, giving breaks	Long	23	Tech Elevator Assistant Instructor       Our lady of perpetual breaks, loves Brittany Spears, has a dog named Turkey     Brown
+COPY public.catch_cats (id, name, age, skills, hair_length, prior_experience_months, prior_jobs, description) FROM stdin;
+1	Test Name	3	Test Skills	Long	16	Test Job	Test Description    
+2	Rachelle	13	Coding, assisting, giving breaks	Long	23	Tech Elevator Assistant Instructor       Our lady of perpetual breaks, loves Brittany Spears, has a dog named Turkey
        
 \.
 

@@ -1,5 +1,4 @@
 BEGIN TRANSACTION;
-
 DROP TABLE IF EXISTS users;
 DROP SEQUENCE IF EXISTS seq_user_id;
 
@@ -20,6 +19,23 @@ CREATE TABLE users (
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+
+Drop table if exists catch_cats;
+CREATE TABLE catch_cats (
+    id serial NOT NULL,
+    name character varying(50) NOT NULL,
+    age integer NOT NULL,
+    skills character varying(255) NOT NULL,
+    hair_length character varying(50),
+    prior_experience_months integer NOT NULL,
+    prior_jobs character varying(255),
+    description character varying(255) NOT NULL,
+    color character varying(255)
+    CONSTRAINT chk_hair_length CHECK (hair_length in ('Long','Short','Hairless'))
+);
+
+insert into catch_cats values (default, 'Test Name', 3, 'Test Skills', 'Long', 16, 'Test Job', 'Test Description', 'test color');
+
 
 
 COMMIT TRANSACTION;
