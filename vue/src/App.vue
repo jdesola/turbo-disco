@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <SmallLogo />
     <header-main/>
     <div id="nav">
        
@@ -15,12 +14,10 @@
 
 <script>
 import HeaderMain from '../src/components/header.vue';
-import SmallLogo from './assets/svg/small-logo.svg';
 
 export default{
 components: {
-  HeaderMain,
-  SmallLogo
+  HeaderMain
 }
 };
 </script>
