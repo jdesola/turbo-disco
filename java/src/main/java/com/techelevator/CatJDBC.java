@@ -1,5 +1,8 @@
 package com.techelevator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -23,6 +26,19 @@ public class CatJDBC implements CatDAO{
 							newCat.getPreviousJobs(), newCat.getDescription());
 		return rowsUpdated;
 	}
+
+
+	@Override
+	public List<Cat> listCats() {
+		List<Cat> catList = new ArrayList <Cat>();
+		String sql = "select name, age, skills, hair_length, prior_experience_months, prior_jobs, description from catch_cats";
+		
+		
+		
+		return catList;
+	}
+	
+	
 	
 	
 
