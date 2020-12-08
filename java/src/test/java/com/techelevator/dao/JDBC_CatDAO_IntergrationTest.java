@@ -1,5 +1,9 @@
 package com.techelevator.dao;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.junit.Before;
@@ -8,6 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.techelevator.CatJDBC;
 import com.techelevator.model.Cat;
+
 
 import org.junit.Assert;
 
@@ -39,5 +44,17 @@ public class JDBC_CatDAO_IntergrationTest extends DAOIntegrationTest{
 		Assert.assertEquals(1, catCreated);
 	}
 	
+	@Test
+	public void get_list_of_cats() {
+		List<Cat> originalList = new ArrayList<Cat>();
+		List<Cat> newList = new ArrayList<Cat>();
+		originalList = catDao.listCats();
+		int originalSize = originalList.size();
+		newList = catDao.listCats();
+		newList.add(testCat);
+		int newListSize = newList.size();
+		Assert.assertEquals(originalSize + 1 , newListSize);
+		 
+	}
 	
 }
