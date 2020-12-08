@@ -1,23 +1,31 @@
 <template>
   <div id="app">
-    <header-main/>
-    <div id="nav">
-       
+    <div class="left-block"> </div>
     
-      
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+    <div id="nav">
+      <header-main />
+
+      <router-link
+        v-bind:to="{ name: 'logout' }"
+        v-if="$store.state.token != ''"
+        >Logout</router-link
+      >
     </div>
-    <router-view />
-   
+    <router-view class="body-content"/>
+    <div class="right-block"></div>
   </div>
 </template>
 
 <script>
-import HeaderMain from '../src/components/header.vue';
+import HeaderMain from "../src/components/header.vue";
 
-export default{
-components: {
-  HeaderMain
-}
+export default {
+  components: {
+    HeaderMain,
+  },
 };
 </script>
+
+<style>
+
+</style>
