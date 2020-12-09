@@ -17,16 +17,19 @@
     </div>
     <router-view class="body-content"/>
     <div class="right-block"></div>
+    <search-results/>
     </reactive-base>
   </div>
 </template>
 
 <script>
 import HeaderMain from "../src/components/header.vue";
+import SearchResults from './components/SearchResults.vue';
 
 export default {
   components: {
     HeaderMain,
+    SearchResults,
   },
 };
 </script>

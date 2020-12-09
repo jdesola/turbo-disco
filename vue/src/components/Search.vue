@@ -3,6 +3,7 @@
         componentId="SearchSensor"
         queryFormat="or"
         :dataField="['name', 'age', 'color', 'hairLength', 'priorExperienceMonths', 'previousJobs', 'skills', 'description']"
+        :URLParams="false"
     />
 </template>
 
