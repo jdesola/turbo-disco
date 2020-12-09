@@ -29,7 +29,7 @@ public class CatchController {
 //		return accountDao.getAccountById(account_id);
 //	}
 	
-	@RequestMapping (path ="/cats", method = RequestMethod.GET)
+	@RequestMapping (path ="/cats", method=RequestMethod.GET)
 	public List<Cat> getCatz() {
 		
 		return catDao.listCats();

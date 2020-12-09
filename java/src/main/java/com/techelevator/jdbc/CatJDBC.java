@@ -1,4 +1,4 @@
-package com.techelevator;
+package com.techelevator.jdbc;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +34,7 @@ public class CatJDBC implements CatDAO{
 	@Override
 	public List<Cat> listCats() {
 		List<Cat> catList = new ArrayList <Cat>();
-		String sql = "select name, age, skills, hair_length, prior_experience_months, prior_jobs, description, color from catch_cats";
+		String sql = "select * from catch_cats";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 		while(results.next()) {
 			Cat cat = mapRowToCat(results);
@@ -50,7 +50,7 @@ public class CatJDBC implements CatDAO{
 		catMap.setAge(row.getInt("age"));
 		catMap.setDescription(row.getString("description"));
 		catMap.setHairLength(row.getString("hair_length"));
-		catMap.setColor(row.getNString("color"));
+		catMap.setColor(row.getString("color"));
 		catMap.setId(row.getLong("id"));
 		catMap.setName(row.getString("name"));
 		catMap.setPreviousJobs(row.getString("prior_jobs"));

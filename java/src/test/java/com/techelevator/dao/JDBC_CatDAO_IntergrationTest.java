@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.techelevator.CatJDBC;
+import com.techelevator.jdbc.CatJDBC;
 import com.techelevator.model.Cat;
 
 
