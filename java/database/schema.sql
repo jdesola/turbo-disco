@@ -30,11 +30,12 @@ CREATE TABLE catch_cats (
     prior_experience_months integer NOT NULL,
     prior_jobs character varying(255),
     description character varying(255) NOT NULL,
-    color character varying(255)
+    color character varying(255),
+    featured boolean not null
     CONSTRAINT chk_hair_length CHECK (hair_length in ('Long','Short','Hairless'))
 );
 
-insert into catch_cats values (default, 'Test Name', 3, 'Test Skills', 'Long', 16, 'Test Job', 'Test Description', 'test color');
+insert into catch_cats values (default, 'Test Name', 3, 'Test Skills', 'Long', 16, 'Test Job', 'Test Description', 'test color', false);
 
 
 
