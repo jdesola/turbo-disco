@@ -1,6 +1,7 @@
 <template>
   <data-search
         componentId="SearchSensor"
+        queryFormat="or"
         :dataField="['name', 'age', 'color', 'hairLength', 'priorExperienceMonths', 'previousJobs', 'skills', 'description']"
     />
 </template>
