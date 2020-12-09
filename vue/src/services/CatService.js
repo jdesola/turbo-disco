@@ -6,7 +6,7 @@ const http = axios.create({
 
 export default {
 
-    list() {
+    getCats() {
         return http.get('/cats');
     },
 
