@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <reactive-base
+    app="catch-app"
+    credentials="jlsddcdIX:8bbd03ef-c708-424c-bb13-82bb53669153"
+    >
     <div class="left-block"> </div>
     
     <div id="nav">
@@ -13,6 +17,7 @@
     </div>
     <router-view class="body-content"/>
     <div class="right-block"></div>
+    </reactive-base>
   </div>
 </template>
 
@@ -27,5 +32,9 @@ export default {
 </script>
 
 <style>
+#app {
+  margin-left: 7.5%;
+  margin-right: 7.5%;
+}
 
 </style>

@@ -12,6 +12,7 @@ public interface CatDAO {
 	
 	public List<Cat> listCats();
 	
+	public void deleteCat(long catId);
 	
 
 }

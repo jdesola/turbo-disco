@@ -12,5 +12,9 @@ export default {
 
     addCat(newCat) {
         return http.post('/cats/addCat', newCat);
+    },
+
+    deleteCat(catId) {
+        return http.delete(`/cats/${catId}`);
     }
 }

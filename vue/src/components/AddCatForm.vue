@@ -122,52 +122,45 @@ export default {
 <style>
 .catFormContainer {
   display: flex;
-  /*align-content: center; */
-  width: 50%;
   margin: 0px auto;
   box-shadow: -2px 3px 15px 3px #575a8f;
   border-radius: 14px;
 }
 
 .catImage {
+  align-self: center;
   width: 55%;
-  height: auto;
-  display: inline-block;
   border-radius: 14px;
 }
 
 .catForm {
+  padding-top: 2%;
   display: flex;
   flex-direction: column;
-  height: max-content;
   width: 50%;
-  align-content: space-evenly;
-  line-height: 24px;
+  justify-content: space-around;
   color: #575a8f;
   text-align: center;
   padding-right: 10px;
   padding-left: 10px;
 }
-.catForm input:first-child {
-  margin-top: 25px;
-}
 
 .catForm > select {
-  color: #575a8f80;
+  color: #575a8f;
   text-align: center;
+  text-align-last: center;
 }
+
 
 .catForm > input,
 select {
-  height: 4%;
+  justify-self: center;
   background-color: #d8d8d8;
   border-radius: 14px;
   color: #575a8f;
   font-size: 24px;
   font-weight: 500;
-  line-height: 30px;
   font-family: Quicksand, sans-serif;
-  margin-bottom: 25px;
   border: none;
 }
 
@@ -210,6 +203,12 @@ input {
   letter-spacing: 0;
   line-height: 30px;
 }
+input::placeholder {
+  color: #575a8f
+}
+
+
+
 
 ::-webkit-input-placeholder {
   text-align: center;

@@ -14,23 +14,17 @@
       <a href="#" class="button profile"
         ><img class="button profile" src="../assets/webp/profile-button.webp"
       /></a>
-      <div class="search-container">
-        <form action="/action_page.php">
-          <input type="text" name="search" />
-          <button type="submit">
-            <i class="material-icons search-icon">search</i>
-          </button>
-        </form>
-      </div>
+      <search class="search-container"/>
     </nav>
     
   </div>
 </template>
 
 <script>
+import Search from './Search.vue';
 export default {
   name: "header-main",
-  components: {},
+  components: {Search},
   data() {
     return {};
   },
@@ -43,12 +37,12 @@ export default {
 .header-main {
   /*grid container*/
   display: grid;
-  grid-template-columns: 12% 15% 15% 15% 15% 28%;
+  grid-template-columns: 2% 12% 15% 15% 15% 15% 10%;
   grid-template-rows: 33% 34% 33%;
   grid-template-areas:
-    "logo . . . . "
-    "logo fav cats profile search "
-    "logo . . . . ";
+    ". logo . . . . ."
+    ". logo fav cats profile search . "
+    ". logo . . . . .";
   justify-content: space-evenly;
   overflow: hidden;
 }
