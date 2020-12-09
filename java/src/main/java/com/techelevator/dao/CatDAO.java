@@ -14,7 +14,7 @@ public interface CatDAO {
 	
 	public void deleteCat(long catId);
 	
-	public void addToFeatured(long catId);
+	public void updateFeatured(long catId, boolean featured);
 	
 
 }

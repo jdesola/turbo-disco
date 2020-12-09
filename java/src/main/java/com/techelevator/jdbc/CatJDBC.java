@@ -42,10 +42,17 @@ public class CatJDBC implements CatDAO{
 		return catList;
 	}
 	
-	@Override public void deleteCat(long catId) { 
+	@Override 
+	public void deleteCat(long catId) { 
 		String sql = "DELETE FROM catch_cats WHERE id = ?"; 
 		jdbcTemplate.update(sql, catId); 
-		}
+	}
+	
+	@Override
+	public void updateFeatured(long catId, boolean featured ) {
+		String sql = "update catch_cats set featured = ? where id = ?";
+		jdbcTemplate.update(sql, catId, featured);
+	}
 	
 
 	
@@ -63,6 +70,9 @@ public class CatJDBC implements CatDAO{
 		return catMap;
 		
 	}
+
+
+	
 	
 	
 	

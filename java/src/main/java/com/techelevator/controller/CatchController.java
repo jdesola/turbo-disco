@@ -43,5 +43,11 @@ public class CatchController {
 	@RequestMapping(path="/cats/{catId}", method=RequestMethod.DELETE) 
 	public void delete(@PathVariable long catId) { 
 		catDao.deleteCat(catId); 
-		}
+	}
+	
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@RequestMapping(path = "/cats/{catId}", method = RequestMethod.PUT)
+	public void updateFeatured(@RequestBody long catId, boolean featured) {
+		catDao.updateFeatured(catId, featured);
+	}
 }
