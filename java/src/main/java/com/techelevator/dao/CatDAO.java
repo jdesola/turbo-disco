@@ -8,7 +8,7 @@ import com.techelevator.model.Cat;
 
 public interface CatDAO {
 	
-	public int createCat(Cat newCat);
+	public void createCat(Cat newCat);
 	
 	public List<Cat> listCats();
 	

@@ -19,8 +19,19 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
-  },
+    user: currentUser || {},
+    catList: [],
+    cat: {
+      name: "",
+        age: "",
+        hairLength: "",
+        priorExperienceMonths: "",
+        previousJobs: "",
+        description: "",
+        color: "",
+        skills: "",
+  }
+},
   mutations: {
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
@@ -37,6 +48,9 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
-    }
+    },
+    SET_CAT_LIST(state, data) {
+      state.catList = data;
+    },
   }
 })

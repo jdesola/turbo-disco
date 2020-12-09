@@ -1,24 +1,42 @@
 <template>
   <div class="catFormContainer">
     <img class="catImage" src="../assets/png/generic-cat2.png" />
-    <form class="catForm" action="#" method="post">
-      <input type="text" id="name" name="name" placeholder="Name" />
+    <form class="catForm">
+      <input
+        type="text"
+        id="name"
+        v-model="newCat.name"
+        name="name"
+        placeholder="Name"
+      />
 
-      <input type="text" id="age" name="age" placeholder="Age" />
+      <input
+        type="text"
+        id="age"
+        v-model="newCat.age"
+        name="age"
+        placeholder="Age"
+      />
 
-      <select id="hair" name="hair">
+      <select id="hair" name="hair" v-model="newCat.hairLength">
         <option value="" disabled selected>Hair Length</option>
         <option value="Long">Long</option>
         <option value="Short">Short</option>
         <option value="Hairless">Hairless</option>
       </select>
-      <input type="text" id="color" name="color" placeholder="Color" />
       <input
-        
+        type="text"
+        id="color"
+        name="color"
+        placeholder="Color"
+        v-model="newCat.color"
+      />
+      <input
         type="text"
         id="skills"
         name="skills"
         placeholder="Skills"
+        v-model="newCat.skills"
       />
 
       <input
@@ -26,18 +44,27 @@
         id="experience"
         name="experience"
         placeholder="Previous Job Title"
+        v-model="newCat.previousJobs"
       />
 
       <input
-       
+        type="text"
+        id="experience_months"
+        name="experience_months"
+        placeholder="Time at Previous Job"
+        v-model="newCat.priorExperienceMonths"
+      />
+
+      <input
         type="text"
         id="description"
         name="description"
         placeholder="Description"
+        v-model="newCat.description"
       />
       <div class="buttons">
         <button class="reset-button" type="reset" value="reset">Reset</button>
-        <button class="submit-button" type="submit" value="submit">
+        <button class="submit-button" type="submit" value="submit" v-on:click.prevent="saveNewCat">
           Submit
         </button>
       </div>
@@ -46,7 +73,50 @@
 </template>
 
 <script>
-export default {};
+import catService from "../services/CatService";
+
+export default {
+  data() {
+    return {
+      newCat: {
+        name: "",
+        age: "",
+        hairLength: "",
+        priorExperienceMonths: "",
+        previousJobs: "",
+        description: "",
+        color: "",
+        skills: "", 
+      },
+    };
+  },
+  methods: {
+    saveNewCat() {
+      catService
+        .addCat(this.newCat)
+        .then((response) => {
+          if (response.status === 201) {
+            this.newCat = {
+              name: "",
+              age: "",
+              hairLength: "",
+              priorExperienceMonths: "",
+              previousJobs: "",
+              description: "",
+              color: "",
+              skills: "",
+            };
+            this.$router.push({name: 'home'});
+            //{ name: 'Cats', params: { userId: 123 }
+          }
+          else {
+            console.log(response.statusText);
+          }
+        })
+        
+    },
+  },
+};
 </script>
 
 <style>
@@ -60,7 +130,7 @@ export default {};
 }
 
 .catImage {
-  width: 50%;
+  width: 55%;
   height: auto;
   display: inline-block;
   border-radius: 14px;
@@ -106,6 +176,7 @@ select {
   width: 45%;
   height: 40px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 input {
   text-align: center;
@@ -139,7 +210,6 @@ input {
   letter-spacing: 0;
   line-height: 30px;
 }
-
 
 ::-webkit-input-placeholder {
   text-align: center;

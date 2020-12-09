@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import CatForm from '../views/CatForm'
+import Cats from '../views/CatView'
 
 Vue.use(Router)
 
@@ -54,14 +55,21 @@ const router = new Router({
         requiresAuth: false
       }},
       {
+        path: "/cats",
+        name: "cats",
+        component: Cats, 
+        meta:{
+          requiresAuth: false /*Change to true later*/
+        }
+      },
+      {
         path: "/addCatForm",
         name: "addCatForm",
         component: CatForm,
         meta:{
           requiresAuth: false /*Change to true later*/
         }
-      },
-    
+      }
     
   ]
 })

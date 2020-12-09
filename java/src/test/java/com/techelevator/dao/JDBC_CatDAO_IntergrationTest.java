@@ -38,11 +38,6 @@ public class JDBC_CatDAO_IntergrationTest extends DAOIntegrationTest{
 		testCat.setColor("Brown");
 	}
 	
-	@Test
-	public void create_new_cat() {
-		int catCreated = catDao.createCat(testCat);
-		Assert.assertEquals(1, catCreated);
-	}
 	
 	@Test
 	public void get_list_of_cats() {

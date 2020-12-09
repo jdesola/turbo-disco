@@ -23,11 +23,10 @@ public class CatJDBC implements CatDAO{
 	
 	
 	@Override
-	public int createCat(Cat newCat) {
+	public void createCat(Cat newCat) {
 		String sql = "INSERT INTO catch_cats (name, age, skills, hair_length, prior_experience_months, prior_jobs, description, color) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-		int rowsUpdated = jdbcTemplate.update(sql, newCat.getName(), newCat.getAge(), newCat.getSkills(), newCat.getHairLength(), newCat.getPriorExperienceMonths(),
+		jdbcTemplate.update(sql, newCat.getName(), newCat.getAge(), newCat.getSkills(), newCat.getHairLength(), newCat.getPriorExperienceMonths(),
 							newCat.getPreviousJobs(), newCat.getDescription(), newCat.getColor());
-		return rowsUpdated;
 	}
 
 
