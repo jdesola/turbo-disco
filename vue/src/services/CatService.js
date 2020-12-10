@@ -16,5 +16,9 @@ export default {
 
     deleteCat(catId) {
         return http.delete(`/cats/${catId}`);
+    },
+
+    featureCat(catId){
+        return http.put(`/cats/${catId}`);
     }
 }

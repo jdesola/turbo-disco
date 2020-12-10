@@ -61,6 +61,11 @@ export default new Vuex.Store({
     },
     SET_SEARCH_RESULTS(state, data) {
       state.resultList = data;
-    }
+    },
+    FEATURE_CAT(state, catIdToFeature){
+      state.catList = state.catList.filter((cat) => {
+          return cat.id !== catIdToFeature;
+      })
+    },
   }
 })
