@@ -38,13 +38,22 @@ export default {
             if (error.response) {
               this.errorMsg = `Error deleting cat.  ${error.response.status} - ${error.response.statusText}`;
             } else if (error.request) {
-              this.errorMsg = "Could not conect to server";
+              this.errorMsg = "Could not connect to server";
             } else {
               this.errorMsg = "Unexpected error";
               console.error(error);
             }
           });
       }
+    },
+    featureCat(){
+        catService.featureCat(this.cat.id).then((response) => {
+          if(response.status === 204){
+            alert('Cat successfully added to Featured');
+            this.$store.commit('FEATURE_CAT', this.cat.id)
+          } 
+
+        })
     },
   },
 };
