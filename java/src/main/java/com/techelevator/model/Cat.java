@@ -11,7 +11,16 @@ public class Cat {
 	private String description;
 	private long id;
 	private String color;
+	private boolean featured = false;
 	
+	public boolean isFeatured() {
+		return featured;
+	}
+
+	public void setFeatured(boolean featured) {
+		this.featured = featured;
+	}
+
 	public long getId() {
 		return id;
 	}

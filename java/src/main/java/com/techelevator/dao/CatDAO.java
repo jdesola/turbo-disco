@@ -16,5 +16,6 @@ public interface CatDAO {
 	
 	public void updateFeatured(long catId, boolean featured);
 	
+	public Cat getCatById(long catId);
 
 }
