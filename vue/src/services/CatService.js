@@ -18,7 +18,7 @@ export default {
         return http.delete(`/cats/${catId}`);
     },
 
-    featureCat(catId){
-        return http.put(`/cats/${catId}`);
+    featureCat(featuredCat){
+        return http.update(`/cats`);
     }
 }

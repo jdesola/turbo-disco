@@ -49,9 +49,9 @@ public class CatJDBC implements CatDAO{
 	}
 	
 	@Override
-	public void updateFeatured(long id, boolean featured ) {
+	public void updateFeatured(Cat updatedCat ) {
 		String sql = "update catch_cats set featured = ? where id = ?";
-		jdbcTemplate.update(sql, id, featured);
+		jdbcTemplate.update(sql, updatedCat.isFeatured(), updatedCat.getId());
 	}
 	
 	@Override

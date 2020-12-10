@@ -45,10 +45,10 @@ public class CatchController {
 		catDao.deleteCat(catId); 
 	}
 	
-	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@RequestMapping(path = "/cats/{catId}", method = RequestMethod.PUT)
-	public void updateFeatured(@RequestBody long catId, boolean featured) {
-		catDao.updateFeatured(catId, featured);
+	//@ResponseStatus(HttpStatus.NO_CONTENT)
+	@RequestMapping(path = "/cats", method = RequestMethod.PUT)
+	public void updateFeatured(@RequestBody Cat updatedCat) {
+		catDao.updateFeatured(updatedCat);
 	}
 	
 	@RequestMapping(path="/cats/{catId}", method = RequestMethod.GET)

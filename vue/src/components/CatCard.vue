@@ -12,10 +12,11 @@
     <p id="priorExperienceMonths">{{ cat.priorExperienceMonths }} Months</p>
     <p id="description">{{ cat.description }}</p>
     <button class="deleteButton">
-      <i class="material-icons icon deleteButton" v-on:click="deleteCat"
-        >delete</i
-      >
+      <i class="material-icons icon deleteButton" v-on:click="deleteCat">delete</i>
     </button>
+    <button class = "featureButton">
+      <i class="material-icons icon featureButton" v-on:click="featureCat">delete</i>
+      </button>
   </div>
 </template>
 
@@ -54,6 +55,16 @@ export default {
           } 
 
         })
+        .catch((error) => {
+            if (error.response) {
+              this.errorMsg = `Error featuring cat.  ${error.response.status} - ${error.response.statusText}`;
+            } else if (error.request) {
+              this.errorMsg = "Could not connect to server";
+            } else {
+              this.errorMsg = "Unexpected error";
+              console.error(error);
+            }
+          });
     },
   },
 };
@@ -73,7 +84,7 @@ export default {
     "pic ageIcon age . ."
     "pic hairIcon hair description ."
     "pic jobIcon title description ."
-    "name experienceIcon months . delete";
+    "name experienceIcon months feature delete";
 }
 
 .icon {
@@ -163,7 +174,7 @@ export default {
 }
 
 .deleteButton {
-    justify-self: right;
+  justify-self: right;
   grid-area: delete;
   font-size: 125%;
   color: rgb(128, 1, 1);
@@ -171,4 +182,14 @@ export default {
   border: none;
   cursor: pointer;
 }
+.featureButton {
+  justify-self: right;
+  grid-area: featured;
+  font-size: 125%;
+  color: #f6af71;
+  background-color: #161fc200;
+  border: none;
+  cursor: pointer;
+}
+
 </style>
