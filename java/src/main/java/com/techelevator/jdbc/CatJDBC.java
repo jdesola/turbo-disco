@@ -24,7 +24,7 @@ public class CatJDBC implements CatDAO{
 	
 	@Override
 	public void createCat(Cat newCat) {
-		String sql = "INSERT INTO catch_cats (name, age, skills, hair_length, prior_experience_months, prior_jobs, description, color) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO catch_cats (name, age, skills, hair_length, prior_experience_months, prior_jobs, description, color, featured) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		jdbcTemplate.update(sql, newCat.getName(), newCat.getAge(), newCat.getSkills(), newCat.getHairLength(), newCat.getPriorExperienceMonths(),
 							newCat.getPreviousJobs(), newCat.getDescription(), newCat.getColor());
 	}
@@ -49,11 +49,19 @@ public class CatJDBC implements CatDAO{
 	}
 	
 	@Override
-	public void updateFeatured(long catId, boolean featured ) {
+	public void updateFeatured(long id, boolean featured ) {
 		String sql = "update catch_cats set featured = ? where id = ?";
-		jdbcTemplate.update(sql, catId, featured);
+		jdbcTemplate.update(sql, id, featured);
 	}
 	
+	@Override
+	public Cat getCatById(long catId) {
+		String sql = "select * from catch_cats where id = ?";
+		SqlRowSet catRows = jdbcTemplate.queryForRowSet(sql, catId);
+		catRows.next();
+		Cat newCat = mapRowToCat(catRows);
+		return newCat;
+	}
 
 	
 	private Cat mapRowToCat(SqlRowSet row ) {
@@ -67,9 +75,14 @@ public class CatJDBC implements CatDAO{
 		catMap.setPreviousJobs(row.getString("prior_jobs"));
 		catMap.setPriorExperienceMonths(row.getInt("prior_experience_months"));
 		catMap.setSkills(row.getString("skills"));
+		catMap.setFeatured(row.getBoolean("featured"));
+		
 		return catMap;
 		
 	}
+
+
+	
 
 
 	

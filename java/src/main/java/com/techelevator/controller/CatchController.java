@@ -50,4 +50,10 @@ public class CatchController {
 	public void updateFeatured(@RequestBody long catId, boolean featured) {
 		catDao.updateFeatured(catId, featured);
 	}
+	
+	@RequestMapping(path="/cats/{catId}", method = RequestMethod.GET)
+	public Cat getCatById(@PathVariable long catId) {
+		 return catDao.getCatById(catId);
+	}
+
 }
