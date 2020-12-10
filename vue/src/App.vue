@@ -1,13 +1,8 @@
 <template>
   <div id="app">
-    <reactive-base
-    app="catch-app"
-    credentials="jlsddcdIX:8bbd03ef-c708-424c-bb13-82bb53669153"
-    >
-    <div class="left-block"> </div>
     
     <div id="nav">
-      <header-main />
+      <header-main v-on:searchCommitted="saveSearchResults"/>
 
       <router-link
         v-bind:to="{ name: 'logout' }"
@@ -15,22 +10,23 @@
         >Logout</router-link
       >
     </div>
-    <router-view class="body-content"/>
-    <div class="right-block"></div>
-    <search-results/>
-    </reactive-base>
+    <router-view/>
   </div>
 </template>
 
 <script>
 import HeaderMain from "../src/components/header.vue";
-import SearchResults from './components/SearchResults.vue';
 
 export default {
+  name: "app",
   components: {
     HeaderMain,
-    SearchResults,
   },
+  methods: {
+    saveSearchResults(results) {
+      this.$store.commit('SET_SEARCH_RESULTS', results);
+    }
+  }
 };
 </script>
 

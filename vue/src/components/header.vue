@@ -2,7 +2,7 @@
   <div class="header-container">
     
     <nav class="header-main">
-      <a href="#" class="cat-logo"
+      <a href="/" class="cat-logo"
         ><img class="cat-logo" src="../assets/png/small-logo.png"
       /></a>
       <a href="#" class="button fav">
@@ -14,20 +14,56 @@
       <a href="#" class="button profile"
         ><img class="button profile" src="../assets/webp/profile-button.webp"
       /></a>
-      <search class="search-container"/>
+      <div class="search-container" @keyup.enter="navigateToSearchResults">
+         <vue-fuse :keys="this.keys" :list="catList" :defaultAll=true class="search-bar" event-name="searchCommitted" 
+         :tokenize=true :distance=10 :threshold=0.1 :findAllMatches=true > </vue-fuse>
+          <button v-on:click="navigateToSearchResults" >
+            <i class="material-icons search-icon">search</i>
+          </button>
+      </div>
+      
     </nav>
     
   </div>
 </template>
 
 <script>
-import Search from './Search.vue';
+import catService from '../services/CatService'
 export default {
-  name: "header-main",
-  components: {Search},
+  components: {},
+  computed: {
+      catList() {
+        
+        return this.$store.state.catList;
+      }
+    },
   data() {
-    return {};
-  },
+    return {
+      results: [],
+        keys: ["name", "age", "hairLength", "color", "skills", "previousJobs", "priorExperienceMonths", "description" ]
+      }
+    },
+   created() {
+      this.retrieveCats();
+      this.$on('searchCommitted', results => {
+        this.results = results;
+      })
+      
+    },
+  methods: {
+    navigateToSearchResults() {
+        this.$router.push("/searchResults");
+      },
+    retrieveCats() {
+      catService.getCats().then(response => {
+          this.$store.commit("SET_CAT_LIST", response.data);
+        });
+    },
+ 
+  
+    
+  }
+
 };
 </script>
 
@@ -85,7 +121,7 @@ export default {
   margin-left: 20%;
   margin-top: 2%;
 }
-.header-main input[type="text"] {
+.header-main .search-bar {
   grid-area: search;
   width: 68%;
   margin-left: 7%;
