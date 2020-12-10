@@ -2,15 +2,15 @@
   <div class="header-container">
     
     <nav class="header-main">
-      <a href="/" class="cat-logo"
-        ><img class="cat-logo" src="../assets/png/small-logo.png"
-      /></a>
+      <router-link class="cat-logo" v-bind:to="{name: 'home'}">
+        <img  class="cat-logo" src="../assets/png/small-logo.png"/>
+      </router-link>
       <a href="#" class="button fav">
         <img class="button fav" src="../assets/webp/favorites-button.webp"
       /></a>
-      <a href="#" class="button cats"
-        ><img class="button cats" src="../assets/webp/cats-button.webp" />
-      </a>
+      <router-link class="button cats" v-bind:to="{name: 'cats'}">
+        <img class="button cats" src="../assets/webp/cats-button.webp" />
+      </router-link>
       <a href="#" class="button profile"
         ><img class="button profile" src="../assets/webp/profile-button.webp"
       /></a>
@@ -52,7 +52,7 @@ export default {
     },
   methods: {
     navigateToSearchResults() {
-        this.$router.push("/searchResults");
+        this.$router.push("/cats");
       },
     retrieveCats() {
       catService.getCats().then(response => {
@@ -136,21 +136,23 @@ export default {
 .header-main .search-container button {
   grid-area: search;
   padding: 0.3% 0.5%;
-  margin-top: 0.3%;
-  margin-right: 2%;
-
+  margin-top: 0.1%;
+  margin-right: 1%;
   border: none;
   cursor: pointer;
-  position: absolute;
-  align-self: center;
-  justify-self: right;
+  /* position: absolute; */
   background-color: rgba(199, 199, 199, 0);
   color: #33a3f5;
-  border-left: #33a3f5 1.5px solid;
+  
 }
 
 .search-icon {
   grid-area: search;
+  border-left: #33a3f5 1.5px solid;
+  padding-left: 5%;
+  padding-bottom: 7%;
+  padding-top: 1%;
+  margin-top: 1%;
   font-size: 275%;
   margin-left: 10%;
   justify-self: center;
