@@ -11,13 +11,16 @@
     <i class="material-icons icon" id="experienceIcon">schedule</i>
     <p id="priorExperienceMonths">{{ cat.priorExperienceMonths }} Months</p>
     <p id="description">{{ cat.description }}</p>
+    <div class = "catCardActions">
     <button class="deleteButton">
       <i class="material-icons icon deleteButton" v-on:click="deleteCat">delete</i>
     </button>
     <button class = "featureButton">
-      <i class="material-icons icon featureButton" v-on:click="featureCat">delete</i>
+      <i class="material-icons icon" v-text ="(cat.featured) ? 'star' : 'star_border' " v-on:click.prevent="featureCat"></i>
       </button>
+      </div>
   </div>
+
 </template>
 
 <script>
@@ -26,6 +29,11 @@ import catService from "../services/CatService";
 export default {
   name: "catCard",
   props: ["cat"],
+  data() {
+    return {
+     // featured: this.cat.featured, 
+    }
+  },
   methods: {
     deleteCat() {
       if (confirm("Are you sure you want to delete this cat?")) {
@@ -48,10 +56,10 @@ export default {
       }
     },
     featureCat(){
-        catService.featureCat(this.cat.id).then((response) => {
-          if(response.status === 204){
-            alert('Cat successfully added to Featured');
-            this.$store.commit('FEATURE_CAT', this.cat.id)
+        this.cat.featured = !this.cat.featured
+        catService.featureCat(this.cat).then((response) => {
+          if(response.status === 200){
+            this.$store.commit('FEATURE_CAT', this.cat)
           } 
 
         })
@@ -84,7 +92,7 @@ export default {
     "pic ageIcon age . ."
     "pic hairIcon hair description ."
     "pic jobIcon title description ."
-    "name experienceIcon months feature delete";
+    "name experienceIcon months . catCardActions";
 }
 
 .icon {
@@ -175,7 +183,6 @@ export default {
 
 .deleteButton {
   justify-self: right;
-  grid-area: delete;
   font-size: 125%;
   color: rgb(128, 1, 1);
   background-color: #161fc200;
@@ -184,12 +191,15 @@ export default {
 }
 .featureButton {
   justify-self: right;
-  grid-area: featured;
   font-size: 125%;
   color: #f6af71;
   background-color: #161fc200;
   border: none;
   cursor: pointer;
+}
+
+.catCardActions {
+  grid-area: actions;
 }
 
 </style>

@@ -47,8 +47,8 @@ public class CatchController {
 	
 	//@ResponseStatus(HttpStatus.NO_CONTENT)
 	@RequestMapping(path = "/cats", method = RequestMethod.PUT)
-	public void updateFeatured(@RequestBody Cat updatedCat) {
-		catDao.updateFeatured(updatedCat);
+	public void updateFeatured(@RequestBody Cat featuredCat) {
+		catDao.updateFeatured(featuredCat);
 	}
 	
 	@RequestMapping(path="/cats/{catId}", method = RequestMethod.GET)

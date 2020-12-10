@@ -19,6 +19,6 @@ export default {
     },
 
     featureCat(featuredCat){
-        return http.update(`/cats`);
+        return http.put("/cats", featuredCat);
     }
 }
