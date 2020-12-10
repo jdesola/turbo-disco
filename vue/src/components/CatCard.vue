@@ -11,16 +11,21 @@
     <i class="material-icons icon" id="experienceIcon">schedule</i>
     <p id="priorExperienceMonths">{{ cat.priorExperienceMonths }} Months</p>
     <p id="description">{{ cat.description }}</p>
-    <div class = "catCardActions">
-    <button class="deleteButton">
-      <i class="material-icons icon deleteButton" v-on:click="deleteCat">delete</i>
-    </button>
-    <button class = "featureButton">
-      <i class="material-icons icon" v-text ="(cat.featured) ? 'star' : 'star_border' " v-on:click.prevent="featureCat"></i>
+    <div class="catCardActions">
+      <button class="deleteButton">
+        <i class="material-icons icon deleteButton" v-on:click="deleteCat"
+          >delete</i
+        >
       </button>
-      </div>
+      <button class="featureButton">
+        <i
+          class="material-icons icon"
+          v-text="cat.featured ? 'star' : 'star_border'"
+          v-on:click.stop="featureCat"
+        ></i>
+      </button>
+    </div>
   </div>
-
 </template>
 
 <script>
@@ -31,13 +36,15 @@ export default {
   props: ["cat"],
   data() {
     return {
-     // featured: this.cat.featured, 
-    }
+      // featured: this.cat.featured,
+    };
   },
   methods: {
     deleteCat() {
       if (confirm("Are you sure you want to delete this cat?")) {
-        catService.deleteCat(this.cat.id).then((response) => {
+        catService
+          .deleteCat(this.cat.id)
+          .then((response) => {
             if (response.status === 204) {
               alert("Cat deleted successfully");
               this.$store.commit("DELETE_CAT", this.cat.id);
@@ -55,24 +62,25 @@ export default {
           });
       }
     },
-    featureCat(){
-        this.cat.featured = !this.cat.featured
-        catService.featureCat(this.cat).then((response) => {
-          if(response.status === 200){
-            this.$store.commit('FEATURE_CAT', this.cat)
-          } 
-
+    featureCat() {
+      this.cat.featured = !this.cat.featured;
+      catService
+        .featureCat(this.cat)
+        .then((response) => {
+          if (response.status === 200) {
+            this.$store.commit("FEATURE_CAT", this.cat);
+          }
         })
         .catch((error) => {
-            if (error.response) {
-              this.errorMsg = `Error featuring cat.  ${error.response.status} - ${error.response.statusText}`;
-            } else if (error.request) {
-              this.errorMsg = "Could not connect to server";
-            } else {
-              this.errorMsg = "Unexpected error";
-              console.error(error);
-            }
-          });
+          if (error.response) {
+            this.errorMsg = `Error featuring cat.  ${error.response.status} - ${error.response.statusText}`;
+          } else if (error.request) {
+            this.errorMsg = "Could not connect to server";
+          } else {
+            this.errorMsg = "Unexpected error";
+            console.error(error);
+          }
+        });
     },
   },
 };
@@ -201,5 +209,4 @@ export default {
 .catCardActions {
   grid-area: actions;
 }
-
 </style>

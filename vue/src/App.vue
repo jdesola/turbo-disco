@@ -2,7 +2,8 @@
   <div id="app">
     
     <div id="nav">
-      <header-main v-on:searchCommitted="saveSearchResults"/>
+      <header-main />
+      <!-- <header-main v-on:searchCommitted="saveSearchResults"/> -->
 
       <router-link
         v-bind:to="{ name: 'logout' }"
@@ -22,11 +23,11 @@ export default {
   components: {
     HeaderMain,
   },
-  methods: {
-    saveSearchResults(results) {
-      this.$store.commit('SET_SEARCH_RESULTS', results);
-    }
-  }
+  // methods: {
+  //   saveSearchResults(results) {
+  //     this.$store.commit('SET_SEARCH_RESULTS', results);
+  //   }
+  // }
 };
 </script>
 

@@ -1,23 +1,24 @@
 <template>
   <div class="header-container">
     
-    <nav class="header-main">
+    <nav class="header-main" v-on:click="resetList">
       <router-link class="cat-logo" v-bind:to="{name: 'home'}">
         <img  class="cat-logo" src="../assets/png/small-logo.png"/>
       </router-link>
-      <a href="#" class="button fav">
+      <a href="#" class="button fav" v-on:click="resetList">
         <img class="button fav" src="../assets/webp/favorites-button.webp"
       /></a>
       <router-link class="button cats" v-bind:to="{name: 'cats'}">
         <img class="button cats" src="../assets/webp/cats-button.webp" />
       </router-link>
-      <a href="#" class="button profile"
+      <a href="#" class="button profile " v-on:click="resetList"
         ><img class="button profile" src="../assets/webp/profile-button.webp"
       /></a>
-      <div class="search-container" @keyup.enter="navigateToSearchResults">
-         <vue-fuse :keys="this.keys" :list="catList" :defaultAll=true class="search-bar" event-name="searchCommitted" 
-         :tokenize=true :distance=10 :threshold=0.1 :findAllMatches=true > </vue-fuse>
-          <button v-on:click="navigateToSearchResults" >
+      <div class="search-container"  >
+        <input type="text" class="search-bar" v-model=searchTerm @keyup.enter="runSearch"/>
+         <!-- <vue-fuse :keys="this.keys" :list="catList" :defaultAll=true class="search-bar" event-name="searchCommitted" 
+         :tokenize=true :distance=10 :threshold=0.1 :findAllMatches=true > </vue-fuse> -->
+          <button v-on:click="runSearch" >
             <i class="material-icons search-icon">search</i>
           </button>
       </div>
@@ -39,24 +40,46 @@ export default {
     },
   data() {
     return {
+      searchTerm: "",
       results: [],
-        keys: ["name", "age", "hairLength", "color", "skills", "previousJobs", "priorExperienceMonths", "description" ]
+      fuseOptions: {
+        keys: ["name", "age", "hairLength", "color", "skills", "previousJobs", "priorExperienceMonths", "description" ],
+        defaultAll: true, 
+         tokenize: true,
+         distance: 10,
+         threshold: 0.1,
+         findAllMatches: true
+
+      }
       }
     },
    created() {
       this.retrieveCats();
-      this.$on('searchCommitted', results => {
-        this.results = results;
-      })
+      // this.$on('searchCommitted', results => {
+      //   this.results = results;
+      //   this.$store.commit('SET_SEARCH_RESULTS', results);
+      // })
       
     },
   methods: {
-    navigateToSearchResults() {
-        this.$router.push("/cats");
-      },
+    resetList() {
+      this.$store.commit('SET_SEARCH_RESULTS', this.catList);
+      this.searchTerm = "";
+    },
+    runSearch() {
+      if (this.searchTerm == 0) {
+        this.$store.commit("SET_SEARCH_RESULTS", this.catList);
+      } else {
+        this.$search(this.searchTerm, this.catList, this.fuseOptions).then(results => {
+        this.$store.commit('SET_SEARCH_RESULTS', results)
+        });
+      }
+    },
+      
     retrieveCats() {
       catService.getCats().then(response => {
           this.$store.commit("SET_CAT_LIST", response.data);
+          this.$store.commit("SET_SEARCH_RESULTS", response.data);
         });
     },
  
