@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import CatForm from '../views/CatForm'
 import Cats from '../views/CatView'
+import FeaturedCats from '../views/FeaturedCats'
 
 Vue.use(Router)
 
@@ -70,6 +71,14 @@ const router = new Router({
           requiresAuth: false /*Change to true later*/
         }
       },
+      {
+        path: "/featuredCats",
+        name: "featuredCats",
+        component: FeaturedCats,
+        meta: {
+          requiresAuth: false
+        }
+      }
       
     
   ]

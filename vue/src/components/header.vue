@@ -1,25 +1,25 @@
 <template>
-  <div class="header-container">
+  <div class="header-container" >
     
     <nav class="header-main" v-on:click="resetList">
       <router-link class="cat-logo" v-bind:to="{name: 'home'}">
         <img  class="cat-logo" src="../assets/png/small-logo.png"/>
       </router-link>
-      <a href="#" class="button fav" v-on:click="resetList">
-        <img class="button fav" src="../assets/webp/favorites-button.webp"
-      /></a>
-      <router-link class="button cats" v-bind:to="{name: 'cats'}">
+      <router-link class="button featured" v-on:click="resetList" v-bind:to="{name: 'featuredCats'}">
+        <img class="button fav" src="../assets/webp/Featured-Button.webp"/>
+      </router-link>
+      <router-link class="button cats" v-bind:to="{name: 'cats'}" v-on:click="resetList">
         <img class="button cats" src="../assets/webp/cats-button.webp" />
       </router-link>
-      <a href="#" class="button profile " v-on:click="resetList"
-        ><img class="button profile" src="../assets/webp/profile-button.webp"
+      <a href="" class="button tools" v-on:click="resetList"
+        ><img class="button tools" src="../assets/webp/admin-tools-button.webp"
       /></a>
-      <div class="search-container"  >
+      <div class="search-container">
         <input type="text" class="search-bar" v-model=searchTerm @keyup.enter="runSearch"/>
          <!-- <vue-fuse :keys="this.keys" :list="catList" :defaultAll=true class="search-bar" event-name="searchCommitted" 
          :tokenize=true :distance=10 :threshold=0.1 :findAllMatches=true > </vue-fuse> -->
-          <button v-on:click="runSearch" >
-            <i class="material-icons search-icon">search</i>
+          <button>
+            <i v-on:click="runSearch" class="material-icons search-icon">search</i>
           </button>
       </div>
       
@@ -33,15 +33,10 @@ import catService from '../services/CatService'
 export default {
   components: {},
   computed: {
-      catList() {
-        
-        return this.$store.state.catList;
-      }
     },
   data() {
     return {
       searchTerm: "",
-      results: [],
       fuseOptions: {
         keys: ["name", "age", "hairLength", "color", "skills", "previousJobs", "priorExperienceMonths", "description" ],
         defaultAll: true, 
@@ -63,15 +58,15 @@ export default {
     },
   methods: {
     resetList() {
-      this.$store.commit('SET_SEARCH_RESULTS', this.catList);
+      this.retrieveCats();
       this.searchTerm = "";
     },
     runSearch() {
       if (this.searchTerm == 0) {
-        this.$store.commit("SET_SEARCH_RESULTS", this.catList);
+        this.retrieveCats();
       } else {
-        this.$search(this.searchTerm, this.catList, this.fuseOptions).then(results => {
-        this.$store.commit('SET_SEARCH_RESULTS', results)
+        this.$search(this.searchTerm, this.$store.state.catList, this.fuseOptions).then(results => {
+        this.$store.commit('SET_CAT_LIST', results)
         });
       }
     },
@@ -79,7 +74,6 @@ export default {
     retrieveCats() {
       catService.getCats().then(response => {
           this.$store.commit("SET_CAT_LIST", response.data);
-          this.$store.commit("SET_SEARCH_RESULTS", response.data);
         });
     },
  
@@ -100,7 +94,7 @@ export default {
   grid-template-rows: 33% 34% 33%;
   grid-template-areas:
     ". logo . . . . ."
-    ". logo fav cats profile search . "
+    ". logo feat cats tools search . "
     ". logo . . . . .";
   justify-content: space-evenly;
   overflow: hidden;
@@ -117,8 +111,8 @@ export default {
   width: 100%;
 }
 
-.fav {
-  grid-area: fav;
+.featured {
+  grid-area: feat;
 }
 
 .cats {
@@ -126,13 +120,14 @@ export default {
   justify-self: center;
 }
 
-.profile {
-  grid-area: profile;
+.tools {
+  grid-area: tools;
   margin-left: 3%;
 }
 
 .search-container {
   grid-area: search;
+  display: flex;
   height: 76%;
   width: 100%;
   border-radius: 30px;
@@ -141,46 +136,50 @@ export default {
   float: right;
   justify-self: center;
   align-self: center;
-  margin-left: 20%;
-  margin-top: 2%;
+  justify-content: center;
+  /* margin-left: 20%;
+  margin-top: 2%; */
 }
-.header-main .search-bar {
-  grid-area: search;
-  width: 68%;
-  margin-left: 7%;
-  margin-top: 7%;
-  font-size: 17px;
-  border: none;
+.search-bar {
+    border: none;
   color: #33a3f5;
   background-color: rgba(199, 199, 199, 0);
   outline: none;
   font-family: "Quicksand", sans-serif;
+  /* width: 68%;
+  margin-left: 7%;
+  margin-top: 7%;
+  font-size: 17px; */
+
 }
-.header-main .search-container button {
+.header-main > .search-container > button {
   grid-area: search;
-  padding: 0.3% 0.5%;
+  background-color: rgba(199, 199, 199, 0);
+  color: #33a3f5;
+  /* justify-self: right; */
+  /* padding: 0.3% 0.5%;
   margin-top: 0.1%;
   margin-right: 1%;
   border: none;
   cursor: pointer;
-  /* position: absolute; */
-  background-color: rgba(199, 199, 199, 0);
-  color: #33a3f5;
+  position: absolute; */
   
 }
 
 .search-icon {
   grid-area: search;
   border-left: #33a3f5 1.5px solid;
-  padding-left: 5%;
+  justify-self: flex-end;
+  /* padding-left: 5%;
   padding-bottom: 7%;
   padding-top: 1%;
   margin-top: 1%;
-  font-size: 275%;
+  font-size: 450%;
   margin-left: 10%;
+  margin-right: 10%;
   justify-self: center;
   align-self: center;
-  margin-bottom: 5%;
+  margin-bottom: 5%; */
 }
 
 

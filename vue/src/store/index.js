@@ -21,7 +21,7 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     catList: [],
-    resultList: [],
+    // resultList: [],
     cat: {
       id: "",
       name: "",
@@ -32,6 +32,7 @@ export default new Vuex.Store({
       description: "",
       color: "",
       skills: "",
+      featured: "",
     }
   },
   mutations: {
@@ -59,13 +60,24 @@ export default new Vuex.Store({
         return cat.id !== catIdToDelete;
       });
     },
-    SET_SEARCH_RESULTS(state, data) {
-      state.resultList = data;
-    },
-    FEATURE_CAT(state, catToFeature){
-      state.catList = state.catList.filter((cat) => {
-          return cat !== catToFeature;
-      })
-    },
+    // SET_SEARCH_RESULTS(state, data) {
+    //   state.resultList = data;
+    // },
+    // FEATURE_CAT(state, catToFeature){
+    //   let catToUpdate = state.catList.find((cat) => {
+    //     if (cat.id == catToFeature.id) {
+    //       return cat;
+    //     }});
+    //   catToUpdate.featured = !catToUpdate.featured;
+    //   return catToUpdate;
+    // },
+
+    TOGGLE_FEATURE_CAT(state, payload) {
+      const { id, featured} = payload;
+      const cat = state.catList.find(c => c.id === id);
+      cat.featured = featured;
+    }
+
+
   }
 })

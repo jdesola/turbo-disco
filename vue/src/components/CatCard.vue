@@ -18,10 +18,10 @@
         >
       </button>
       <button class="featureButton">
-        <i
-          class="material-icons icon"
+        <i 
+          class="material-icons icon featureButton"
           v-text="cat.featured ? 'star' : 'star_border'"
-          v-on:click.stop="featureCat"
+          v-on:click="toggleFeatureCat"
         ></i>
       </button>
     </div>
@@ -62,13 +62,13 @@ export default {
           });
       }
     },
-    featureCat() {
+    toggleFeatureCat() {
       this.cat.featured = !this.cat.featured;
       catService
         .featureCat(this.cat)
         .then((response) => {
           if (response.status === 200) {
-            this.$store.commit("FEATURE_CAT", this.cat);
+            this.$store.commit("TOGGLE_FEATURE_CAT", this.cat);
           }
         })
         .catch((error) => {
@@ -103,6 +103,8 @@ export default {
     "name experienceIcon months . catCardActions";
 }
 
+
+
 .icon {
   display: inline;
   align-self: center;
@@ -111,6 +113,8 @@ export default {
   color: #33a3f5;
   font-size: max-content;
 }
+
+
 
 #profilePicture {
   padding-top: 4%;
@@ -197,16 +201,17 @@ export default {
   border: none;
   cursor: pointer;
 }
+
 .featureButton {
   justify-self: right;
   font-size: 125%;
-  color: #f6af71;
+  color: #161fc2;
   background-color: #161fc200;
   border: none;
   cursor: pointer;
 }
 
 .catCardActions {
-  grid-area: actions;
+  grid-area: catCardActions;
 }
 </style>
