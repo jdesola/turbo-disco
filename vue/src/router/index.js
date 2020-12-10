@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import CatForm from '../views/CatForm'
 import Cats from '../views/CatView'
+import SearchResults from '../views/SearchResults'
 
 Vue.use(Router)
 
@@ -68,6 +69,14 @@ const router = new Router({
         component: CatForm,
         meta:{
           requiresAuth: false /*Change to true later*/
+        }
+      },
+      {
+        path: "/searchResults",
+        name: "searchResults",
+        component: SearchResults,
+        meta: {
+          requiresAuth: false
         }
       }
     

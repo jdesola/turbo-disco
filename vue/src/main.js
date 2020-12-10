@@ -3,10 +3,10 @@ import App from './App.vue'
 import router from './router/index'
 import store from './store/index'
 import axios from 'axios'
-import ReactiveSearch from '@appbaseio/reactivesearch-vue'
+import VueFuse from 'vue-fuse'
 
+Vue.use(VueFuse)
 
-Vue.use(ReactiveSearch)
 Vue.config.productionTip = false
 
 axios.defaults.baseURL = process.env.VUE_APP_REMOTE_API;

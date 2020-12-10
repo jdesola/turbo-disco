@@ -21,6 +21,7 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     catList: [],
+    resultList: [],
     cat: {
       id: "",
       name: "",
@@ -57,6 +58,9 @@ export default new Vuex.Store({
       state.catList = state.catList.filter((cat) => {
         return cat.id !== catIdToDelete;
       });
+    },
+    SET_SEARCH_RESULTS(state, data) {
+      state.resultList = data;
     }
   }
 })
