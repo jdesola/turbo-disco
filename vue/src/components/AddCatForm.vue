@@ -75,6 +75,7 @@
 <script>
 import catService from "../services/CatService";
 
+
 export default {
   data() {
     return {
@@ -115,6 +116,8 @@ export default {
         })
         
     },
+
+   
   },
 };
 </script>
