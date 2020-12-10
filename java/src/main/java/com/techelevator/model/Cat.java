@@ -11,7 +11,7 @@ public class Cat {
 	private String description;
 	private long id;
 	private String color;
-	private boolean featured = false;
+	private boolean featured;
 	
 	public boolean isFeatured() {
 		return featured;

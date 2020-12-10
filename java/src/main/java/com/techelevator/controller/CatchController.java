@@ -51,7 +51,6 @@ public class CatchController {
 		catDao.updateFeatured(catId, featured);
 	}
 	
-	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@RequestMapping(path="/cats/{catId}", method = RequestMethod.GET)
 	public Cat getCatById(@PathVariable long catId) {
 		 return catDao.getCatById(catId);
