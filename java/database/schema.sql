@@ -31,7 +31,8 @@ CREATE TABLE catch_cats (
     prior_jobs character varying(255),
     description character varying(255) NOT NULL,
     color character varying(255) not null,
-    featured boolean not null default false
+    featured boolean not null default false,
+    image_url varchar(255)
     CONSTRAINT chk_hair_length CHECK (hair_length in ('Long','Short','Hairless'))
 );
 
