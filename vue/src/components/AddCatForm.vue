@@ -1,6 +1,7 @@
 <template>
   <div class="catFormContainer">
     <img class="catImage" src="../assets/png/generic-cat2.png" />
+    
     <form class="catForm">
       <input
         type="text"
@@ -62,21 +63,29 @@
         placeholder="Description"
         v-model="newCat.description"
       />
+
+      <upload-file/>
       <div class="buttons">
         <button class="reset-button" type="reset" value="reset">Reset</button>
         <button class="submit-button" type="submit" value="submit" v-on:click.prevent="saveNewCat">
           Submit
         </button>
       </div>
+      
     </form>
+    
   </div>
 </template>
 
 <script>
 import catService from "../services/CatService";
-
+import UploadFile from './UploadFile.vue';
 
 export default {
+  components:{
+
+    UploadFile
+  },
   data() {
     return {
       newCat: {
