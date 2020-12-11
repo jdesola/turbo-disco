@@ -32,10 +32,25 @@ CREATE TABLE catch_cats (
     description character varying(255) NOT NULL,
     color character varying(255) not null,
     featured boolean not null default false,
-    image_url varchar(255)
+    image_url varchar(255),
+    PRIMARY KEY (id),
     CONSTRAINT chk_hair_length CHECK (hair_length in ('Long','Short','Hairless'))
 );
 
 insert into catch_cats values (default, 'Test Name', 3, 'Test Skills', 'Long', 16, 'Test Job', 'Test Description', 'test color', false);
+
+DROP TABLE IF EXISTS success_stories;
+
+CREATE TABLE success_stories (
+        
+        cat_id integer NOT NULL,
+        name varchar (50) NOT NULL,
+        age integer NOT NULL, 
+        image_url varchar (255),
+        story varchar (255) NOT NULL,
+        foreign key (cat_id) references catch_cats (id)
+
+
+);
 
 COMMIT TRANSACTION;
