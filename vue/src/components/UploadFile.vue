@@ -22,8 +22,13 @@ methods:{
     },
     onUpload(){
         const fd = new FormData();
+<<<<<<< HEAD
         fd.append('image', this.selectedFile, this.selectedFile.name);
             axios.post('gs://catch-file-uploader.appspot.com', fd).then(res => {
+=======
+        fd.append('image', this.selectedFile, this.selectedFile.name)
+        axios.post('gs://catch-file-uploader.appspot.com/', fd.then(res => {
+>>>>>>> 076e25128b8fcf83607cd2a62e26cebf980832b8
             console.log(res)
         })
 
