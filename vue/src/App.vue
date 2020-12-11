@@ -3,7 +3,6 @@
     
     <div id="nav">
       <header-main />
-      <!-- <header-main v-on:searchCommitted="saveSearchResults"/> -->
 
       <router-link
         v-bind:to="{ name: 'logout' }"
