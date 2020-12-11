@@ -12,6 +12,7 @@ public class Cat {
 	private long id;
 	private String color;
 	private boolean featured;
+	private String imageUrl;
 	
 	public boolean isFeatured() {
 		return featured;
@@ -78,6 +79,14 @@ public class Cat {
 
 	public void setColor(String color) {
 		this.color = color;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 	
 	
