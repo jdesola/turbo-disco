@@ -11,24 +11,24 @@ public class Cat {
 	private String description;
 	private long id;
 	private String color;
-	private boolean isFeatured;
+	private boolean featured;
 	private String imageUrl;
-	private boolean isAdopted;
+	private boolean adopted;
 	
 	public boolean isAdopted() {
-		return isAdopted;
+		return adopted;
 	}
 
 	public void setAdopted(boolean isAdopted) {
-		this.isAdopted = isAdopted;
+		this.adopted = isAdopted;
 	}
 
 	public boolean isFeatured() {
-		return isFeatured;
+		return featured;
 	}
 
 	public void setFeatured(boolean isFeatured) {
-		this.isFeatured = isFeatured;
+		this.featured = isFeatured;
 	}
 
 	public long getId() {

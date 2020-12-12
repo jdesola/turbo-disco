@@ -31,8 +31,8 @@ export default new Vuex.Store({
       description: "",
       color: "",
       skills: "",
-      isFeatured: "",
-      isAdopted: "",
+      featured: "",
+      adopted: "",
     }
   },
   mutations: {
@@ -61,9 +61,9 @@ export default new Vuex.Store({
       cat.adopted = adopted;
     },
     TOGGLE_FEATURE_CAT(state, payload) {
-      const { id, isFeatured} = payload;
+      const { id, featured} = payload;
       const cat = state.catList.find(c => c.id === id);
-      cat.isFeatured = isFeatured;
+      cat.featured = featured;
     }
 
 

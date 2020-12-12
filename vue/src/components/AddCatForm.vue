@@ -1,67 +1,90 @@
 <template>
-  <div class="catFormContainer">
+  <div data-app class="catFormContainer">
     <v-img contain aspect-ratio="1" v-if="this.imageData != null" class="catImage" :src="this.tempUrl" />
 
     <v-img v-else contain aspect-ratio="1" src="../assets/png/generic-cat2.png"  class="catImage" />
 
     <v-form class="catForm">
-      <input
+      <v-text-field
         type="text"
         id="name"
         v-model="newCat.name"
         name="name"
         placeholder="Name"
+        clearable
+        outlined
       />
 
-      <input
-        type="text"
+      <v-slider
+        dense
+        label="Age (in Years)"
         id="age"
         v-model="newCat.age"
         name="age"
-        placeholder="Age"
-      />
+        thumb-label="always"
+        :min="1"
+        :max="20"
+        :thumb-size="24"
+        :thumb-color="ageSliderThumbColor.color"
+        :color="ageSliderThumbColor.color"
+      ></v-slider>
 
-      <v-select :items="hairSelection" id="hair" name="hair" v-model="newCat.hairLength"  label="Hair Type">
-      
-      </v-select>
+      <v-select :items="hairSelection" id="hair" name="hair" v-model="newCat.hairLength"  label="Hair Type"></v-select>
 
-      <input
+      <v-text-field
         type="text"
         id="color"
         name="color"
         placeholder="Color"
         v-model="newCat.color"
+        clearable
+        outlined
       />
-      <input
+
+      <v-text-field
         type="text"
         id="skills"
         name="skills"
         placeholder="Skills"
         v-model="newCat.skills"
+        clearable
+        outlined
       />
 
-      <input
+
+      
+
+      <v-text-field
         type="text"
         id="experience"
         name="experience"
         placeholder="Previous Job Title"
         v-model="newCat.previousJobs"
+        clearable
+        outlined
       />
 
-      <input
-        type="text"
+      <v-slider
+        dense
+        label="Time at Last Job (in Months)"
         id="experience_months"
-        name="experience_months"
-        placeholder="Time at Previous Job"
         v-model="newCat.priorExperienceMonths"
-      />
+        name="experience_months"
+        thumb-label="always"
+        :min="1"
+        :thumb-size="24"
+        :thumb-color="ageSliderThumbColor.color"
+        :color="ageSliderThumbColor.color"
+      ></v-slider>
 
-      <input
+      <v-text-field
         type="text"
         id="description"
         name="description"
         placeholder="Description"
         v-model="newCat.description"
+        clearable
+        outlined
       />
 
       <v-btn v-on:click="click1">Choose a Photo</v-btn>
@@ -99,10 +122,11 @@ export default {
   },
   data() {
     return {
+      ageSliderThumbColor: {label: 'thumb-color', color: '#F6AE71'},
       hairSelection: ['Short', 'Long', 'Hairless'],
       newCat: {
         name: "",
-        age: "",
+        age: 1,
         hairLength: "",
         priorExperienceMonths: "",
         previousJobs: "",
@@ -123,7 +147,7 @@ export default {
         if (response.status === 201) {
           this.newCat = {
             name: "",
-            age: "",
+            age: 1,
             hairLength: "",
             priorExperienceMonths: "",
             previousJobs: "",
@@ -205,14 +229,14 @@ export default {
   padding-left: 2%;
 }
 
-.catForm > select {
+.catForm > v-select {
   color: #575a8f;
   text-align: center;
   text-align-last: center;
 }
 
-.catForm > input,
-select {
+.catForm > v-text-field,
+v-select {
   justify-self: center;
   background-color: #d8d8d8;
   border-radius: 14px;
@@ -262,7 +286,8 @@ input {
   letter-spacing: 0;
   line-height: 150%;
 }
-input::placeholder {
+
+v-text-field::placeholder {
   color: #575a8f;
 }
 

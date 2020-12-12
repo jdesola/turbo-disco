@@ -42,7 +42,7 @@ export default {
   methods: {
     markCatAdopted() {
       if (confirm("Are you sure you want to mark this cat as adopted? It will not appear on the website anymore.")) {
-        this.cat.isAdopted = true;
+        this.cat.adopted = true;
         catService
           .updateCat(this.cat)
           .then((response) => {

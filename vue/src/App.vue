@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <v-app id="main" :style="{background: $vuetify.theme.themes[theme].background}">
     
     <div id="nav">
       <header-main />
@@ -11,7 +11,7 @@
       >
     </div>
     <router-view/>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -22,18 +22,28 @@ export default {
   components: {
     HeaderMain,
   },
+  data() {
+    return {
+    color: "rgb(113, 116, 116)",
+  }
+  },
+  computed: {
+    theme() {
+      return (this.$vuetify.theme.dark) ? 'dark' : 'light'
+      }
+    }
+  };
   // methods: {
   //   saveSearchResults(results) {
   //     this.$store.commit('SET_SEARCH_RESULTS', results);
   //   }
   // }
-};
 </script>
 
 <style>
 #app {
-  margin-left: 7.5%;
-  margin-right: 7.5%;
+  padding-left: 7.5%;
+  padding-right: 7.5%;
 }
 
 </style>

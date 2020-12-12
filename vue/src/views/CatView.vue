@@ -24,7 +24,7 @@ export default {
     },
       allCats: function () {
       return this.$store.state.catList.filter(function (cat) {
-        return !cat.isAdopted;
+        return !cat.adopted;
       });
     },
   },
