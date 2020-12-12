@@ -20,7 +20,7 @@
       <button class="featureButton">
         <i 
           class="material-icons icon featureButton"
-          v-text="cat.featured ? 'star' : 'star_border'"
+          v-text="this.cat.featured ? 'star' : 'star_border'"
           v-on:click="toggleFeatureCat"
         ></i>
       </button>
@@ -64,7 +64,7 @@ export default {
       }
     },
     toggleFeatureCat() {
-      this.cat.isFeatured = !this.cat.isFeatured;
+      this.cat.featured = !this.cat.featured;
       catService
         .updateCat(this.cat)
         .then((response) => {

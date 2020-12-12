@@ -56,9 +56,9 @@ export default new Vuex.Store({
       state.catList = data;
     },
     ADOPT_CAT(state, payload) {
-      const { id, isAdopted } = payload;
+      const { id, adopted } = payload;
       const cat = state.catList.find(c => c.id === id);
-      cat.isAdopted = isAdopted;
+      cat.adopted = adopted;
     },
     TOGGLE_FEATURE_CAT(state, payload) {
       const { id, isFeatured} = payload;
