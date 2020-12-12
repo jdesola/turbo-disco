@@ -21,7 +21,7 @@ export default {
   computed: {
     featuredCats: function () {
       return this.$store.state.catList.filter(function (cat) {
-        return cat.featured;
+        return cat.isFeatured;
       });
     },
   },

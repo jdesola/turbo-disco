@@ -39,17 +39,15 @@ public class CatchController {
 		catDao.createCat(cat);
 	}
 	
-	@ResponseStatus(HttpStatus.NO_CONTENT) 
-	@RequestMapping(path="/cats/{catId}", method=RequestMethod.DELETE) 
-	public void delete(@PathVariable long catId) { 
-		catDao.deleteCat(catId); 
+	@RequestMapping(path="/cats", method=RequestMethod.PUT) 
+	public void update(@RequestBody Cat updatedCat) { 
+		catDao.updateCat(updatedCat); 
 	}
 	
-	//@ResponseStatus(HttpStatus.NO_CONTENT)
-	@RequestMapping(path = "/cats", method = RequestMethod.PUT)
-	public void updateFeatured(@RequestBody Cat featuredCat) {
-		catDao.updateFeatured(featuredCat);
-	}
+//	@RequestMapping(path = "/cats", method = RequestMethod.PUT)
+//	public void updateFeatured(@RequestBody Cat featuredCat) {
+//		catDao.updateFeatured(featuredCat);
+//	}
 	
 	@RequestMapping(path="/cats/{catId}", method = RequestMethod.GET)
 	public Cat getCatById(@PathVariable long catId) {

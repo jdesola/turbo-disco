@@ -1,11 +1,10 @@
 <template>
   <div class="catFormContainer">
-    <div class="catImageContainer">
-    <img v-if="this.imageData != null" class="catImage" :src="this.tempUrl" />
+    <v-img contain aspect-ratio="1" v-if="this.imageData != null" class="catImage" :src="this.tempUrl" />
 
-    <img v-else src="../assets/png/generic-cat2.png"  class="catImage" />
-    </div>
-    <form class="catForm">
+    <v-img v-else contain aspect-ratio="1" src="../assets/png/generic-cat2.png"  class="catImage" />
+
+    <v-form class="catForm">
       <input
         type="text"
         id="name"
@@ -22,12 +21,9 @@
         placeholder="Age"
       />
 
-      <select id="hair" name="hair" v-model="newCat.hairLength">
-        <option value="" disabled selected>Hair Length</option>
-        <option value="Long">Long</option>
-        <option value="Short">Short</option>
-        <option value="Hairless">Hairless</option>
-      </select>
+      <v-select :items="hairSelection" id="hair" name="hair" v-model="newCat.hairLength"  label="Hair Type">
+      
+      </v-select>
 
       <input
         type="text"
@@ -90,7 +86,7 @@
           Submit
         </button>
       </div>
-    </form>
+    </v-form>
   </div>
 </template>
 
@@ -103,6 +99,7 @@ export default {
   },
   data() {
     return {
+      hairSelection: ['Short', 'Long', 'Hairless'],
       newCat: {
         name: "",
         age: "",
@@ -188,23 +185,12 @@ export default {
   border-radius: 14px;
 }
 
-.catImageContainer {
-  display: flex;
-  align-self: center;
-  justify-self: center;
-  align-content: center;
-  justify-content: center;
-  
-  max-height: 100%;
-  border-radius: 14px;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  margin-left: .5%;
-}
 
-.catImageContainer > img {
-  max-width: 100%;
-flex-shrink: 10;
+ .catImage {
+   align-self: center;
+  width: 55%;
+  height: 95%;
+  max-height: 100%;
 }
 
 .catForm {

@@ -14,11 +14,11 @@ export default {
         return http.post('/cats/addCat', newCat);
     },
 
-    deleteCat(catId) {
-        return http.delete(`/cats/${catId}`);
+    updateCat(updatedCat) {
+        return http.put(`/cats`, updatedCat);
     },
 
-    featureCat(featuredCat){
-        return http.put("/cats", featuredCat);
-    }
+    // featureCat(featuredCat){
+    //     return http.put("/cats", featuredCat);
+    // }
 }

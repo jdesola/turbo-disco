@@ -13,7 +13,7 @@
     <p id="description">{{ cat.description }}</p>
     <div class="catCardActions">
       <button class="deleteButton">
-        <i class="material-icons icon deleteButton" v-on:click="deleteCat"
+        <i class="material-icons icon deleteButton" v-on:click="markCatAdopted"
           >delete</i
         >
       </button>
@@ -36,18 +36,19 @@ export default {
   props: ["cat"],
   data() {
     return {
-      // featured: this.cat.featured,
     };
   },
+  
   methods: {
-    deleteCat() {
-      if (confirm("Are you sure you want to delete this cat?")) {
+    markCatAdopted() {
+      if (confirm("Are you sure you want to mark this cat as adopted? It will not appear on the website anymore.")) {
+        this.cat.isAdopted = true;
         catService
-          .deleteCat(this.cat.id)
+          .updateCat(this.cat)
           .then((response) => {
-            if (response.status === 204) {
-              alert("Cat deleted successfully");
-              this.$store.commit("DELETE_CAT", this.cat.id);
+            if (response.status === 200) {
+              alert("Cat adopted successfully");
+              this.$store.commit("ADOPT_CAT", this.cat);
             }
           })
           .catch((error) => {
@@ -63,9 +64,9 @@ export default {
       }
     },
     toggleFeatureCat() {
-      this.cat.featured = !this.cat.featured;
+      this.cat.isFeatured = !this.cat.isFeatured;
       catService
-        .featureCat(this.cat)
+        .updateCat(this.cat)
         .then((response) => {
           if (response.status === 200) {
             this.$store.commit("TOGGLE_FEATURE_CAT", this.cat);

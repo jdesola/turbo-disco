@@ -43,16 +43,16 @@ public class CatJDBC implements CatDAO{
 	}
 	
 	@Override 
-	public void deleteCat(long catId) { 
-		String sql = "DELETE FROM catch_cats WHERE id = ?"; 
-		jdbcTemplate.update(sql, catId); 
+	public void updateCat(Cat updatedCat) { 
+		String sql = "update catch_cats set name = ?, age = ?, skills = ?,  hair_length = ?, prior_experience_months = ?, prior_jobs = ?, description = ?, color = ?, image_url = ? where id = ?";
+		jdbcTemplate.update(sql, updatedCat.getName(), updatedCat.getAge(), updatedCat.getSkills(), updatedCat.getHairLength(), updatedCat.getPriorExperienceMonths(), updatedCat.getPreviousJobs(), updatedCat.getDescription(), updatedCat.getColor(), updatedCat.getImageUrl(), updatedCat.getId()); 
 	}
 	
-	@Override
-	public void updateFeatured(Cat updatedCat ) {
-		String sql = "update catch_cats set featured = ? where id = ?";
-		jdbcTemplate.update(sql, updatedCat.isFeatured(), updatedCat.getId());
-	}
+//	@Override
+//	public void updateFeatured(Cat updatedCat ) {
+//		String sql = "update catch_cats set isFeatured = ? where id = ?";
+//		jdbcTemplate.update(sql, updatedCat.isFeatured(), updatedCat.getId());
+//	}
 	
 	@Override
 	public Cat getCatById(long catId) {
@@ -75,8 +75,9 @@ public class CatJDBC implements CatDAO{
 		catMap.setPreviousJobs(row.getString("prior_jobs"));
 		catMap.setPriorExperienceMonths(row.getInt("prior_experience_months"));
 		catMap.setSkills(row.getString("skills"));
-		catMap.setFeatured(row.getBoolean("featured"));
+		catMap.setFeatured(row.getBoolean("isFeatured"));
 		catMap.setImageUrl(row.getString("image_url"));
+		catMap.setAdopted(row.getBoolean("isAdopted"));
 		
 		return catMap;
 		

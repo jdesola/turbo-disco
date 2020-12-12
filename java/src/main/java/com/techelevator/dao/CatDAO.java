@@ -10,9 +10,9 @@ public interface CatDAO {
 	
 	public List<Cat> listCats();
 	
-	public void deleteCat(long catId);
+	public void updateCat(Cat updatedCat);
 	
-	public void updateFeatured(Cat featuredCat);
+	//public void updateFeatured(Cat featuredCat);
 	
 	public Cat getCatById(long catId);
 
