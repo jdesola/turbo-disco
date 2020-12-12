@@ -20,7 +20,13 @@ CREATE TABLE users (
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
-Drop table if exists catch_cats;
+
+
+
+DROP TABLE IF EXISTS success_stories;
+
+Drop table if exists catch_cats; 
+
 CREATE TABLE catch_cats (
     id serial NOT NULL,
     name character varying(50) NOT NULL,
@@ -31,26 +37,33 @@ CREATE TABLE catch_cats (
     prior_jobs character varying(255),
     description character varying(255) NOT NULL,
     color character varying(255) not null,
-    featured boolean not null default false,
+    isFeatured boolean not null default false,
     image_url varchar(255),
+    isAdopted boolean not null default false
+    
+    
     PRIMARY KEY (id),
     CONSTRAINT chk_hair_length CHECK (hair_length in ('Long','Short','Hairless'))
 );
 
-insert into catch_cats values (default, 'Test Name', 3, 'Test Skills', 'Long', 16, 'Test Job', 'Test Description', 'test color', false);
 
-DROP TABLE IF EXISTS success_stories;
+
+
 
 CREATE TABLE success_stories (
         
         cat_id integer NOT NULL,
         name varchar (50) NOT NULL,
         age integer NOT NULL, 
-        image_url varchar (255),
         story varchar (255) NOT NULL,
         foreign key (cat_id) references catch_cats (id)
 
 
 );
+
+
+
+insert into catch_cats values (default, 'Test Name', 3, 'Test Skills', 'Long', 16, 'Test Job', 'Test Description', 'test color', false);
+
 
 COMMIT TRANSACTION;

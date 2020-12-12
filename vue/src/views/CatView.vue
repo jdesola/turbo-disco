@@ -1,7 +1,7 @@
 <template>
   <div class=cat-list-container>
       
-      <cat-card class="cat-card" v-for="cat in this.$store.state.catList" v-bind:key="cat.id" 
+      <cat-card class="cat-card" v-for="cat in allCats" v-bind:key="cat.id" 
 
       v-bind:cat="cat">  </cat-card>
       
@@ -21,7 +21,12 @@ export default {
   computed: {
     resultListLength() {
       return this.$store.state.resultList.length;
-    }
+    },
+      allCats: function () {
+      return this.$store.state.catList.filter(function (cat) {
+        return !cat.isAdopted;
+      });
+    },
   },
   methods: {
     // retrieveCats() {

@@ -14,8 +14,8 @@ export default {
         return http.post('/cats/addCat', newCat);
     },
 
-    deleteCat(catId) {
-        return http.delete(`/cats/${catId}`);
+    adoptCat(adoptedCat) {
+        return http.put(`/cats`, adoptedCat);
     },
 
     featureCat(featuredCat){
