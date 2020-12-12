@@ -13,7 +13,16 @@ public class Cat {
 	private String color;
 	private boolean isFeatured;
 	private String imageUrl;
+	private boolean isAdopted;
 	
+	public boolean isAdopted() {
+		return isAdopted;
+	}
+
+	public void setAdopted(boolean isAdopted) {
+		this.isAdopted = isAdopted;
+	}
+
 	public boolean isFeatured() {
 		return isFeatured;
 	}
