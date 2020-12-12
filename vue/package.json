@@ -17,6 +17,7 @@
     "material-design-icons": "^3.0.1",
     "vue": "^2.6.12",
     "vue-fuse": "^2.2.1",
+    "vue-gallery-slideshow": "^1.5.2",
     "vue-router": "^3.4.9",
     "vuetify": "^2.2.11",
     "vuex": "^3.6.0"

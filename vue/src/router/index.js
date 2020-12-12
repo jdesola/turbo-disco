@@ -8,6 +8,7 @@ import store from '../store/index'
 import CatForm from '../views/CatForm'
 import Cats from '../views/CatView'
 import FeaturedCats from '../views/FeaturedCats'
+import Gallery from '../views/GalleryView'
 
 Vue.use(Router)
 
@@ -78,8 +79,15 @@ const router = new Router({
         meta: {
           requiresAuth: false
         }
+      },
+      {
+        path: "/gallery",
+        name: "gallery",
+        component: Gallery,
+        meta: {
+          requiresAuth: false
+        }
       }
-      
     
   ]
 })
