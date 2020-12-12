@@ -26,7 +26,7 @@ public class CatJDBC implements CatDAO{
 	public void createCat(Cat newCat) {
 		String sql = "INSERT INTO catch_cats (name, age, skills, hair_length, prior_experience_months, prior_jobs, description, color, image_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		jdbcTemplate.update(sql, newCat.getName(), newCat.getAge(), newCat.getSkills(), newCat.getHairLength(), newCat.getPriorExperienceMonths(),
-							newCat.getPreviousJobs(), newCat.getDescription(), newCat.getColor());
+							newCat.getPreviousJobs(), newCat.getDescription(), newCat.getColor(), newCat.getImageUrl());
 	}
 
 

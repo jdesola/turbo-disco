@@ -16,8 +16,6 @@
       /></a>
       <div class="search-container">
         <input type="text" class="search-bar" v-model=searchTerm @keyup.enter="runSearch"/>
-         <!-- <vue-fuse :keys="this.keys" :list="catList" :defaultAll=true class="search-bar" event-name="searchCommitted" 
-         :tokenize=true :distance=10 :threshold=0.1 :findAllMatches=true > </vue-fuse> -->
           <button>
             <i v-on:click="runSearch" class="material-icons search-icon">search</i>
           </button>
@@ -49,12 +47,7 @@ export default {
       }
     },
    created() {
-      this.retrieveCats();
-      // this.$on('searchCommitted', results => {
-      //   this.results = results;
-      //   this.$store.commit('SET_SEARCH_RESULTS', results);
-      // })
-      
+      this.retrieveCats(); 
     },
   methods: {
     resetList() {
@@ -88,7 +81,6 @@ export default {
 
 
 .header-main {
-  /*grid container*/
   display: grid;
   grid-template-columns: 2% 12% 15% 15% 15% 15% 10%;
   grid-template-rows: 33% 34% 33%;
@@ -137,8 +129,6 @@ export default {
   justify-self: center;
   align-self: center;
   justify-content: center;
-  /* margin-left: 20%;
-  margin-top: 2%; */
 }
 .search-bar {
     border: none;
@@ -146,23 +136,12 @@ export default {
   background-color: rgba(199, 199, 199, 0);
   outline: none;
   font-family: "Quicksand", sans-serif;
-  /* width: 68%;
-  margin-left: 7%;
-  margin-top: 7%;
-  font-size: 17px; */
 
 }
 .header-main > .search-container > button {
   grid-area: search;
   background-color: rgba(199, 199, 199, 0);
   color: #33a3f5;
-  /* justify-self: right; */
-  /* padding: 0.3% 0.5%;
-  margin-top: 0.1%;
-  margin-right: 1%;
-  border: none;
-  cursor: pointer;
-  position: absolute; */
   
 }
 
@@ -170,16 +149,6 @@ export default {
   grid-area: search;
   border-left: #33a3f5 1.5px solid;
   justify-self: flex-end;
-  /* padding-left: 5%;
-  padding-bottom: 7%;
-  padding-top: 1%;
-  margin-top: 1%;
-  font-size: 450%;
-  margin-left: 10%;
-  margin-right: 10%;
-  justify-self: center;
-  align-self: center;
-  margin-bottom: 5%; */
 }
 
 

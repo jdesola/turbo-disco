@@ -1,8 +1,10 @@
 <template>
   <div class="catFormContainer">
-    <img class="catImage" src="../assets/png/generic-cat2.png" />
-    
-    <form class="catForm">
+    <v-img contain aspect-ratio="1" v-if="this.imageData != null" class="catImage" :src="this.tempUrl" />
+
+    <v-img v-else contain aspect-ratio="1" src="../assets/png/generic-cat2.png"  class="catImage" />
+
+    <v-form class="catForm">
       <input
         type="text"
         id="name"
@@ -19,12 +21,10 @@
         placeholder="Age"
       />
 
-      <select id="hair" name="hair" v-model="newCat.hairLength">
-        <option value="" disabled selected>Hair Length</option>
-        <option value="Long">Long</option>
-        <option value="Short">Short</option>
-        <option value="Hairless">Hairless</option>
-      </select>
+      <v-select :items="hairSelection" id="hair" name="hair" v-model="newCat.hairLength"  label="Hair Type">
+      
+      </v-select>
+
       <input
         type="text"
         id="color"
@@ -64,30 +64,42 @@
         v-model="newCat.description"
       />
 
-      <upload-file/>
+      <v-btn v-on:click="click1">Choose a Photo</v-btn>
+      <input
+        type="file"
+        ref="input1"
+        style="display: none"
+        @change="previewImage"
+        accept="image/*"
+      />
+
+      
+
       <div class="buttons">
         <button class="reset-button" type="reset" value="reset">Reset</button>
-        <button class="submit-button" type="submit" value="submit" v-on:click.prevent="saveNewCat">
+        <button
+          class="submit-button"
+          type="submit"
+          value="submit"
+          v-on:click.prevent="saveNewCat" @click.prevent="onUpload"
+        >
           Submit
         </button>
       </div>
-      
-    </form>
-    
+    </v-form>
   </div>
 </template>
 
 <script>
 import catService from "../services/CatService";
-import UploadFile from './UploadFile.vue';
+import firebase from 'firebase';
 
 export default {
-  components:{
-
-    UploadFile
+  components: {
   },
   data() {
     return {
+      hairSelection: ['Short', 'Long', 'Hairless'],
       newCat: {
         name: "",
         age: "",
@@ -96,38 +108,72 @@ export default {
         previousJobs: "",
         description: "",
         color: "",
-        skills: "", 
+        skills: "",
+        imageUrl: "",
       },
+      imageData: null,
+      img1: null,
+      tempUrl: "",
+
     };
   },
   methods: {
     saveNewCat() {
-      catService
-        .addCat(this.newCat)
-        .then((response) => {
-          if (response.status === 201) {
-            this.newCat = {
-              name: "",
-              age: "",
-              hairLength: "",
-              priorExperienceMonths: "",
-              previousJobs: "",
-              description: "",
-              color: "",
-              skills: "",
-            };
-            this.$router.push({name: 'home'});
-            //{ name: 'Cats', params: { userId: 123 }
-          }
-          else {
-            console.log(response.statusText);
-          }
-        })
-        
+      catService.addCat(this.newCat).then((response) => {
+        if (response.status === 201) {
+          this.newCat = {
+            name: "",
+            age: "",
+            hairLength: "",
+            priorExperienceMonths: "",
+            previousJobs: "",
+            description: "",
+            color: "",
+            skills: "",
+            imageUrl: "",
+          };
+          this.$router.push({ name: "home" });
+        } else {
+          console.log(response.statusText);
+        }
+      });
     },
+    click1() {
+        this.$refs.input1.click()
+    },
+    previewImage(event) {
+        this.uploadValue=0;
+        this.img1=null;
+        this.imageData = event.target.files[0];
+        this.tempUrl = URL.createObjectURL(this.imageData);
+    },
+    onUpload(){
+        this.img1=null;
 
-   
+        const storageRef=firebase.storage().ref(`${this.imageData.name}`).put(this.imageData);
+        storageRef.on(`state_changed`, snapshot =>{
+            this.uploadValue = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+        }, error=>{console.log(error.message)},
+        ()=>{this.uploadValue=100;
+
+        
+        });
+        this.afterComplete(this.imageData);
+        },
+        async afterComplete(imageData) {
+            try {
+                const imageName = imageData.name;
+                const storageRef = firebase.storage().ref();
+                const imageRef = storageRef.child(`${imageName}`);
+
+                this.newCat.imageUrl = await imageRef.getDownloadURL();
+            } catch (error) {
+                console.log(error);
+            }
+        }
   },
+  
+  
 };
 </script>
 
@@ -139,10 +185,12 @@ export default {
   border-radius: 14px;
 }
 
-.catImage {
-  align-self: center;
+
+ .catImage {
+   align-self: center;
   width: 55%;
-  border-radius: 14px;
+  height: 95%;
+  max-height: 100%;
 }
 
 .catForm {
@@ -153,8 +201,8 @@ export default {
   justify-content: space-around;
   color: #575a8f;
   text-align: center;
-  padding-right: 10px;
-  padding-left: 10px;
+  padding-right: 2%;
+  padding-left: 2%;
 }
 
 .catForm > select {
@@ -163,14 +211,13 @@ export default {
   text-align-last: center;
 }
 
-
 .catForm > input,
 select {
   justify-self: center;
   background-color: #d8d8d8;
   border-radius: 14px;
   color: #575a8f;
-  font-size: 24px;
+  font-size: 150%;
   font-weight: 500;
   font-family: Quicksand, sans-serif;
   border: none;
@@ -179,8 +226,8 @@ select {
 .buttons > button {
   border-radius: 18px;
   width: 45%;
-  height: 40px;
-  margin-bottom: 10px;
+  height: auto;
+  margin-bottom: 2%;
   cursor: pointer;
 }
 input {
@@ -195,11 +242,11 @@ input {
   height: 1.95%;
   width: 5.28%;
   font-family: Quicksand;
-  font-size: 24px;
+  font-size: 150%;
   font-weight: 500;
   letter-spacing: 0;
-  line-height: 30px;
-  padding-right: 10px;
+  line-height: 150%;
+  padding-right: 2%;
 }
 
 .submit-button {
@@ -210,17 +257,14 @@ input {
   width: 5.28%;
   color: #33a3f5;
   font-family: Quicksand;
-  font-size: 24px;
+  font-size: 150%;
   font-weight: 500;
   letter-spacing: 0;
-  line-height: 30px;
+  line-height: 150%;
 }
 input::placeholder {
-  color: #575a8f
+  color: #575a8f;
 }
-
-
-
 
 ::-webkit-input-placeholder {
   text-align: center;
