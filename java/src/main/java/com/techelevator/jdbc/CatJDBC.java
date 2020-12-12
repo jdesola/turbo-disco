@@ -50,7 +50,7 @@ public class CatJDBC implements CatDAO{
 	
 	@Override
 	public void updateFeatured(Cat updatedCat ) {
-		String sql = "update catch_cats set featured = ? where id = ?";
+		String sql = "update catch_cats set isFeatured = ? where id = ?";
 		jdbcTemplate.update(sql, updatedCat.isFeatured(), updatedCat.getId());
 	}
 	
@@ -75,7 +75,7 @@ public class CatJDBC implements CatDAO{
 		catMap.setPreviousJobs(row.getString("prior_jobs"));
 		catMap.setPriorExperienceMonths(row.getInt("prior_experience_months"));
 		catMap.setSkills(row.getString("skills"));
-		catMap.setFeatured(row.getBoolean("featured"));
+		catMap.setFeatured(row.getBoolean("isFeatured"));
 		catMap.setImageUrl(row.getString("image_url"));
 		
 		return catMap;

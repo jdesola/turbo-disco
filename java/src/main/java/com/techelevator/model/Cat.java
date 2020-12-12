@@ -11,15 +11,15 @@ public class Cat {
 	private String description;
 	private long id;
 	private String color;
-	private boolean featured;
+	private boolean isFeatured;
 	private String imageUrl;
 	
 	public boolean isFeatured() {
-		return featured;
+		return isFeatured;
 	}
 
-	public void setFeatured(boolean featured) {
-		this.featured = featured;
+	public void setFeatured(boolean isFeatured) {
+		this.isFeatured = isFeatured;
 	}
 
 	public long getId() {
