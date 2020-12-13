@@ -1,4 +1,4 @@
-<template>
+<template >
   <div class="catCard" >
     <v-avatar class="profilePicture" size="300">
       <img contain v-bind:src="(this.imageUrl === null) ? `${this.genericPath}` : `${this.imageUrl}`" />
@@ -30,7 +30,7 @@
           mapStyle="mapbox://styles/livtolle/ckimct6b505dc18k62mdbx7i8"
         ></vue-mapbox-map>
     <!-- </div> -->
-    <div class="catCardActions">
+    <div class="catCardActions" @click.stop>
       <button class="deleteButton">
         <i class="material-icons icon deleteButton" v-on:click="markCatAdopted"
           >delete</i
