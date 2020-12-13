@@ -12,7 +12,14 @@
       <v-expansion-panel-content>
         <p>{{ cat.description }}</p>
         <p>{{ cat.skills }}</p>
-        
+        <v-rating
+  empty-icon="mdi-paw"
+  full-icon="mdi-paw"
+  hover
+  length="5"
+  size="64"
+  value="3"
+></v-rating>
       </v-expansion-panel-content>
     </v-expansion-panel>
   </v-expansion-panels>
@@ -27,6 +34,8 @@ export default {
   components: { CatCard },
   data() {
     return {
+      ratingsIcon: "<v-icon class='material-icons icon deleteButton'></v-icon>"
+        ,
       map: {
         accessToken:
           "pk.eyJ1IjoibGl2dG9sbGUiLCJhIjoiY2tpbWF3NDA5MDdnMzJ0cGdpeGE0NWc2YyJ9.Iki6ohLmSdN_GzZTKtmvHg",

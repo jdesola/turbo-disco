@@ -31,17 +31,17 @@
         ></vue-mapbox-map>
     <!-- </div> -->
     <div class="catCardActions" @click.stop>
-      <button class="deleteButton">
-        <i class="material-icons icon deleteButton" v-on:click="markCatAdopted"
-          >delete</i
+      <button class="deleteButton" >
+        <v-icon class="material-icons icon deleteButton"  v-on:click="markCatAdopted "
+          >delete</v-icon
         >
       </button>
-      <button class="featureButton">
-        <i 
+      <button class="featureButton" >
+        <v-icon 
           class="material-icons icon featureButton"
           v-text="this.cat.featured ? 'star' : 'star_border'"
           v-on:click="toggleFeatureCat"
-        ></i>
+        ></v-icon>
       </button>
     </div>
   </div>
@@ -257,7 +257,7 @@ export default {
   justify-self: right;
   font-size: 125%;
   color: rgb(128, 1, 1);
-  background-color: #161fc200;
+ 
   border: none;
   cursor: pointer;
 }
@@ -266,7 +266,7 @@ export default {
   justify-self: right;
   font-size: 125%;
   color: #161fc2;
-  background-color: #161fc200;
+
   border: none;
   cursor: pointer;
 }
