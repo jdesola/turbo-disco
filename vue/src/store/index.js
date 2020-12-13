@@ -33,6 +33,7 @@ export default new Vuex.Store({
       skills: "",
       featured: "",
       adopted: "",
+      imageName: "",
     }
   },
   mutations: {

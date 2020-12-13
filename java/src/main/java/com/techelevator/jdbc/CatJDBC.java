@@ -24,9 +24,9 @@ public class CatJDBC implements CatDAO{
 	
 	@Override
 	public void createCat(Cat newCat) {
-		String sql = "INSERT INTO catch_cats (name, age, skills, hair_length, prior_experience_months, prior_jobs, description, color, image_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO catch_cats (name, age, skills, hair_length, prior_experience_months, prior_jobs, description, color, image_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		jdbcTemplate.update(sql, newCat.getName(), newCat.getAge(), newCat.getSkills(), newCat.getHairLength(), newCat.getPriorExperienceMonths(),
-							newCat.getPreviousJobs(), newCat.getDescription(), newCat.getColor(), newCat.getImageUrl());
+							newCat.getPreviousJobs(), newCat.getDescription(), newCat.getColor(), newCat.getImageName());
 	}
 
 
@@ -44,8 +44,8 @@ public class CatJDBC implements CatDAO{
 	
 	@Override 
 	public void updateCat(Cat updatedCat) { 
-		String sql = "update catch_cats set name = ?, age = ?, skills = ?,  hair_length = ?, prior_experience_months = ?, prior_jobs = ?, description = ?, color = ?, image_url = ?, isFeatured = ?, isAdopted = ? where id = ?";
-		jdbcTemplate.update(sql, updatedCat.getName(), updatedCat.getAge(), updatedCat.getSkills(), updatedCat.getHairLength(), updatedCat.getPriorExperienceMonths(), updatedCat.getPreviousJobs(), updatedCat.getDescription(), updatedCat.getColor(), updatedCat.getImageUrl(), updatedCat.isFeatured(), updatedCat.isAdopted(), updatedCat.getId()); 
+		String sql = "update catch_cats set name = ?, age = ?, skills = ?,  hair_length = ?, prior_experience_months = ?, prior_jobs = ?, description = ?, color = ?, image_name = ?, isFeatured = ?, isAdopted = ? where id = ?";
+		jdbcTemplate.update(sql, updatedCat.getName(), updatedCat.getAge(), updatedCat.getSkills(), updatedCat.getHairLength(), updatedCat.getPriorExperienceMonths(), updatedCat.getPreviousJobs(), updatedCat.getDescription(), updatedCat.getColor(), updatedCat.getImageName(), updatedCat.isFeatured(), updatedCat.isAdopted(), updatedCat.getId()); 
 	}
 	
 //	@Override
@@ -76,7 +76,7 @@ public class CatJDBC implements CatDAO{
 		catMap.setPriorExperienceMonths(row.getInt("prior_experience_months"));
 		catMap.setSkills(row.getString("skills"));
 		catMap.setFeatured(row.getBoolean("isFeatured"));
-		catMap.setImageUrl(row.getString("image_url"));
+		catMap.setImageName(row.getString("image_name"));
 		catMap.setAdopted(row.getBoolean("isAdopted"));
 		
 		return catMap;

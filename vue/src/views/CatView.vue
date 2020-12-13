@@ -1,28 +1,58 @@
 <template>
-  <div class=cat-list-container>
-      
-      <cat-card class="cat-card" v-for="cat in allCats" v-bind:key="cat.id" 
-
-      v-bind:cat="cat">  </cat-card>
-      
-  </div>
+  <v-expansion-panels class="cat-list-container">
+    <v-expansion-panel
+      class="cat-card mb-3"
+      v-for="cat in allCats"
+      v-bind:key="cat.id"
+      style="background: #c3c6f381"
+    >
+      <v-expansion-panel-header>
+        <cat-card v-bind:cat="cat"> </cat-card>
+      </v-expansion-panel-header>
+      <v-expansion-panel-content>
+        <p>{{ cat.description }}</p>
+        <p>{{ cat.skills }}</p>
+        <v-rating class="ratings"
+          empty-icon="../assets/png/outline-paw.png"
+          full-icon="../assets/png/pawprint-full.png"
+          color="yellow darken-3"
+          background-color="grey darken-1"
+          hover
+          length="5"
+          size="200"
+          value="2.5"
+        ></v-rating>
+      </v-expansion-panel-content>
+    </v-expansion-panel>
+  </v-expansion-panels>
 </template>
 
 <script>
 // import catService from '../services/CatService'
-import CatCard from '../components/CatCard.vue'
+import CatCard from "../components/CatCard.vue";
 
 export default {
   name: "Cats",
   components: { CatCard },
-  created() {
-      // this.retrieveCats();
+  data() {
+    return {
+      map: {
+        accessToken:
+          "pk.eyJ1IjoibGl2dG9sbGUiLCJhIjoiY2tpbWF3NDA5MDdnMzJ0cGdpeGE0NWc2YyJ9.Iki6ohLmSdN_GzZTKtmvHg",
+        lng: -73.984495,
+        lat: 40.756027,
+        zoom: 13,
+        pitch: 20,
+        bearing: 0,
+      },
+    };
   },
+  props: [],
   computed: {
     resultListLength() {
       return this.$store.state.resultList.length;
     },
-      allCats: function () {
+    allCats: function () {
       return this.$store.state.catList.filter(function (cat) {
         return !cat.adopted;
       });
@@ -34,9 +64,8 @@ export default {
     //       this.$store.commit("SET_CAT_LIST", response.data);
     //     });
     // },
-    
-    }
-}
+  },
+};
 </script>
 
 <style>
@@ -48,10 +77,13 @@ export default {
   box-shadow: -1px 2px 8px 1px rgba(0, 0, 0, 0.5);
 }
 
-.cat-card:nth-child(even) {
+.cat-card:nth-child(odd) {
   background-color: #c3c6f381;
-  
 }
 
-
+/* #map-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+} */
 </style>

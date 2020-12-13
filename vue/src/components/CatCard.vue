@@ -1,16 +1,35 @@
 <template>
-  <div class="catCard">
-    <img src="../assets/png/generic-cat2.png" alt="" id="profilePicture" />
+  <div class="catCard" >
+    <v-avatar class="profilePicture" size="300">
+      <img contain v-bind:src="(this.imageUrl === null) ? `${this.genericPath}` : `${this.imageUrl}`" />
+<!-- v-if="this.imageUrl != null" -->
+      <!-- <img v-else contain  src="../assets/png/generic-cat2.png"  id="profilePicture" />   height="50%" width="auto"-->
+    </v-avatar>
+    <!-- <img src="../assets/png/generic-cat2.png" alt="" id="profilePicture" /> -->
+    
     <h2 id="name">{{ cat.name }}</h2>
-    <img src="../assets/png/cake.png" alt="" id="ageIcon" class="icon" />
+    <i class="material-icons-outlined icon" id="ageIcon">cake</i>
+    <!-- <img src="../assets/png/cake.png" alt="" id="ageIcon" class="icon" /> -->
     <p id="age">{{ cat.age }} Years</p>
-    <img class="icon" id="hairIcon" src="../assets/png/brush.png" />
+    <i class="material-icons icon" id="hairIcon">straighten</i>
     <p id="hairType">{{ cat.hairLength }}</p>
     <i class="material-icons icon" id="jobIcon">work_outline</i>
     <p id="priorJobs">{{ cat.previousJobs }}</p>
     <i class="material-icons icon" id="experienceIcon">schedule</i>
     <p id="priorExperienceMonths">{{ cat.priorExperienceMonths }} Months</p>
-    <p id="description">{{ cat.description }}</p>
+    <!-- <div class="map"> -->
+     <vue-mapbox-map
+          id="map-container"
+          access-token="pk.eyJ1IjoibGl2dG9sbGUiLCJhIjoiY2tpbWF3NDA5MDdnMzJ0cGdpeGE0NWc2YyJ9.Iki6ohLmSdN_GzZTKtmvHg"
+          :interactive="false"
+          lng="-73.984495"
+          lat="40.756027"
+          
+          pitch="20"
+          bearing="0"
+          mapStyle="mapbox://styles/livtolle/ckimct6b505dc18k62mdbx7i8"
+        ></vue-mapbox-map>
+    <!-- </div> -->
     <div class="catCardActions">
       <button class="deleteButton">
         <i class="material-icons icon deleteButton" v-on:click="markCatAdopted"
@@ -29,16 +48,22 @@
 </template>
 
 <script>
+import firebase from 'firebase'
 import catService from "../services/CatService";
+import VueMapboxMap from "vue-mapbox-map";
 
 export default {
   name: "catCard",
   props: ["cat"],
   data() {
     return {
+      imageUrl: null,
+      genericPath: require('../assets/png/generic-cat2.png'),
     };
   },
-  
+  components: { VueMapboxMap },
+  computed: {
+    },
   methods: {
     markCatAdopted() {
       if (confirm("Are you sure you want to mark this cat as adopted? It will not appear on the website anymore.")) {
@@ -83,13 +108,30 @@ export default {
           }
         });
     },
+    async setImageUrl() {
+      if (this.cat.imageName != null){
+        try {
+                const imageName = this.cat.imageName;
+                const storageRef = firebase.storage().ref();
+                const imageRef = storageRef.child(`${imageName}`);
+
+                this.imageUrl = await imageRef.getDownloadURL();
+            } catch (error) {
+                console.log(error);
+            }
+      }
+    }
+    ,
   },
+    created() {
+      this.setImageUrl();
+    }
 };
 </script>
 
 <style scoped>
 .catCard {
-  margin-right: 5%;
+  
   font-family: Quicksand;
   font-weight: 500;
   justify-items: center;
@@ -97,32 +139,39 @@ export default {
   font-size: 175%;
   display: grid;
   grid-template-columns: 25% 10% 20% 25% 20%;
+  grid-template-rows: 25% 25% 25% 25%;
   grid-template-areas:
-    "pic ageIcon age . ."
+    "pic ageIcon age description  ."
     "pic hairIcon hair description ."
     "pic jobIcon title description ."
-    "name experienceIcon months . catCardActions";
+    "name experienceIcon months description  catCardActions";
 }
 
 
 
 .icon {
+  font-size: 185%;
   display: inline;
   align-self: center;
   justify-self: right;
   margin-right: 15%;
   color: #33a3f5;
-  font-size: max-content;
+  margin-right: 3%;
+  padding-bottom: 6%;
 }
 
 
 
-#profilePicture {
-  padding-top: 4%;
+.profilePicture {
+  margin-top: 10%;
   grid-area: pic;
-  width: 60%;
-  height: auto;
-  border-radius: 50%;
+  /* width: 60%;
+  height: auto; */
+}
+
+.profilePicture > img {
+  height: 100%;
+  width: auto;
 }
 
 #name {
@@ -131,6 +180,7 @@ export default {
   color: #161fc2;
   font-weight: 700;
   line-height: 25%;
+  margin-bottom: 5%;
 }
 
 #age {
@@ -141,11 +191,11 @@ export default {
 
 #ageIcon {
   grid-area: ageIcon;
-  margin-right: 2%;
+  /* margin-right: 2%;
   margin-bottom: 3%;
   height: 60%;
   filter: invert(51%) sepia(97%) saturate(1488%) hue-rotate(180deg)
-    brightness(90%) contrast(93%);
+    brightness(90%) contrast(93%); */
 }
 
 #hairType {
@@ -156,16 +206,16 @@ export default {
 
 #hairIcon {
   grid-area: hairIcon;
-  margin-bottom: 3%;
+  /* margin-bottom: 3%;
   margin-right: 5%;
   height: 60%;
   filter: invert(51%) sepia(97%) saturate(1488%) hue-rotate(180deg)
-    brightness(90%) contrast(93%);
+    brightness(90%) contrast(93%); */
 }
 
 #jobIcon {
   grid-area: jobIcon;
-  font-size: 185%;
+  
   margin-right: 4%;
   margin-bottom: 1%;
 }
@@ -178,9 +228,7 @@ export default {
 
 #experienceIcon {
   grid-area: experienceIcon;
-  font-size: 185%;
-  margin-right: 3%;
-  margin-bottom: 2%;
+  
 }
 #priorExperienceMonths {
   grid-area: months;
@@ -188,10 +236,21 @@ export default {
   justify-self: left;
 }
 
-#description {
+/* .map {
+  position: relative;
   grid-area: description;
   color: #c24a15;
-  justify-self: left;
+ 
+  
+} */
+
+#map-container {
+  grid-area: description;
+  position: relative;
+   /* position: absolute; */
+  height: 100%;
+  width: 100%;
+  border-radius: 14px;
 }
 
 .deleteButton {
@@ -214,5 +273,6 @@ export default {
 
 .catCardActions {
   grid-area: catCardActions;
+  justify-self: right;
 }
 </style>

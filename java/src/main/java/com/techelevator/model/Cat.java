@@ -12,7 +12,7 @@ public class Cat {
 	private long id;
 	private String color;
 	private boolean featured;
-	private String imageUrl;
+	private String imageName;
 	private boolean adopted;
 	
 	public boolean isAdopted() {
@@ -90,12 +90,12 @@ public class Cat {
 		this.color = color;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
+	public String getImageName() {
+		return imageName;
 	}
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+	public void setImageName(String imageUrl) {
+		this.imageName = imageUrl;
 	}
 	
 	

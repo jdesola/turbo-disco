@@ -9,10 +9,11 @@ export default new Vuetify({
         themes: {
           light: {
             primary: '#000',
-            secondary: colors.grey.darken1,
-            accent: colors.shades.black,
+            secondary: '#33a3f5',
+            accent: colors.shades.white,
             error: colors.red.accent3,
-            background: '#CFD8DC'// Not automatically applied
+            info: colors.shades.white,
+            background: '#EEEEEE'// Not automatically applied
         
           },
           dark: {

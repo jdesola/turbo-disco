@@ -38,10 +38,8 @@ CREATE TABLE catch_cats (
     description character varying(255) NOT NULL,
     color character varying(255) not null,
     isFeatured boolean not null default false,
-    image_url varchar(255),
-    isAdopted boolean not null default false
-    
-    
+    image_name varchar(255),
+    isAdopted boolean not null default false,
     PRIMARY KEY (id),
     CONSTRAINT chk_hair_length CHECK (hair_length in ('Long','Short','Hairless'))
 );

@@ -41,7 +41,7 @@ export default {
 </script>
 
 <style>
-#app {
+#main {
   padding-left: 7.5%;
   padding-right: 7.5%;
 }
