@@ -116,5 +116,18 @@ export default new Vuex.Store({
       state.storyList = data;
     },
     
+    UPDATE_RATINGS(state, payload){
+     
+          const { id, strengthRating,staminaRating,speedRating,intelligenceRating } = payload;
+          const cat = state.catList.find(c => c.id === id);
+          cat.strengthRating = strengthRating;
+          cat.staminaRating=staminaRating;
+          cat.speedRating=speedRating;
+          cat.intelligenceRating=intelligenceRating;
+      
+
+    },
+   
+
   }
 })
