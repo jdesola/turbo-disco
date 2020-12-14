@@ -12,16 +12,17 @@ export default new Vuetify({
     theme: {
         themes: {
           light: {
+           
+            background: '#EEEEEE'// Not automatically applied
+        
+          },
+          dark: {
             primary: '#000',
             secondary: '#33a3f5',
             accent: "#c24a15",
             error: colors.red.accent3,
             info: "#f6af71",
-            background: '#EEEEEE'// Not automatically applied
-        
-          },
-          dark: {
-            primary: colors.blue.lighten3, 
+           
             background: colors.indigo.base, // If not using lighten/darken, use base to return hex
         
           },
