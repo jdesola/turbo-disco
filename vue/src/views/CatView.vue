@@ -7,21 +7,19 @@
       style="background: #c3c6f381"
     >
       <v-expansion-panel-header>
-        <cat-card v-bind:cat="cat"> </cat-card>
+        <cat-card v-bind:cat="cat" > </cat-card>
       </v-expansion-panel-header>
       <v-expansion-panel-content>
         <p>{{ cat.description }}</p>
         <p>{{ cat.skills }}</p>
-        <v-rating class="ratings"
-          empty-icon="../assets/png/outline-paw.png"
-          full-icon="../assets/png/pawprint-full.png"
-          color="yellow darken-3"
-          background-color="grey darken-1"
-          hover
-          length="5"
-          size="200"
-          value="2.5"
-        ></v-rating>
+        <v-rating
+  empty-icon="mdi-paw"
+  full-icon="mdi-paw"
+  hover
+  length="5"
+  size="64"
+  value="3"
+></v-rating>
       </v-expansion-panel-content>
     </v-expansion-panel>
   </v-expansion-panels>
@@ -36,6 +34,8 @@ export default {
   components: { CatCard },
   data() {
     return {
+      ratingsIcon: "<v-icon class='material-icons icon deleteButton'></v-icon>"
+        ,
       map: {
         accessToken:
           "pk.eyJ1IjoibGl2dG9sbGUiLCJhIjoiY2tpbWF3NDA5MDdnMzJ0cGdpeGE0NWc2YyJ9.Iki6ohLmSdN_GzZTKtmvHg",
@@ -63,7 +63,7 @@ export default {
     //   catService.getCats().then(response => {
     //       this.$store.commit("SET_CAT_LIST", response.data);
     //     });
-    // },
+    // }
   },
 };
 </script>

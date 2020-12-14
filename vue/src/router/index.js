@@ -9,6 +9,7 @@ import CatForm from '../views/CatForm'
 import Cats from '../views/CatView'
 import FeaturedCats from '../views/FeaturedCats'
 import Gallery from '../views/GalleryView'
+import SuccessStoriesForm from '../components/SuccessStoriesForm'
 
 Vue.use(Router)
 
@@ -84,6 +85,14 @@ const router = new Router({
         path: "/gallery",
         name: "gallery",
         component: Gallery,
+        meta: {
+          requiresAuth: false
+        }
+      },
+      {
+        path: "/successStoriesForm",
+        name: "successStoriesForm",
+        component: SuccessStoriesForm,
         meta: {
           requiresAuth: false
         }

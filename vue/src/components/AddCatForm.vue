@@ -118,8 +118,6 @@
           type="submit"
           color="#161fc2"
           depressed
-          :loading="loading"
-          :disabled="loading"
           v-on:click.prevent="saveNewCat"
           @click.prevent="onUpload"
         >
