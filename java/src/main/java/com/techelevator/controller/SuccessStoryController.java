@@ -27,7 +27,7 @@ public class SuccessStoryController {
 	}
 	
 	
-	@RequestMapping (path ="/cats/successStories", method=RequestMethod.GET)
+	@RequestMapping (path ="/successStories", method=RequestMethod.GET)
 	public List<SuccessStory> getSuccessStories() {
 		return successStoryDao.listSuccessStories();
 	}
