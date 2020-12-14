@@ -79,7 +79,7 @@ export default new Vuex.Store({
       const cat = state.catList.find(c => c.id === id);
       cat.featured = featured;
     },
-    ADD_CAT(payload) {
+    ADD_CAT(state, payload) {
       const newCat = {
         id: payload.id,
         name: payload.name,
@@ -98,10 +98,10 @@ export default new Vuex.Store({
         speedRating: payload.speedRating,
         staminaRating: payload.staminaRating
       }
-      this.catList.push(newCat);
+      state.catList.push(newCat);
 
     },
-    ADD_STORY(payload) {
+    ADD_STORY(state, payload) {
       const newStory ={
         catId: payload.catId,
       catName: payload.catName,
@@ -109,7 +109,7 @@ export default new Vuex.Store({
       dateAdopted: payload.dateAdopted,
       successStory: payload.successStory,
       }
-      this.storyList.push(newStory);
+      state.storyList.push(newStory);
     },
 
     SET_STORY_LIST(state, data) {

@@ -158,12 +158,12 @@ export default {
     saveNewCat() {
       catService.addCat(this.newCat).then((response) => {
         if (response.status === 201) {
-          this.$store.state.commit('ADD_CAT', this.newCat);
+          this.$store.commit('ADD_CAT', this.newCat);
           this.newCat = {
             name: "",
             age: 1,
             hairLength: "",
-            priorExperienceMonths: "",
+            priorExperienceMonths: 1,
             previousJobs: "",
             description: "",
             color: "",
@@ -187,6 +187,7 @@ export default {
       this.tempUrl = URL.createObjectURL(this.imageData);
     },
     onUpload() {
+      if (this.imageData != null) {
       this.img1 = null;
       const storageRef = firebase
         .storage()
@@ -205,6 +206,7 @@ export default {
           this.uploadValue = 100;
         }
       );
+    }
     },
   },
 };
