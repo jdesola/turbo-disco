@@ -60,7 +60,7 @@
               length="5"
               size="20"
               value="3"
-              color=#33A3F5
+              color=#33A3F5add
             ></v-rating>
           </div>
         </div>
