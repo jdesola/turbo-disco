@@ -22,8 +22,8 @@
           id="map-container"
           access-token="pk.eyJ1IjoibGl2dG9sbGUiLCJhIjoiY2tpbWF3NDA5MDdnMzJ0cGdpeGE0NWc2YyJ9.Iki6ohLmSdN_GzZTKtmvHg"
           :interactive="false"
-          lng="-73.984495"
-          lat="40.756027"
+          lng="-82.9998051" 
+          lat="40.0573546"
           
           pitch="20"
           bearing="0"
