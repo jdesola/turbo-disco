@@ -23,8 +23,8 @@
               length="5"
               size="20"
               value="3"
-              color=#575A8F
-               background-color="#575A8F"
+              color="#575A8F"
+              background-color="#575A8F"
             ></v-rating>
           </div>
           <div class="intelligence">
@@ -36,8 +36,8 @@
               length="5"
               size="20"
               value="3"
-              color=#121FCA
-               background-color="#121FCA"
+              color="#121FCA"
+              background-color="#121FCA"
             ></v-rating>
           </div>
           <div class="speed">
@@ -49,8 +49,8 @@
               length="5"
               size="20"
               value="3"
-              color=#C24A15
-              background-color="#C24A15" 
+              color="#C24A15"
+              background-color="#C24A15"
             ></v-rating>
           </div>
           <div class="stamina">
@@ -62,7 +62,7 @@
               length="5"
               size="20"
               value="3"
-              color=#33A3F5
+              color="#33A3F5"
               background-color="#33A3F5"
             ></v-rating>
           </div>
@@ -132,49 +132,58 @@ export default {
   height: 100%;
   width: 100%;
 } */
-.ratings-header{
+.ratings-header {
   grid-area: ratings-header;
   text-align: center;
   font-weight: 500;
   /* border-bottom: 1px solid black; */
-  font-family: 'subscriber';
+  font-family: "subscriber";
   font-size: 30px;
-  color:#C24A15;
+  color: #c24a15;
 }
-.strength{
+.strength {
   grid-area: strength;
-   text-align: center;
+  text-align: center;
 }
-.intelligence{
+.intelligence {
   grid-area: intelligence;
-   text-align: center;
+  text-align: center;
 }
-.speed{
+.speed {
   grid-area: speed;
-   text-align: center;
+  text-align: center;
 }
-.stamina{
-  grid-area:stamina;
-   text-align: center;
+.stamina {
+  grid-area: stamina;
+  text-align: center;
 }
-.stamina > .v-ratings > empty-icon{
-  color:#33A3F5
+.stamina > .v-ratings > empty-icon {
+  color: #33a3f5;
 }
 .ratings-container {
   display: grid;
   grid-template-areas:
-   'ratings-header ratings-header'
-   'strength intelligence'
-   'speed stamina';
-  grid-row-gap:
-   5px;
-   justify-content: space-evenly;
-   border: 1px solid #575A8F;
-   border-radius: 10px;
-   box-shadow: -1px 2px 8px 1px rgba(0, 0, 0, 0.5);
-   width:35%;
-  background: rgba(166,166,166,0.65);
-   font-family: "subscriber";
-   font-size: 15pt;
+    "ratings-header ratings-header"
+    "strength intelligence"
+    "speed stamina";
+
+  grid-column-gap: 10%;
+  justify-content: space-evenly;
+  border: 1px solid #575a8f;
+  border-radius: 10px;
+  box-shadow: -1px 2px 8px 1px rgba(0, 0, 0, 0.5);
+  width: 27%;
+  background: whitesmoke; /* rgba(166, 166, 166, 0.65 */
+  font-family: "subscriber";
+  font-size: 15pt;
+  padding-bottom: 5px;
+  transition: 1s ease;
 }
+.ratings-container:hover{
+-webkit-transform: scale(1.2);
+-ms-transform: scale(1.2);
+transform: scale(1.2);
+transition: 1s ease;
+}
+
 </style>
