@@ -7,19 +7,63 @@
       style="background: #c3c6f381"
     >
       <v-expansion-panel-header>
-        <cat-card v-bind:cat="cat" > </cat-card>
+        <cat-card v-bind:cat="cat"> </cat-card>
       </v-expansion-panel-header>
       <v-expansion-panel-content>
         <p>{{ cat.description }}</p>
         <p>{{ cat.skills }}</p>
-        <v-rating
-  empty-icon="mdi-paw"
-  full-icon="mdi-paw"
-  hover
-  length="5"
-  size="64"
-  value="3"
-></v-rating>
+        <div class="ratings-container">
+          <div class="ratings-header">Cat Stats</div>
+          <div class="strength">
+            Strength
+            <v-rating
+              empty-icon="mdi-paw-outline"
+              full-icon="mdi-paw"
+              hover
+              length="5"
+              size="20"
+              value="3"
+              color=#575A8F
+              
+            ></v-rating>
+          </div>
+          <div class="intelligence">
+            Intelligence
+            <v-rating
+              empty-icon="mdi-paw"
+              full-icon="mdi-paw"
+              hover
+              length="5"
+              size="20"
+              value="3"
+              color=#F8B06B
+            ></v-rating>
+          </div>
+          <div class="speed">
+            Speed
+            <v-rating
+              empty-icon="mdi-paw"
+              full-icon="mdi-paw"
+              hover
+              length="5"
+              size="20"
+              value="3"
+              color=#C24A15
+            ></v-rating>
+          </div>
+          <div class="stamina">
+            Stamina
+            <v-rating
+              empty-icon="mdi-paw"
+              full-icon="mdi-paw"
+              hover
+              length="5"
+              size="20"
+              value="3"
+              color=#33A3F5
+            ></v-rating>
+          </div>
+        </div>
       </v-expansion-panel-content>
     </v-expansion-panel>
   </v-expansion-panels>
@@ -34,8 +78,7 @@ export default {
   components: { CatCard },
   data() {
     return {
-      ratingsIcon: "<v-icon class='material-icons icon deleteButton'></v-icon>"
-        ,
+      ratingsIcon: "<v-icon class='material-icons icon deleteButton'></v-icon>",
       map: {
         accessToken:
           "pk.eyJ1IjoibGl2dG9sbGUiLCJhIjoiY2tpbWF3NDA5MDdnMzJ0cGdpeGE0NWc2YyJ9.Iki6ohLmSdN_GzZTKtmvHg",
@@ -52,8 +95,8 @@ export default {
     resultListLength() {
       return this.$store.state.resultList.length;
     },
-    allCats: function () {
-      return this.$store.state.catList.filter(function (cat) {
+    allCats: function() {
+      return this.$store.state.catList.filter(function(cat) {
         return !cat.adopted;
       });
     },
@@ -86,4 +129,43 @@ export default {
   height: 100%;
   width: 100%;
 } */
+.ratings-header{
+  grid-area: ratings-header;
+  text-align: center;
+  font-weight: 500;
+  border-bottom: 1px solid black;
+  font-family: 'subscriberregular';
+}
+.strength{
+  grid-area: strength;
+   text-align: center;
+}
+.intelligence{
+  grid-area: intelligence;
+   text-align: center;
+}
+.speed{
+  grid-area: speed;
+   text-align: center;
+}
+.stamina{
+  grid-area:stamina;
+   text-align: center;
+}
+.ratings-container {
+  display: grid;
+  grid-template-areas:
+   'ratings-header ratings-header'
+   'strength intelligence'
+   'speed stamina';
+  grid-row-gap:
+   5px;
+   justify-content: space-evenly;
+   border: 1px solid #575A8F;
+   border-radius: 10px;
+   box-shadow: -1px 2px 8px 1px rgba(0, 0, 0, 0.5);
+   width:35%;
+  background: rgba(166,166,166,0.65);
+   
+}
 </style>
