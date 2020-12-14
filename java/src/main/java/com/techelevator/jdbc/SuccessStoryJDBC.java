@@ -21,16 +21,17 @@ public class SuccessStoryJDBC implements SuccessStoryDAO {
 	public SuccessStoryJDBC(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
+	
 	@Override
 	public void createSuccessStory(SuccessStory story) {
-		String sql = "insert into success_stories values (?,?,?,?)";
+		String sql = "insert into success_stories (cat_id, adopter_name, date_adopted, story) values (?,?,?,?)";
 		jdbcTemplate.update(sql, story.getCatId(), story.getAdopterName(), story.getDateAdopted(),story.getSuccessStory());
 	}
 	
 	@Override
 	public List<SuccessStory> listSuccessStories() {
 		List<SuccessStory> successStoriesList = new ArrayList<SuccessStory>();
-		String sql = "select catch_cats.name , date_adopted , story , cat_id, adopter_name from success_stories join catch_cats on catch_cats.id = success_stories.cat_id";
+		String sql = "select catch_cats.name , date_adopted , story , cat_id, adopter_name, success_stories.id from success_stories join catch_cats on success_stories.cat_id = catch_cats.id";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 		while(results.next()) {
 			SuccessStory story = mapRowToStory(results);
@@ -41,6 +42,8 @@ public class SuccessStoryJDBC implements SuccessStoryDAO {
 	
 	private SuccessStory mapRowToStory(SqlRowSet row) {
 		SuccessStory storyMap = new SuccessStory();
+		storyMap.setStoryId(row.getLong("id"));
+		storyMap.setCatName(row.getString("name"));
 		storyMap.setCatId(row.getLong("cat_id"));
 		storyMap.setAdopterName(row.getString("adopter_name"));
 		storyMap.setDateAdopted(row.getDate("date_adopted"));

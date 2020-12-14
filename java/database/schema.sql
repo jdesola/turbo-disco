@@ -50,6 +50,7 @@ CREATE TABLE catch_cats (
 
 CREATE TABLE success_stories (
         
+        id serial NOT NULL,
         cat_id integer NOT NULL,
         adopter_name varchar (50) NOT NULL,
         date_adopted date not null, 
