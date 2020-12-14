@@ -10,8 +10,9 @@
         <cat-card v-bind:cat="cat"> </cat-card>
       </v-expansion-panel-header>
       <v-expansion-panel-content>
-        <p>{{ cat.description }}</p>
-        <p>{{ cat.skills }}</p>
+        <div class="expansion-panel-grid">
+        <p class ="cat-description">{{ cat.description }}</p>
+        <p class="cat-skills">{{ cat.skills }}</p>
         <div class="ratings-container">
           <div class="ratings-header">Cat Stats</div>
           <div class="strength">
@@ -66,6 +67,7 @@
               background-color="#33A3F5"
             ></v-rating>
           </div>
+        </div>
         </div>
       </v-expansion-panel-content>
     </v-expansion-panel>
@@ -161,6 +163,7 @@ export default {
   color: #33a3f5;
 }
 .ratings-container {
+  grid-area:ratings-card;
   display: grid;
   grid-template-areas:
     "ratings-header ratings-header"
@@ -172,7 +175,7 @@ export default {
   border: 1px solid #575a8f;
   border-radius: 10px;
   box-shadow: -1px 2px 8px 1px rgba(0, 0, 0, 0.5);
-  width: 27%;
+  width: 110%;
   background: whitesmoke; /* rgba(166, 166, 166, 0.65 */
   font-family: "subscriber";
   font-size: 15pt;
@@ -185,5 +188,18 @@ export default {
 transform: scale(1.2);
 transition: 1s ease;
 }
-
+.expansion-panel-grid{
+  justify-content: space-evenly;
+display:grid;
+grid-template-areas:
+'cat-description auto ratings-card'
+'cat-skills auto ratings-card'
+ ;
+}
+.cat-skills{
+  grid-area: cat-skills;
+}
+.cat-description{
+  grid-area: cat-description;
+}
 </style>
