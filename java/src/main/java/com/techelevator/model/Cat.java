@@ -14,6 +14,10 @@ public class Cat {
 	private boolean featured;
 	private String imageName;
 	private boolean adopted;
+	private int strengthRating;
+	private int intelligenceRating;
+	private int speedRating;
+	private int staminaRating;
 	
 	public boolean isAdopted() {
 		return adopted;
@@ -96,6 +100,38 @@ public class Cat {
 
 	public void setImageName(String imageUrl) {
 		this.imageName = imageUrl;
+	}
+
+	public int getStrengthRating() {
+		return strengthRating;
+	}
+
+	public void setStrengthRating(int strengthRating) {
+		this.strengthRating = strengthRating;
+	}
+
+	public int getIntelligenceRating() {
+		return intelligenceRating;
+	}
+
+	public void setIntelligenceRating(int intelligenceRating) {
+		this.intelligenceRating = intelligenceRating;
+	}
+
+	public int getSpeedRating() {
+		return speedRating;
+	}
+
+	public void setSpeedRating(int speedRating) {
+		this.speedRating = speedRating;
+	}
+
+	public int getStaminaRating() {
+		return staminaRating;
+	}
+
+	public void setStaminaRating(int staminaRating) {
+		this.staminaRating = staminaRating;
 	}
 	
 	

@@ -44,7 +44,7 @@ public class CatJDBC implements CatDAO{
 	
 	@Override 
 	public void updateCat(Cat updatedCat) { 
-		String sql = "update catch_cats set name = ?, age = ?, skills = ?,  hair_length = ?, prior_experience_months = ?, prior_jobs = ?, description = ?, color = ?, image_name = ?, isFeatured = ?, isAdopted = ? where id = ?";
+		String sql = "update catch_cats set name = ?, age = ?, skills = ?,  hair_length = ?, prior_experience_months = ?, prior_jobs = ?, description = ?, color = ?, image_name = ?, isFeatured = ?, isAdopted = ?, strength_rating = ?, intelligence_rating = ?, speed_rating = ?, stamina_rating = ? where id = ?";
 		jdbcTemplate.update(sql, updatedCat.getName(), updatedCat.getAge(), updatedCat.getSkills(), updatedCat.getHairLength(), updatedCat.getPriorExperienceMonths(), updatedCat.getPreviousJobs(), updatedCat.getDescription(), updatedCat.getColor(), updatedCat.getImageName(), updatedCat.isFeatured(), updatedCat.isAdopted(), updatedCat.getId()); 
 	}
 	
@@ -78,6 +78,10 @@ public class CatJDBC implements CatDAO{
 		catMap.setFeatured(row.getBoolean("isFeatured"));
 		catMap.setImageName(row.getString("image_name"));
 		catMap.setAdopted(row.getBoolean("isAdopted"));
+		catMap.setStrengthRating(row.getInt("strength_rating"));
+		catMap.setIntelligenceRating(row.getInt("intelligence_rating"));
+		catMap.setSpeedRating(row.getInt("speed_rating"));
+		catMap.setStaminaRating(row.getInt("stamina_rating"));
 		
 		return catMap;
 		
