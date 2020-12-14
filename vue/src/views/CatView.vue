@@ -63,7 +63,7 @@ export default {
     //   catService.getCats().then(response => {
     //       this.$store.commit("SET_CAT_LIST", response.data);
     //     });
-    // },
+    // }
   },
 };
 </script>
