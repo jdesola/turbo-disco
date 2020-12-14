@@ -45,7 +45,7 @@ public class CatJDBC implements CatDAO{
 	@Override 
 	public void updateCat(Cat updatedCat) { 
 		String sql = "update catch_cats set name = ?, age = ?, skills = ?,  hair_length = ?, prior_experience_months = ?, prior_jobs = ?, description = ?, color = ?, image_name = ?, isFeatured = ?, isAdopted = ?, strength_rating = ?, intelligence_rating = ?, speed_rating = ?, stamina_rating = ? where id = ?";
-		jdbcTemplate.update(sql, updatedCat.getName(), updatedCat.getAge(), updatedCat.getSkills(), updatedCat.getHairLength(), updatedCat.getPriorExperienceMonths(), updatedCat.getPreviousJobs(), updatedCat.getDescription(), updatedCat.getColor(), updatedCat.getImageName(), updatedCat.isFeatured(), updatedCat.isAdopted(), updatedCat.getId()); 
+		jdbcTemplate.update(sql, updatedCat.getName(), updatedCat.getAge(), updatedCat.getSkills(), updatedCat.getHairLength(), updatedCat.getPriorExperienceMonths(), updatedCat.getPreviousJobs(), updatedCat.getDescription(), updatedCat.getColor(), updatedCat.getImageName(), updatedCat.isFeatured(), updatedCat.isAdopted(), updatedCat.getStrengthRating(), updatedCat.getIntelligenceRating(), updatedCat.getSpeedRating(), updatedCat.getStaminaRating(), updatedCat.getId()); 
 	}
 	
 //	@Override

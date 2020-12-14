@@ -5,15 +5,16 @@
       <router-link class="cat-logo" v-bind:to="{name: 'home'}">
         <img  class="cat-logo" src="../assets/png/small-logo.png"/>
       </router-link>
-      <router-link class="button featured" v-on:click="resetList" v-bind:to="{name: 'featuredCats'}">
-        <h1></h1>
+      <router-link class="button featured d-flex align-center" v-on:click="resetList" v-bind:to="{name: 'featuredCats'}">
+        <v-icon class="material-icons featuredIcon" size="80" > star </v-icon>
+        <h1>Featured</h1>
       </router-link>
       <router-link class="button cats" v-bind:to="{name: 'cats'}" v-on:click="resetList">
-        <img class="button cats" src="../assets/webp/cats-button.webp" />
+        <h1>Cats</h1>
       </router-link>
-      <a href="" class="button tools" v-on:click="resetList"
-        ><img class="button tools" src="../assets/webp/admin-tools-button.webp"
-      /></a>
+      <router-link class="button tools" v-on:click="resetList" v-bind:to="{name: 'featuredCats'}">
+        <h1>Tools</h1>
+      </router-link>
       <div class="search-container">
         <input type="text" class="search-bar" v-model=searchTerm @keyup.enter="runSearch"/>
           <button>
@@ -82,6 +83,8 @@ export default {
 
 .header-main {
   display: grid;
+  font-family: 'Subscriber';
+  font-size: 350%;
   grid-template-columns: 2% 12% 15% 15% 15% 15% 10%;
   grid-template-rows: 33% 34% 33%;
   grid-template-areas:
@@ -103,18 +106,26 @@ export default {
   width: 100%;
 }
 
-.featured {
+.featured, .featuredIcon {
   grid-area: feat;
+  color:  #161fc2 !important;
+  text-decoration: none;
+  
 }
+
 
 .cats {
   grid-area: cats;
   justify-self: center;
+  text-decoration: none;
+  color: #f6af71 !important;
 }
 
 .tools {
   grid-area: tools;
   margin-left: 3%;
+  text-decoration: none;
+  color: #575a8f !important;
 }
 
 .search-container {

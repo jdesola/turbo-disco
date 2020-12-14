@@ -158,6 +158,7 @@ export default {
     saveNewCat() {
       catService.addCat(this.newCat).then((response) => {
         if (response.status === 201) {
+          this.$stolre.state.commit('ADD_CAT', this.newCat);
           this.newCat = {
             name: "",
             age: 1,

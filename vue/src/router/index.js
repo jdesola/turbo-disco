@@ -66,7 +66,7 @@ const router = new Router({
         }
       },
       {
-        path: "/addCatForm",
+        path: "/tools/addCat",
         name: "addCatForm",
         component: CatForm,
         meta:{
@@ -90,7 +90,7 @@ const router = new Router({
         }
       },
       {
-        path: "/successStoriesForm",
+        path: "/tools/successStoryForm",
         name: "successStoriesForm",
         component: SuccessStoriesForm,
         meta: {

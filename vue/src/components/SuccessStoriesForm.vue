@@ -29,7 +29,7 @@
                 >
                     <template v-slot:activator="{ on, attrs }">
                     <v-text-field
-                        v-model="newSuccessStory.adoptionDate"
+                        v-model="newSuccessStory.dateAdopted"
                         label="Date Adopted"
                         prepend-icon="mdi-calendar"
                         readonly
@@ -37,7 +37,7 @@
                         v-on="on"
                     ></v-text-field>
                     </template>
-                    <v-date-picker color="#c24a15" v-model="newSuccessStory.adoptionDate" no-title scrollable>
+                    <v-date-picker color="#c24a15" v-model="newSuccessStory.dateAdopted" no-title scrollable>
                     <v-spacer></v-spacer>
                     <v-btn text color="#c24a15" @click="menu = false"> Cancel </v-btn>
                     <v-btn text color="primary" @click="$refs.menu.save(date)">
@@ -53,7 +53,7 @@
           <v-text-field label="Adopter Name" color="#f6af71" outlined v-model="newSuccessStory.adopterName"></v-text-field>
             </v-col>
             <v-col>
-          <v-textarea auto-grow outlined  color="#575a8f" counter rows="1"  :rules="rules" clearable label="Success Story"  v-model="newSuccessStory.story">  </v-textarea>
+          <v-textarea auto-grow outlined  color="#575a8f" counter rows="1"  :rules="rules" clearable label="Success Story"  v-model="newSuccessStory.successStory">  </v-textarea>
             </v-col>
         </v-row>
       <v-row justify="center">
@@ -64,7 +64,7 @@
           class="submit-button secondary--text"
           type="submit"
           color="#161fc2"
-          
+          @click="submitNewStory"
         >
           Submit
         </v-btn>
@@ -76,6 +76,8 @@
 </template>
 
 <script>
+import StoryService from '../services/StoryService';
+
 export default {
   name: "SuccessStoriesForm",
   data() {
@@ -88,9 +90,9 @@ export default {
       menu2: false,
       newSuccessStory: {
           catId: "",
-          adoptionDate: "",
+          dateAdopted: null,
           adopterName: "",
-          story: "",
+          successStory: "",
       }
     };
   },
@@ -100,6 +102,22 @@ export default {
         const catId = cat.id;
         const catName = cat.name;
         this.cats.push({ value: catId, name: catName });
+      });
+    },
+    submitNewStory() {
+      StoryService.addStory(this.newSuccessStory).then((response) => {
+        if (response.status === 201) {
+          this.$store.state.commit('ADD_STORY', this.newSuccessStory);
+          this.newSuccessStory = {
+            catId: "",
+          dateAdopted: null,
+          adopterName: "",
+          successStory: "",
+          };
+          this.$router.push({ name: "home" });
+        } else {
+          console.log(response.statusText);
+        }
       });
     },
     reset () {

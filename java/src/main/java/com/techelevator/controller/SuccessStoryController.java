@@ -26,7 +26,7 @@ public class SuccessStoryController {
 	
 	
 	@ResponseStatus(HttpStatus.CREATED)
-	@RequestMapping(value="/cats/successStoryForm", method = RequestMethod.POST)
+	@RequestMapping(value="/tools/successStoryForm", method = RequestMethod.POST)
 	public void SuccessStory (@RequestBody SuccessStory story) {
 		successStoryDao.createSuccessStory(story);
 	}

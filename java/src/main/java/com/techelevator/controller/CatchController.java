@@ -34,7 +34,7 @@ public class CatchController {
 	}
 	
 	@ResponseStatus(HttpStatus.CREATED)
-	@RequestMapping(value="/cats/addCat", method = RequestMethod.POST)
+	@RequestMapping(value="/tools/addCat", method = RequestMethod.POST)
 	public void cat (@RequestBody Cat cat) {
 		catDao.createCat(cat);
 	}

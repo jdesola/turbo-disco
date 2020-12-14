@@ -21,6 +21,7 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     catList: [],
+    storyList: [],
     cat: {
       id: "",
       name: "",
@@ -34,6 +35,18 @@ export default new Vuex.Store({
       featured: "",
       adopted: "",
       imageName: "",
+      strengthRating: "",
+      intelligenceRating: "",
+      speedRating: "",
+      staminaRating: "",
+    },
+    SuccessStory: {
+      storyId: "",
+      catId: "",
+      catName: "",
+      adopterName: "",
+      dateAdopted: "",
+      successStory: "",
     }
   },
   mutations: {
@@ -62,11 +75,41 @@ export default new Vuex.Store({
       cat.adopted = adopted;
     },
     TOGGLE_FEATURE_CAT(state, payload) {
-      const { id, featured} = payload;
+      const { id, featured } = payload;
       const cat = state.catList.find(c => c.id === id);
       cat.featured = featured;
+    },
+    ADD_CAT(payload) {
+      const newCat = {
+        id: payload.id,
+        name: payload.name,
+        age: payload.age,
+        hairLength: payload.hairLength,
+        priorExperienceMonths: payload.priorExperienceMonths,
+        previousJobs: payload.previousJobs,
+        description: payload.description,
+        color: payload.color,
+        skills: payload.skills,
+        featured: payload.featured,
+        adopted: payload.adopted,
+        imageName: payload.imageName,
+        strengthRating: payload.strengthRating,
+        intelligenceRating: payload.intelligenceRating,
+        speedRating: payload.speedRating,
+        staminaRating: payload.staminaRating
+      }
+      this.catList.push(newCat);
+
+    },
+    ADD_STORY(payload) {
+      const newStory ={
+        catId: payload.catId,
+      catName: payload.catName,
+      adopterName: payload.adopterName,
+      dateAdopted: payload.dateAdopted,
+      successStory: payload.successStory,
+      }
+      this.storyList.push(newStory);
     }
-
-
   }
 })

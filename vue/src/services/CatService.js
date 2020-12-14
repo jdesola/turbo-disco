@@ -11,7 +11,7 @@ export default {
     },
 
     addCat(newCat) {
-        return http.post('/cats/addCat', newCat);
+        return http.post('/tools/addCat', newCat);
     },
 
     updateCat(updatedCat) {
