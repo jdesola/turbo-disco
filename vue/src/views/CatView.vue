@@ -215,11 +215,12 @@ transition: 1s ease;
 }
 .expansion-panel-grid{
   padding-top: 10px;
+  padding-right:175px;
   justify-content: space-evenly;
 display:grid;
 grid-template-areas:
-'cat-description auto ratings-card'
-'cat-skills auto ratings-card'
+'cat-description auto auto ratings-card'
+'cat-skills auto auto ratings-card'
  ;
 }
 .cat-skills{
