@@ -41,8 +41,8 @@ public class SuccessStoryJDBC implements SuccessStoryDAO {
 	
 	private SuccessStory mapRowToStory(SqlRowSet row) {
 		SuccessStory storyMap = new SuccessStory();
-		storyMap.setAdopterName(row.getString("adopter_name"));
 		storyMap.setCatId(row.getLong("cat_id"));
+		storyMap.setAdopterName(row.getString("adopter_name"));
 		storyMap.setDateAdopted(row.getDate("date_adopted"));
 		storyMap.setSuccessStory(row.getString("story"));
 		
