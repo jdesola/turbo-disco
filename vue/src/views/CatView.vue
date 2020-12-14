@@ -24,7 +24,7 @@
               size="20"
               value="3"
               color=#575A8F
-              
+               background-color="#575A8F"
             ></v-rating>
           </div>
           <div class="intelligence">
@@ -36,7 +36,8 @@
               length="5"
               size="20"
               value="3"
-              color=#F8B06B
+              color=#121FCA
+               background-color="#121FCA"
             ></v-rating>
           </div>
           <div class="speed">
@@ -135,9 +136,10 @@ export default {
   grid-area: ratings-header;
   text-align: center;
   font-weight: 500;
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
   font-family: 'subscriber';
   font-size: 30px;
+  color:#C24A15;
 }
 .strength{
   grid-area: strength;
@@ -172,6 +174,7 @@ export default {
    box-shadow: -1px 2px 8px 1px rgba(0, 0, 0, 0.5);
    width:35%;
   background: rgba(166,166,166,0.65);
-   
+   font-family: "subscriber";
+   font-size: 15pt;
 }
 </style>
