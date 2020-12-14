@@ -46,4 +46,10 @@ export default {
   padding-right: 7.5%;
 }
 
+@font-face {
+  font-family: 'Subscriber';
+  src: local("Subscriber"),
+  url(./assets/fonts/subscribe-web/subscriber-regular-webfont.woff2) format("woff2")
+}
+
 </style>

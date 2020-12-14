@@ -6,7 +6,7 @@
         <img  class="cat-logo" src="../assets/png/small-logo.png"/>
       </router-link>
       <router-link class="button featured" v-on:click="resetList" v-bind:to="{name: 'featuredCats'}">
-        <img class="button fav" src="../assets/webp/Featured-Button.webp"/>
+        <h1></h1>
       </router-link>
       <router-link class="button cats" v-bind:to="{name: 'cats'}" v-on:click="resetList">
         <img class="button cats" src="../assets/webp/cats-button.webp" />
