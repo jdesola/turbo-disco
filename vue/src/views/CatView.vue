@@ -30,7 +30,7 @@
           <div class="intelligence">
             Intelligence
             <v-rating
-              empty-icon="mdi-paw"
+              empty-icon="mdi-paw-outline"
               full-icon="mdi-paw"
               hover
               length="5"
@@ -42,19 +42,19 @@
           <div class="speed">
             Speed
             <v-rating
-              empty-icon="mdi-paw"
+              empty-icon="mdi-paw-outline"
               full-icon="mdi-paw"
               hover
               length="5"
               size="20"
               value="3"
-              color=#C24A15
+              color=#C24A15 
             ></v-rating>
           </div>
           <div class="stamina">
             Stamina
             <v-rating
-              empty-icon="mdi-paw"
+              empty-icon="mdi-paw-outline"
               full-icon="mdi-paw"
               hover
               length="5"
@@ -134,7 +134,8 @@ export default {
   text-align: center;
   font-weight: 500;
   border-bottom: 1px solid black;
-  font-family: 'subscriberregular';
+  font-family: 'subscriber';
+  font-size: 30px;
 }
 .strength{
   grid-area: strength;
@@ -151,6 +152,9 @@ export default {
 .stamina{
   grid-area:stamina;
    text-align: center;
+}
+.stamina > .v-ratings > empty-icon{
+  color:#33A3F5
 }
 .ratings-container {
   display: grid;
