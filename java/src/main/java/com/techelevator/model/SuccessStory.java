@@ -7,6 +7,8 @@ public class SuccessStory {
 	private String adopterName;
 	private Date dateAdopted;
 	private String successStory;
+	
+	
 	public long getCatId() {
 		return catId;
 	}
