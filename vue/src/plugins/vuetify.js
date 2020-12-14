@@ -14,9 +14,9 @@ export default new Vuetify({
           light: {
             primary: '#000',
             secondary: '#33a3f5',
-            accent: colors.shades.white,
+            accent: "#c24a15",
             error: colors.red.accent3,
-            info: colors.shades.white,
+            info: "#f6af71",
             background: '#EEEEEE'// Not automatically applied
         
           },
