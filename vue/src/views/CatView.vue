@@ -48,7 +48,8 @@
               length="5"
               size="20"
               value="3"
-              color=#C24A15 
+              color=#C24A15
+              background-color="#C24A15" 
             ></v-rating>
           </div>
           <div class="stamina">
@@ -61,6 +62,7 @@
               size="20"
               value="3"
               color=#33A3F5
+              background-color="#33A3F5"
             ></v-rating>
           </div>
         </div>
