@@ -16,7 +16,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .addCatPage {
   display: grid;
   grid-template-columns:  10% 60% 10%;
