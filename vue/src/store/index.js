@@ -21,7 +21,7 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     catList: [],
-    storyList: [],
+    storyList: [""],
     cat: {
       id: "",
       name: "",
@@ -110,6 +110,11 @@ export default new Vuex.Store({
       successStory: payload.successStory,
       }
       this.storyList.push(newStory);
-    }
+    },
+
+    SET_STORY_LIST(state, data) {
+      state.storyList = data;
+    },
+    
   }
 })

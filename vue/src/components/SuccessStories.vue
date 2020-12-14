@@ -1,11 +1,7 @@
 <template>
-  <div class="SuccessStoryCard">
-      <v-card
-  elevation="2"
->
-    <v-card-title> 
-
-    </v-card-title>
+<div>
+      <v-card>
+        <v-card-title>{{this.story.catName}}</v-card-title>
 </v-card>
 </div>
 
@@ -15,6 +11,11 @@
 
 <script>
 export default {
+name: "successStories",
+props:["story"],
+data() {
+  return {}
+}
 
 }
 </script>
