@@ -23,7 +23,7 @@
               hover
               length="5"
               size="20"
-              value="3"
+              v-model="cat.strengthRating"
               color="#575A8F"
               background-color="#575A8F"
             ></v-rating>
@@ -36,7 +36,7 @@
               hover
               length="5"
               size="20"
-              value="3"
+              v-model="cat.intelligenceRating"
               color="#121FCA"
               background-color="#121FCA"
             ></v-rating>
@@ -49,7 +49,7 @@
               hover
               length="5"
               size="20"
-              value="3"
+              v-model="cat.speedRating"
               color="#C24A15"
               background-color="#C24A15"
             ></v-rating>
@@ -62,7 +62,7 @@
               hover
               length="5"
               size="20"
-              value="3"
+              v-model="cat.staminaRating"
               color="#33A3F5"
               background-color="#33A3F5"
             ></v-rating>
@@ -189,6 +189,7 @@ transform: scale(1.2);
 transition: 1s ease;
 }
 .expansion-panel-grid{
+  padding-top: 10px;
   justify-content: space-evenly;
 display:grid;
 grid-template-areas:
