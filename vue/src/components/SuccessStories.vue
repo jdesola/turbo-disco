@@ -22,8 +22,9 @@
 
             <v-expand-transition>
               <div v-show="show">
-                <v-divider></v-divider>
 
+                <v-divider></v-divider>
+                
                 <v-card-text class="cardText">{{this.story.successStory}}</v-card-text>
               </div>
             </v-expand-transition>

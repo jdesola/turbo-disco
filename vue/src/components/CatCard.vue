@@ -21,14 +21,18 @@
      <vue-mapbox-map
           id="map-container"
           access-token="pk.eyJ1IjoibGl2dG9sbGUiLCJhIjoiY2tpbWF3NDA5MDdnMzJ0cGdpeGE0NWc2YyJ9.Iki6ohLmSdN_GzZTKtmvHg"
-          :interactive="false"
+          :interactive="true"
           lng="-82.9998051" 
           lat="40.0573546"
           
           pitch="20"
           bearing="0"
           mapStyle="mapbox://styles/livtolle/ckimct6b505dc18k62mdbx7i8"
-        ></vue-mapbox-map>
+
+          
+        >
+        
+        </vue-mapbox-map>
     <!-- </div> -->
     <div class="catCardActions" @click.stop>
       <button class="deleteButton" >
