@@ -13,7 +13,7 @@
         <div class="expansion-panel-grid">
         <p class ="cat-description">{{ cat.description }}</p>
         <p class="cat-skills">{{ cat.skills }}</p>
-        <div class="ratings-container">
+        <div class="ratings-container" >
           <div class="ratings-header">Cat Stats</div>
           <div class="strength">
             Strength
@@ -26,11 +26,13 @@
               v-model="cat.strengthRating"
               color="#575A8F"
               background-color="#575A8F"
+              v-on:input="saveRating(cat)"
             ></v-rating>
           </div>
           <div class="intelligence">
             Intelligence
             <v-rating
+             v-on:input="saveRating(cat)"
               empty-icon="mdi-paw-outline"
               full-icon="mdi-paw"
               hover
@@ -44,6 +46,7 @@
           <div class="speed">
             Speed
             <v-rating
+             v-on:input="saveRating(cat)"
               empty-icon="mdi-paw-outline"
               full-icon="mdi-paw"
               hover
@@ -57,6 +60,7 @@
           <div class="stamina">
             Stamina
             <v-rating
+            v-on:input="saveRating(cat)"
               empty-icon="mdi-paw-outline"
               full-icon="mdi-paw"
               hover
@@ -75,7 +79,7 @@
 </template>
 
 <script>
-// import catService from '../services/CatService'
+import catService from '../services/CatService'
 import CatCard from "../components/CatCard.vue";
 
 export default {
@@ -107,12 +111,33 @@ export default {
     },
   },
   methods: {
+     saveRating(cat) {
+     catService
+          .updateCat(cat)
+          .then((response) => {
+            if (response.status === 200) {
+             
+              this.$store.commit("UPDATE_RATINGS", cat);
+            }
+          })
+          .catch((error) => {
+            if (error.response) {
+              this.errorMsg = `Error deleting cat.  ${error.response.status} - ${error.response.statusText}`;
+            } else if (error.request) {
+              this.errorMsg = "Could not connect to server";
+            } else {
+              this.errorMsg = "Unexpected error";
+              console.error(error);
+            }
+          });
+      }
+    },
     // retrieveCats() {
     //   catService.getCats().then(response => {
     //       this.$store.commit("SET_CAT_LIST", response.data);
     //     });
     // }
-  },
+ 
 };
 </script>
 
