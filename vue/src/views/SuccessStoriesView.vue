@@ -15,7 +15,7 @@
 import SuccessStories from "@/components/SuccessStories";
 import StoryService from '@/services/StoryService';
 export default {
-    name: "successStories",
+    name: "SuccessStoriesView",
     components: {
         SuccessStories,
     },
