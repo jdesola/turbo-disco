@@ -40,8 +40,16 @@ CREATE TABLE catch_cats (
     isFeatured boolean not null default false,
     image_name varchar(255),
     isAdopted boolean not null default false,
+    strength_rating integer,
+    intelligence_rating integer,
+    speed_rating integer,
+    stamina_rating integer,
     PRIMARY KEY (id),
-    CONSTRAINT chk_hair_length CHECK (hair_length in ('Long','Short','Hairless'))
+    CONSTRAINT chk_hair_length CHECK (hair_length in ('Long','Short','Hairless')),
+    CONSTRAINT chk_strength_rating CHECK (strength_rating BETWEEN 0 AND 5),
+    CONSTRAINT chk_intelligence_rating CHECK (intelligence_rating BETWEEN 0 AND 5),
+    CONSTRAINT chk_speed_rating CHECK (speed_rating BETWEEN 0 AND 5),
+    CONSTRAINT chk_stamina_rating CHECK (stamina_rating BETWEEN 0 AND 5)
 );
 
 
@@ -50,6 +58,7 @@ CREATE TABLE catch_cats (
 
 CREATE TABLE success_stories (
         
+        id serial NOT NULL,
         cat_id integer NOT NULL,
         adopter_name varchar (50) NOT NULL,
         date_adopted date not null, 
@@ -61,7 +70,7 @@ CREATE TABLE success_stories (
 
 
 
-insert into catch_cats values (default, 'Test Name', 3, 'Test Skills', 'Long', 16, 'Test Job', 'Test Description', 'test color', false);
+insert into catch_cats values (default, 'Test Name', 3, 'Test Skills', 'Long', 16, 'Test Job', 'Test Description', 'test color', false, null, false, 3, 2, 5, 1);
 
 
 COMMIT TRANSACTION;
