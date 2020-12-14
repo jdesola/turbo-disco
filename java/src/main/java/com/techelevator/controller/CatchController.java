@@ -44,10 +44,6 @@ public class CatchController {
 		catDao.updateCat(updatedCat); 
 	}
 	
-//	@RequestMapping(path = "/cats", method = RequestMethod.PUT)
-//	public void updateFeatured(@RequestBody Cat featuredCat) {
-//		catDao.updateFeatured(featuredCat);
-//	}
 	
 	@RequestMapping(path="/cats/{catId}", method = RequestMethod.GET)
 	public Cat getCatById(@PathVariable long catId) {
