@@ -26,7 +26,7 @@ public class CatchController {
 		this.catDao = catDao;
 	}
 	
-	
+	@PreAuthorize("permitAll()")
 	@RequestMapping (path ="/cats", method=RequestMethod.GET)
 	public List<Cat> getCatz() {
 		

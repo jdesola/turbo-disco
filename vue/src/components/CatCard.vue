@@ -27,6 +27,7 @@
           
           pitch="20"
           bearing="0"
+
           mapStyle="mapbox://styles/livtolle/ckimct6b505dc18k62mdbx7i8"
 
           
