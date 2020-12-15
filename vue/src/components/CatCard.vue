@@ -55,10 +55,10 @@ export default {
   props: ["cat"],
   data() {
     return {
-      scene: {
-        lat: "",
-      lng: "",
-      },
+      // scene: {
+      //   lat: "",
+      // lng: "",
+      // },
       imageUrl: null,
       
       genericPath: require('../assets/png/generic-cat2.png'),
@@ -67,6 +67,14 @@ export default {
   },
   components: { VueMapboxMap },
   computed: {
+
+    scene() {
+      const findLocation = this.$store.state.locationList.find( l => l.id === this.cat.locationId);
+     
+      return {lat: findLocation.latitude, lng: findLocation.longitude};
+      
+
+    }
     //  latitude() {
     //   return this.cat.catLocation.latitude;
     //  },
@@ -131,15 +139,11 @@ export default {
             }
       }
     },
-    setLatLong() {
-      this.scene.lat = this.cat.catLocation.latitude;
-      this.scene.lng = this.cat.catLocation.longitude;
-
-    }
+    
   },
     created() {
       this.setImageUrl();
-      this.setLatLong();
+     
     }
 };
 </script>
