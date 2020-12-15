@@ -22,6 +22,7 @@
 
             <v-expand-transition>
               <div v-show="show">
+
                 <v-divider></v-divider>
 
                 <v-card-text class="cardText">{{this.story.successStory}}</v-card-text>
@@ -56,7 +57,7 @@ data() {
 }
 #name{
 font-family: "subscriber";
-font-size: 275%;
+font-size: 300%;
 color:#161fc2;
 margin-bottom:1%;
 }
