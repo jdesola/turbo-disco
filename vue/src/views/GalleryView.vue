@@ -1,7 +1,9 @@
 <template>
   <div class="GalleryPage">
 
-    <img class="image" v-bind:key ='image' v-for="(image, i) in images" @click="onClick(i)" >
+    <img class="image" v-bind:key ='image' v-for="(image, i) in images" :src="image" @click="onClick(i)"  @mouseover="hover = true"
+      @mouseleave="hover = false">
+    <span v-if="hover"> <br>This kitty is just so darn adorable! </span>
     <gallery :images="images" :index="index" @close="index = null"></gallery>
 
  </div>
@@ -22,6 +24,7 @@ export default {
     },
       data: function() {
         return {
+            hover:false,
             images: [
                 'https://placekitten.com/801/800',
                 'https://placekitten.com/802/800',
@@ -55,5 +58,6 @@ body {
   margin: 10px;
   border-radius: 3px;
 }
+
 </style>
 <!-- -->
