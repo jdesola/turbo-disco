@@ -89,7 +89,7 @@
 
       <v-slider
         dense
-        label="Time at Last Job (in Months)"
+        label="Months at Last Job"
         id="experience_months"
         v-model="newCat.priorExperienceMonths"
         name="experience_months"

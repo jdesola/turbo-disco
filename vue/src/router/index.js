@@ -63,7 +63,7 @@ const router = new Router({
         name: "cats",
         component: Cats, 
         meta:{
-          requiresAuth: false /*Change to true later*/
+          requiresAuth: false 
         }
       },
       {
@@ -71,7 +71,7 @@ const router = new Router({
         name: "addCatForm",
         component: CatForm,
         meta:{
-          requiresAuth: false /*Change to true later*/
+          requiresAuth: true /*Change to true later*/
         }
       },
       {
@@ -95,7 +95,7 @@ const router = new Router({
         name: "successStoriesForm",
         component: SuccessStoriesForm,
         meta: {
-          requiresAuth: false
+          requiresAuth: true
         }
       },
       {

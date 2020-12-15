@@ -84,6 +84,8 @@ export default {
   },
   methods: {
     markCatAdopted() {
+          requiresAuth: true /*Change to true later*/
+       
       if (confirm("Are you sure you want to mark this cat as adopted? It will not appear on the website anymore.")) {
         this.cat.adopted = true;
         catService
