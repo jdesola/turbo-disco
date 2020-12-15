@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.techelevator.dao.CatDAO;
 import com.techelevator.model.Cat;
 
-//@PreAuthorize("IsAuthenticated()")
+@PreAuthorize("IsAuthenticated()")
 @RestController
 @CrossOrigin
 public class CatchController {
@@ -33,12 +33,14 @@ public class CatchController {
 		return catDao.listCats();
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value="/tools/addCat", method = RequestMethod.POST)
 	public void cat (@RequestBody Cat cat) {
 		catDao.createCat(cat);
 	}
 	
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	@RequestMapping(path="/cats", method=RequestMethod.PUT) 
 	public void update(@RequestBody Cat updatedCat) { 
 		catDao.updateCat(updatedCat); 

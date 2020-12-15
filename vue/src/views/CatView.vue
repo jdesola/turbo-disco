@@ -14,13 +14,13 @@
       <v-expansion-panel-content>
         <div class="expansion-panel-grid">
           <div class="info-container">
-          <div class="cat-description"> <subheader>Description: </subheader>
+          <div class="cat-description"> <v-subheader>Description: </v-subheader>
         <p class ="cat-description">{{ cat.description }}</p></div>
           <div class="cat-skills"> 
-            <subheader>Skills: </subheader>  <p class="cat-skills">{{ cat.skills }}</p></div>
+            <v-subheader color="#121FCA">Skills: </v-subheader>  <p class="cat-skills">{{ cat.skills }}</p></div>
            
           <div class="cat-color"> 
-            <subheader>Color: </subheader>  <p class="cat-color">{{ cat.color }}</p></div>
+            <v-subheader >Color: </v-subheader>  <p class="cat-color">{{ cat.color }}</p></div>
           </div>
         <div class="ratings-container" >
           <div class="ratings-header">Cat Stats</div>
@@ -416,31 +416,30 @@ grid-template-areas:
 }
 .cat-skills, .cat-description, .cat-color{
   
-  font-size: 200%;
+  font-size: 115%;
   font-family: 'Subscriber', sans-serif;
   margin-left: 10%;
 }
 
 .cat-skills {
   grid-area: cat-skills;
-  color: #33a3f5;
   
 }
 
 .cat-skills > p, .cat-description > p, .cat-color > p{
-  font-size: 85%;
+  font-size: 100%;
   color:  rgb(65, 63, 63);
   font-family: "Quicksand";
   font-weight: 500;
+  padding-top: 2% ;
 }
-.cat-description{
+.cat-description  {
   grid-area: cat-description;
-  color: #121FCA;
 }
 
 .cat-color{
+  padding-top: 2%;
   grid-area: cat-color;
-  color: #575a8f;
 }
 
 .info-container {

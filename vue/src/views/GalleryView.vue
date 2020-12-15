@@ -4,7 +4,7 @@
     <img class="image" v-bind:key ='image' v-for="(image, i) in images" :src="image" @click="onClick(i)"  @mouseover="hover = true"
       @mouseleave="hover = false">
     <span v-if="hover"> <br>This kitty is just so darn adorable! </span>
-    <gallery :images="images" :index="index" @close="index = null"></gallery>
+    <gallery :images="images"  @close="index = null"></gallery>
 
  </div>
 </template>

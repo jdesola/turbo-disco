@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.techelevator.dao.SuccessStoryDAO;
 import com.techelevator.model.SuccessStory;
 
-//@PreAuthorize("IsAuthenticated()")
+@PreAuthorize("IsAuthenticated()")
 @RestController
 @CrossOrigin
 public class SuccessStoryController {
@@ -26,6 +26,7 @@ public class SuccessStoryController {
 	}
 	
 	
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_STAFF')")
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value="/tools/successStoryForm", method = RequestMethod.POST)
 	public void SuccessStory (@RequestBody SuccessStory story) {
