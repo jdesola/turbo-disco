@@ -29,6 +29,7 @@
           @click.stop
         ></vue-mapbox-map>
     <div class="catCardActions" @click.stop v-if="userLoggedIn">
+      
       <button class="deleteButton" >
         <v-icon class="material-icons icon deleteButton"  v-on:click="markCatAdopted "
           >delete</v-icon
@@ -75,6 +76,7 @@ export default {
       
 
     },
+   
     userLoggedIn() {
       let isLoggedIn = false;
       if(this.$store.state.token != '') {
@@ -82,6 +84,7 @@ export default {
         return isLoggedIn;
       }
     },
+   
     //  latitude() {
     //   return this.cat.catLocation.latitude;
     //  },
@@ -115,6 +118,7 @@ export default {
       }
     },
     toggleFeatureCat() {
+      
       this.cat.featured = !this.cat.featured;
       catService
         .updateCat(this.cat)
@@ -133,6 +137,7 @@ export default {
             console.error(error);
           }
         });
+      
     },
     async setImageUrl() {
       if (this.cat.imageName != null){
