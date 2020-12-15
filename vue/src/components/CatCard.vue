@@ -76,7 +76,6 @@ export default {
       
 
     },
-   
     userLoggedIn() {
       let isLoggedIn = false;
       if(this.$store.state.token != '') {
@@ -84,7 +83,7 @@ export default {
         return isLoggedIn;
       }
     },
-   
+    
     //  latitude() {
     //   return this.cat.catLocation.latitude;
     //  },
@@ -118,7 +117,6 @@ export default {
       }
     },
     toggleFeatureCat() {
-      
       this.cat.featured = !this.cat.featured;
       catService
         .updateCat(this.cat)
@@ -137,7 +135,6 @@ export default {
             console.error(error);
           }
         });
-      
     },
     async setImageUrl() {
       if (this.cat.imageName != null){
@@ -152,11 +149,18 @@ export default {
             }
       }
     },
+    setAdmin() {
+      this.$store.state.user.authorities.forEach(role => {
+        if(role.name == 'ROLE_ADMIN') {
+          this.isAdmin = true;
+        }
+      });
+    },
     
   },
     created() {
       this.setImageUrl();
-     
+      this.setAdmin();
     }
 };
 </script>

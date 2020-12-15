@@ -14,17 +14,13 @@
     "axios": "^0.19.2",
     "core-js": "^2.6.12",
     "firebase": "^8.1.2",
-    "isotope-layout": "^3.0.6",
-    "mapbox-gl": "^2.0.0",
-    "mapbox-gl-vue": "^2.0.4",
+    "mapbox-gl": "^1.13.0",
     "material-design-icons": "^3.0.1",
-    "nuxt": "^2.14.11",
     "vue": "^2.6.12",
     "vue-fuse": "^2.2.1",
-    "vue-gallery-slideshow": "^1.5.2",
-    "vue-mapbox": "^0.4.1",
     "vue-mapbox-map": "^0.13.0",
     "vue-router": "^3.4.9",
+    "vue-template-compiler": "^2.6.12",
     "vuetify": "^2.2.11",
     "vuex": "^3.6.0"
   },
@@ -42,8 +38,6 @@
     "sass": "^1.19.0",
     "sass-loader": "^8.0.0",
     "vue-cli-plugin-vuetify": "~2.0.8",
-    "vue-svg-loader": "^0.16.0",
-    "vue-template-compiler": "^2.6.12",
     "vuetify-loader": "^1.3.0"
   }
 }
