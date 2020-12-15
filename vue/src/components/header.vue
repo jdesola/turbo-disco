@@ -29,6 +29,7 @@
 
 <script>
 import catService from '../services/CatService'
+import locationService from '../services/LocationService'
 export default {
   components: {},
   computed: {
@@ -48,7 +49,10 @@ export default {
       }
     },
    created() {
-      this.retrieveCats(); 
+     this.retrieveCats();
+     this.retrieveLocations(); 
+      
+      
     },
   methods: {
     resetList() {
@@ -70,6 +74,11 @@ export default {
           this.$store.commit("SET_CAT_LIST", response.data);
         });
     },
+    retrieveLocations() {
+      locationService.getLocations().then(response => {
+        this.$store.commit("SET_LOCATION_LIST", response.data);
+      });
+    }
  
   
     

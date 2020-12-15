@@ -59,6 +59,14 @@
         outlined
       />
 
+      <v-select
+        :items="locations"
+        id="location"
+        name="location"
+        v-model="newCat.locationId"
+        label="Cat's Location"
+      ></v-select>
+
       <v-text-field
         type="text"
         id="skills"
@@ -148,16 +156,31 @@ export default {
         color: "",
         skills: "",
         imageName: "",
+        locationId: "",
+        catLocation:"",
       },
       imageData: null,
       img1: null,
       tempUrl: "",
     };
   },
+  computed: {
+    locations() {
+      const locationOptions = [];
+      this.$store.state.locationList.forEach(location => {
+        const locationSelector = {text: location.name, value: location.id}
+        locationOptions.push(locationSelector);
+      });
+      return locationOptions;
+    },
+  },
   methods: {
+    
     saveNewCat() {
       catService.addCat(this.newCat).then((response) => {
         if (response.status === 201) {
+          const findlocation = this.$store.state.locationList.find( l => l.id === this.newCat.locationId);
+          this.newCat.catLocation = findlocation;
           this.$store.commit('ADD_CAT', this.newCat);
           this.newCat = {
             name: "",
@@ -169,6 +192,8 @@ export default {
             color: "",
             skills: "",
             imageName: "",
+            locationId:"",
+            catLocation: "",
           };
           this.$router.push({ name: "home" });
         } else {

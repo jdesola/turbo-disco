@@ -18,6 +18,7 @@ public class Cat {
 	private int intelligenceRating;
 	private int speedRating;
 	private int staminaRating;
+	private int locationId;
 	
 	public boolean isAdopted() {
 		return adopted;
@@ -132,6 +133,14 @@ public class Cat {
 
 	public void setStaminaRating(int staminaRating) {
 		this.staminaRating = staminaRating;
+	}
+
+	public int getLocationId() {
+		return locationId;
+	}
+
+	public void setLocationId(int locationId) {
+		this.locationId = locationId;
 	}
 	
 	

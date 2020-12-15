@@ -14,6 +14,7 @@
 <script>
 import SuccessStories from "@/components/SuccessStories";
 import StoryService from '@/services/StoryService';
+
 export default {
     name: "SuccessStoriesView",
     components: {

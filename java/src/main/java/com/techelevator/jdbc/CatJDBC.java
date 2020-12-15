@@ -24,9 +24,9 @@ public class CatJDBC implements CatDAO{
 	
 	@Override
 	public void createCat(Cat newCat) {
-		String sql = "INSERT INTO catch_cats (name, age, skills, hair_length, prior_experience_months, prior_jobs, description, color, image_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO catch_cats (name, age, skills, hair_length, prior_experience_months, prior_jobs, description, color, image_name, location_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		jdbcTemplate.update(sql, newCat.getName(), newCat.getAge(), newCat.getSkills(), newCat.getHairLength(), newCat.getPriorExperienceMonths(),
-							newCat.getPreviousJobs(), newCat.getDescription(), newCat.getColor(), newCat.getImageName());
+							newCat.getPreviousJobs(), newCat.getDescription(), newCat.getColor(), newCat.getImageName(), newCat.getLocationId());
 	}
 
 
@@ -44,15 +44,11 @@ public class CatJDBC implements CatDAO{
 	
 	@Override 
 	public void updateCat(Cat updatedCat) { 
-		String sql = "update catch_cats set name = ?, age = ?, skills = ?,  hair_length = ?, prior_experience_months = ?, prior_jobs = ?, description = ?, color = ?, image_name = ?, isFeatured = ?, isAdopted = ?, strength_rating = ?, intelligence_rating = ?, speed_rating = ?, stamina_rating = ? where id = ?";
-		jdbcTemplate.update(sql, updatedCat.getName(), updatedCat.getAge(), updatedCat.getSkills(), updatedCat.getHairLength(), updatedCat.getPriorExperienceMonths(), updatedCat.getPreviousJobs(), updatedCat.getDescription(), updatedCat.getColor(), updatedCat.getImageName(), updatedCat.isFeatured(), updatedCat.isAdopted(), updatedCat.getStrengthRating(), updatedCat.getIntelligenceRating(), updatedCat.getSpeedRating(), updatedCat.getStaminaRating(), updatedCat.getId()); 
+		String sql = "update catch_cats set name = ?, age = ?, skills = ?,  hair_length = ?, prior_experience_months = ?, prior_jobs = ?, description = ?, color = ?, image_name = ?, isFeatured = ?, isAdopted = ?, strength_rating = ?, intelligence_rating = ?, speed_rating = ?, stamina_rating = ?, location_id = ? where id = ?";
+		jdbcTemplate.update(sql, updatedCat.getName(), updatedCat.getAge(), updatedCat.getSkills(), updatedCat.getHairLength(), updatedCat.getPriorExperienceMonths(), updatedCat.getPreviousJobs(), updatedCat.getDescription(), updatedCat.getColor(), updatedCat.getImageName(), updatedCat.isFeatured(), updatedCat.isAdopted(), updatedCat.getStrengthRating(), updatedCat.getIntelligenceRating(), updatedCat.getSpeedRating(), updatedCat.getStaminaRating(), updatedCat.getLocationId(), updatedCat.getId()); 
 	}
 	
-//	@Override
-//	public void updateFeatured(Cat updatedCat ) {
-//		String sql = "update catch_cats set isFeatured = ? where id = ?";
-//		jdbcTemplate.update(sql, updatedCat.isFeatured(), updatedCat.getId());
-//	}
+
 	
 	@Override
 	public Cat getCatById(long catId) {
@@ -82,7 +78,7 @@ public class CatJDBC implements CatDAO{
 		catMap.setIntelligenceRating(row.getInt("intelligence_rating"));
 		catMap.setSpeedRating(row.getInt("speed_rating"));
 		catMap.setStaminaRating(row.getInt("stamina_rating"));
-		
+		catMap.setLocationId(row.getInt("location_id"));
 		return catMap;
 		
 	}

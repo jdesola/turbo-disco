@@ -21,7 +21,8 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     catList: [],
-    storyList: [""],
+    locationList: [],
+    storyList: [],
     cat: {
       id: "",
       name: "",
@@ -39,6 +40,8 @@ export default new Vuex.Store({
       intelligenceRating: "",
       speedRating: "",
       staminaRating: "",
+      locationId: "",
+      catLocation: "",
     },
     SuccessStory: {
       storyId: "",
@@ -47,6 +50,16 @@ export default new Vuex.Store({
       adopterName: "",
       dateAdopted: "",
       successStory: "",
+    },
+    location: {
+      id: "",
+      name: "",
+      streetAddress: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      latitude: "",
+      longitude: "", 
     }
   },
   mutations: {
@@ -68,6 +81,8 @@ export default new Vuex.Store({
     },
     SET_CAT_LIST(state, data) {
       state.catList = data;
+     
+      
     },
     ADOPT_CAT(state, payload) {
       const { id, adopted } = payload;
@@ -96,7 +111,8 @@ export default new Vuex.Store({
         strengthRating: payload.strengthRating,
         intelligenceRating: payload.intelligenceRating,
         speedRating: payload.speedRating,
-        staminaRating: payload.staminaRating
+        staminaRating: payload.staminaRating,
+        locationId: payload.locationId,
       }
       state.catList.push(newCat);
 
@@ -127,7 +143,14 @@ export default new Vuex.Store({
       
 
     },
-   
+    SET_LOCATION_LIST(state, data) {
+      state.locationList = data;
+      state.catList.forEach( cat => {
+        const findlocation = state.locationList.find( l => l.id === cat.locationId);
+        cat.catLocation = findlocation;});
+        
+      },
+    
 
   }
 })

@@ -5,7 +5,9 @@ import store from './store/index'
 import axios from 'axios'
 import VueFuse from 'vue-fuse'
 import firebase from 'firebase'
-import vuetify from './plugins/vuetify';
+import vuetify from './plugins/vuetify'
+import isotope from 'isotope-layout'
+
 
 Vue.use(VueFuse)
 
@@ -14,6 +16,7 @@ Vue.config.productionTip = false
 axios.defaults.baseURL = process.env.VUE_APP_REMOTE_API;
 
 new Vue({
+  isotope,
   router,
   store,
   render: h => h(App),

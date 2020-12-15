@@ -2,14 +2,11 @@
   <div class="catCard" >
     <v-avatar class="profilePicture" size="300">
       <img contain v-bind:src="(this.imageUrl === null) ? `${this.genericPath}` : `${this.imageUrl}`" />
-<!-- v-if="this.imageUrl != null" -->
-      <!-- <img v-else contain  src="../assets/png/generic-cat2.png"  id="profilePicture" />   height="50%" width="auto"-->
+
     </v-avatar>
-    <!-- <img src="../assets/png/generic-cat2.png" alt="" id="profilePicture" /> -->
     
     <h2 id="name">{{ cat.name }}</h2>
     <i class="material-icons-outlined icon" id="ageIcon">cake</i>
-    <!-- <img src="../assets/png/cake.png" alt="" id="ageIcon" class="icon" /> -->
     <p id="age">{{ cat.age }} Years</p>
     <i class="material-icons icon" id="hairIcon">straighten</i>
     <p id="hairType">{{ cat.hairLength }}</p>
@@ -17,19 +14,20 @@
     <p id="priorJobs">{{ cat.previousJobs }}</p>
     <i class="material-icons icon" id="experienceIcon">schedule</i>
     <p id="priorExperienceMonths">{{ cat.priorExperienceMonths }} Months</p>
-    <!-- <div class="map"> -->
-     <vue-mapbox-map
+  
+     <vue-mapbox-map 
           id="map-container"
           access-token="pk.eyJ1IjoibGl2dG9sbGUiLCJhIjoiY2tpbWF3NDA5MDdnMzJ0cGdpeGE0NWc2YyJ9.Iki6ohLmSdN_GzZTKtmvHg"
-          :interactive="false"
-          lng="-82.9998051" 
-          lat="40.0573546"
-          
-          pitch="20"
-          bearing="0"
+          layers='cat-locations'
+          :interactive="true"
+          :lat='scene.lat'
+          :lng='scene.lng'
+           pitch="5"
+           bearing="0"
+          zoom="13"
           mapStyle="mapbox://styles/livtolle/ckimct6b505dc18k62mdbx7i8"
+          @click.stop
         ></vue-mapbox-map>
-    <!-- </div> -->
     <div class="catCardActions" @click.stop>
       <button class="deleteButton" >
         <v-icon class="material-icons icon deleteButton"  v-on:click="markCatAdopted "
@@ -57,13 +55,25 @@ export default {
   props: ["cat"],
   data() {
     return {
+      scene: {
+        lat: "",
+      lng: "",
+      },
       imageUrl: null,
+      
       genericPath: require('../assets/png/generic-cat2.png'),
+      
     };
   },
   components: { VueMapboxMap },
   computed: {
-    },
+    //  latitude() {
+    //   return this.cat.catLocation.latitude;
+    //  },
+    //  longitude() {
+    //    return this.cat.catLocation.longitude;
+    //  }
+  },
   methods: {
     markCatAdopted() {
       if (confirm("Are you sure you want to mark this cat as adopted? It will not appear on the website anymore.")) {
@@ -120,11 +130,16 @@ export default {
                 console.log(error);
             }
       }
+    },
+    setLatLong() {
+      this.scene.lat = this.cat.catLocation.latitude;
+      this.scene.lng = this.cat.catLocation.longitude;
+
     }
-    ,
   },
     created() {
       this.setImageUrl();
+      this.setLatLong();
     }
 };
 </script>
