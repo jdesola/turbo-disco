@@ -28,7 +28,7 @@
           mapStyle="mapbox://styles/livtolle/ckimct6b505dc18k62mdbx7i8"
           @click.stop
         ></vue-mapbox-map>
-    <div class="catCardActions" @click.stop>
+    <div class="catCardActions" @click.stop v-if="userLoggedIn">
       <button class="deleteButton" >
         <v-icon class="material-icons icon deleteButton"  v-on:click="markCatAdopted "
           >delete</v-icon
@@ -74,17 +74,23 @@ export default {
       return {lat: findLocation.latitude, lng: findLocation.longitude};
       
 
-    }
+    },
+    userLoggedIn() {
+      let isLoggedIn = false;
+      if(this.$store.state.token != '') {
+        isLoggedIn = true;}
+        return isLoggedIn;
+      }
+    },
     //  latitude() {
     //   return this.cat.catLocation.latitude;
     //  },
     //  longitude() {
     //    return this.cat.catLocation.longitude;
     //  }
-  },
   methods: {
     markCatAdopted() {
-          requiresAuth: true /*Change to true later*/
+          
        
       if (confirm("Are you sure you want to mark this cat as adopted? It will not appear on the website anymore.")) {
         this.cat.adopted = true;
