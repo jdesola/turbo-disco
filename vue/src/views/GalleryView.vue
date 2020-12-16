@@ -4,12 +4,45 @@
       <v-col col="12">
         <v-carousel>
           <v-carousel-item
-            v-for="(item,i) in items"
+            v-for="(item, i) in items"
             :key="i"
             :src="item.src"
             reverse-transition="fade-transition"
             transition="fade-transition"
-          ></v-carousel-item>
+          >
+            <v-hover v-slot="{ hover }">
+              <v-card
+                :elevation="hover ? 12 : 2"
+                :class="{ 'on-hover': hover }"
+              >
+                <v-img :src="item.img" height="225px">
+                  <v-card-title class="title white--text">
+                    <v-row
+                      class="fill-height flex-column"
+                      justify="space-between"
+                    >
+                      <p class="mt-4 subheading text-left">
+                        {{ item.title }}
+                      </p>
+
+                      <div>
+                        <p
+                          class="ma-0 body-1 font-weight-bold font-italic text-left font-family-'Quicksand' "
+                        >
+                          {{ item.text }}
+                        </p>
+                        <p
+                          class="caption font-weight-medium font-italic text-left"
+                        >
+                          {{ item.subtext }}
+                        </p>
+                      </div>    
+                    </v-row>
+                  </v-card-title>
+                </v-img>
+              </v-card>
+            </v-hover>
+          </v-carousel-item>
         </v-carousel>
       </v-col>
     </v-row>
@@ -23,27 +56,32 @@
 
 
 <script>
+ import StoryService from '@/services/StoryService';
+
 export default {
   name: "galleryPage",
+  components: StoryService,
   methods: {
+    retrieveStories() {
+        StoryService.getStories().then(response => {
+        this.$store.commit('SET_STORY_LIST', response.data);
+        })
+      }
+    },
     onClick(i) {
       this.index = i;
-    },
   },
   data: function () {
     return {
       items: [
         {
           src: "https://placekitten.com/801/800",
+          title: 'Gary',   
+          text: 'A New Start',
+          subtext: 'Gary loves his new home. Ever since Nancy picked him up at the shelter, he has been rocking it at his new job!'    
         },
         {
           src: "https://placekitten.com/802/800",
-        },
-        {
-          src: 'https://placekitten.com/803/800',
-        },
-        {
-          src: "https://placekitten.com/804/800",
         },
         {
           src: "https://placekitten.com/805/800",
@@ -55,27 +93,30 @@ export default {
           src: "https://placekitten.com/807/800",
         },
       ],
-      images: [
-        "https://placekitten.com/801/800",
-        "https://placekitten.com/802/800",
-        "https://placekitten.com/803/800",
-        "https://placekitten.com/804/800",
-        "https://placekitten.com/805/800",
-        "https://placekitten.com/806/800",
-        "https://placekitten.com/807/800",
-        "https://placekitten.com/808/800",
-        "https://placekitten.com/809/800",
-        "https://placekitten.com/810/800",
-      ],
+      // images: [
+      //   "https://placekitten.com/801/800",
+      //   "https://placekitten.com/802/800",
+      //   "https://placekitten.com/803/800",
+      //   "https://placekitten.com/804/800",
+      //   "https://placekitten.com/805/800",
+      //   "https://placekitten.com/806/800",
+      //   "https://placekitten.com/807/800",
+      //   "https://placekitten.com/808/800",
+      //   "https://placekitten.com/809/800",
+      //   "https://placekitten.com/810/800",
+      // ],
       index: null,
     };
   },
 };
 </script>
 
-<style scoped>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
 body {
-  font-family: sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .image {
@@ -85,6 +126,22 @@ body {
   cursor: pointer;
   margin: 10px;
   border-radius: 3px;
+  color: pink;
 }
+.v-application{
+  font-family: 'Quicksand', sans-serif;;
+}
+.v-card {
+  font-family: 'Quicksand', sans-serif;
+  transition: opacity .4s ease-in-out;
+}
+
+.v-card-title{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.v-card:not(.on-hover) {
+  opacity: 0.0;
+ }
 </style>
 <!-- -->

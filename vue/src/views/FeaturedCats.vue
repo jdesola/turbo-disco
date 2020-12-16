@@ -8,9 +8,7 @@
     >
     </cat-card>
 
-    <ul>
-      <li v-for="(role,index) in this.$store.state.user.authorities" :key="index">{{role}}</li>
-    </ul>
+   
   </div>
 </template>
 

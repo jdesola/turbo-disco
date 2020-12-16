@@ -83,7 +83,7 @@ const router = new Router({
         }
       },
       {
-        path: "/gallery",
+        path: "/",
         name: "gallery",
         component: Gallery,
         meta: {
