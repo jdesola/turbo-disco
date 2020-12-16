@@ -1,7 +1,9 @@
 <template>
   <v-expansion-panels class="cat-list-container">
-    <v-select label="Sort By" v-on:input="sortCats(sortBy)" v-model="sortBy" :items="sortOptions" ></v-select>
-    <v-select label="Sort Order" v-on:input="sortCats(sortBy)" v-model="sortDirection" :items="sortDirections" ></v-select>
+    <div class="sortActions d-flex">
+    <v-select class="sortBy" label="Sort By" v-on:input="sortCats(sortBy)" v-model="sortBy" :items="sortOptions" ></v-select>
+    <v-select class="sortOrder" label="Sort Order" v-on:input="sortCats(sortBy)" v-model="sortDirection" :items="sortDirections" ></v-select>
+    </div>
     <v-expansion-panel
       class="cat-card mb-3"
       v-for="cat in allCats"
@@ -100,7 +102,7 @@ export default {
       {text: "Time at Last Job", value: 'priorExperienceMonths'}, {text: 'Prior Job Title', value: 'previousJobs'}, {text: 'Description', value: 'description'},
       {text: "Color", value: "color"}, {text: "Skills", value: "skills"}, {text: "Strength", value: "strengthRating"}, {text: "Intelligence", value: "intelligenceRating"}, {text: "Speed", value:"speedRating"}, {text: "Stamina", value: "staminaRating"}],
       sortBy: '',
-      sortDirection: 'ASC',
+      sortDirection: '',
        sortDirections: [{text: "Ascending", value: "ASC"}, {text: "Descending", value: 'DESC'}],
       ratingsIcon: "<v-icon class='material-icons icon deleteButton'></v-icon>",
       map: {
@@ -328,9 +330,34 @@ export default {
 </script>
 
 <style>
+
+
+.sortActions {
+  position: static;
+  margin-top: 2%;
+  width: 100%;
+  height: 7%;
+  font-size: 200% !important;
+  font-weight: 800 !important;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  margin-bottom: 1%;
+box-shadow: -1px 2px 8px 1px rgba(0, 0, 0, 0.25);
+}
+
+.sortActions > .sortBy {
+  margin-right: 5%;
+  margin-left: 2%;
+  justify-self: flex-end;
+}
+
+.sortActions > .sortOrder {
+  margin-right: 2%;
+}
 .cat-card {
   border-radius: 24px;
   border: none;
+  
 }
 
 .cat-card:hover {
@@ -382,7 +409,7 @@ export default {
   border-radius: 10px;
   box-shadow: -1px 2px 8px 1px rgba(0, 0, 0, 0.5);
   width: 100%;
-  background: whitesmoke; /* rgba(166, 166, 166, 0.65 */
+  background: whitesmoke; 
   font-family: "subscriber";
   font-size: 18pt;
   padding-bottom: 5px;
@@ -399,7 +426,7 @@ transition: 1s ease;
   padding-right:175px;
   justify-content: space-evenly;
 display:grid;
-grid-template-columns: 2% 23% 6% 29% 26.5% 14.5%;
+grid-template-columns: 1% 23% 7% 11% 26.5% 14.5%;
 grid-template-areas:
 '. info-container auto auto ratings-card .'
 '. info-container auto auto ratings-card .'

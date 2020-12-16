@@ -24,7 +24,6 @@
           :lng='scene.lng'
            pitch="5"
            bearing="0"
-          
           mapStyle="mapbox://styles/livtolle/ckimct6b505dc18k62mdbx7i8"
           @click.stop
         ></vue-mapbox-map>
@@ -64,10 +63,7 @@ export default {
   props: ["cat"],
   data() {
     return {
-      // scene: {
-      //   lat: "",
-      // lng: "",
-      // },
+      
       imageUrl: null,
       
       genericPath: require('../assets/png/generic-cat2.png'),
@@ -92,12 +88,7 @@ export default {
       }
     },
     
-    //  latitude() {
-    //   return this.cat.catLocation.latitude;
-    //  },
-    //  longitude() {
-    //    return this.cat.catLocation.longitude;
-    //  }
+  
   methods: {
     markCatAdopted() {
           
@@ -177,7 +168,7 @@ export default {
   align-items: center;
   font-size: 175%;
   display: grid;
-  grid-template-columns: 25% 10% 20% 25% 20%;
+  grid-template-columns: 25% 10% 15% 25% 25%;
   grid-template-rows: 25% 25% 25% 25%;
   grid-template-areas:
     "pic ageIcon age map  location-info"
@@ -189,7 +180,16 @@ export default {
 .locationInformation {
   grid-area: location-info;
   margin-top: 28%;
+  margin-left: 10%;
   font-weight: 600 !important;
+  align-self: flex-start !important;
+  justify-self: left;
+}
+
+.locationInformation > p {
+  text-align: left !important;
+   align-self: flex-start !important;
+   justify-self: left;
   
 }
 

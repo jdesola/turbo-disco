@@ -91,10 +91,8 @@ export default {
 }
 
 .bar {
-  margin-top: 3.5%;
+  margin-top: 4.5%;
   position: absolute;
-  top: 0;
-  left: 0;
   border-radius: 50px;
    height:25%;
   width: 100%;
@@ -104,7 +102,7 @@ export default {
 }
 
 .button {
-  margin-top: -17%;
+  margin-top: -3%;
   margin-left: 7%;
   height: 110%;
   justify-self: left;
@@ -112,12 +110,19 @@ export default {
   box-shadow: -1px 2px 8px 1px rgba(0, 0, 0, 0.5);
 }
 
+
 .cat-logo {
   grid-area: logo;
   width: 100%;
-  margin-top: -2%;
+  margin-top: 4%;
   margin-left: 8%;
+  padding-bottom: -20%;
+  justify-self: center;
 }
+
+
+
+
 
 .featured, .featuredIcon {
   grid-area: feat;
@@ -195,7 +200,7 @@ export default {
 .search-container {
   grid-area: search;
   display: flex;
-  margin-top: -17%;
+  margin-top: -3%;
   margin-left: 15%;
   height: 106%;
   width: 100%;
