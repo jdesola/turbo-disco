@@ -1,12 +1,12 @@
 <template>
   <v-expansion-panels class="cat-list-container">
-    <v-select label="Sort By" v-on:input="sortCats(sortBy)" v-model="sortBy" :items="sortOptions"></v-select>
-    <v-select label="Sort Order" v-on:input="sortCats(sortBy)" v-model="sortDirection" :items="sortDirections"></v-select>
+    <v-select label="Sort By" v-on:input="sortCats(sortBy)" v-model="sortBy" :items="sortOptions" ></v-select>
+    <v-select label="Sort Order" v-on:input="sortCats(sortBy)" v-model="sortDirection" :items="sortDirections" ></v-select>
     <v-expansion-panel
       class="cat-card mb-3"
       v-for="cat in allCats"
       v-bind:key="cat.id"
-      style="background: #c3c6f381"
+      style="background: #c3c6f3"
     >
       <v-expansion-panel-header>
         <cat-card v-bind:cat="cat"> </cat-card>
@@ -335,15 +335,19 @@ export default {
 <style>
 .cat-card {
   border-radius: 24px;
+  border: none;
 }
 
 .cat-card:hover {
   box-shadow: -1px 2px 8px 1px rgba(0, 0, 0, 0.5);
 }
 
-.cat-card:nth-child(odd) {
-  background-color: #c3c6f381;
+.cat-list-container {
+  margin-top: 8%;
+  position: static;
 }
+
+
 
 /* #map-container {
   position: absolute;
@@ -430,7 +434,7 @@ grid-template-areas:
   font-size: 100%;
   color:  rgb(65, 63, 63);
   font-family: "Quicksand";
-  font-weight: 500;
+  font-weight: 600;
   padding-top: 2% ;
 }
 .cat-description  {
