@@ -1,6 +1,6 @@
 <template >
   <div class="catCard" >
-    <v-avatar class="profilePicture" size="300">
+    <v-avatar class="profilePicture" size="300" aspect-ratio="1">
       <img contain v-bind:src="(this.imageUrl === null) ? `${this.genericPath}` : `${this.imageUrl}`" />
 
     </v-avatar>
@@ -190,7 +190,7 @@ export default {
   grid-area: location-info;
   margin-top: 28%;
   font-weight: 600 !important;
-  margin-left: -10%;
+  
 }
 
 .icon {
@@ -209,13 +209,13 @@ export default {
 .profilePicture {
   margin-top: 10%;
   grid-area: pic;
-  /* width: 60%;
-  height: auto; */
+
 }
 
+
 .profilePicture > img {
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
 }
 
 #name {

@@ -34,8 +34,6 @@
 </template>
 
 <script>
-import catService from '../services/CatService'
-import locationService from '../services/LocationService'
 import FixedHeader from 'vue-fixed-header'
 
 export default {
@@ -56,15 +54,8 @@ export default {
       }
       }
     },
-   created() {
-     this.retrieveCats();
-     this.retrieveLocations(); 
-      
-      
-    },
   methods: {
     resetList() {
-      this.retrieveCats();
       this.searchTerm = "";
     },
     runSearch() {
@@ -76,20 +67,6 @@ export default {
         });
       }
     },
-      
-    retrieveCats() {
-      catService.getCats().then(response => {
-          this.$store.commit("SET_CAT_LIST", response.data);
-        });
-    },
-    retrieveLocations() {
-      locationService.getLocations().then(response => {
-        this.$store.commit("SET_LOCATION_LIST", response.data);
-      });
-    }
- 
-  
-    
   }
 
 };

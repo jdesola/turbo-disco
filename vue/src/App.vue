@@ -18,6 +18,8 @@
 <script>
 import HeaderMain from "../src/components/header.vue";
 import FooterMain from "../src/components/Footer.vue";
+import catService from "../src/services/CatService"
+import locationService from "../src/services/LocationService"
 
 export default {
   name: "app",
@@ -33,13 +35,28 @@ export default {
     theme() {
       return (this.$vuetify.theme.dark) ? 'dark' : 'light'
       }
+    },
+    methods: {
+    // saveSearchResults(results) {
+    //   this.$store.commit('SET_SEARCH_RESULTS', results);
+    // }
+    retrieveCats() {
+      catService.getCats().then(response => {
+          this.$store.commit("SET_CAT_LIST", response.data);
+        });
+    },
+    retrieveLocations() {
+      locationService.getLocations().then(response => {
+        this.$store.commit("SET_LOCATION_LIST", response.data);
+      });
     }
+  },
+  created() {
+    this.retrieveCats();
+    this.retrieveLocations();
+  }
   };
-  // methods: {
-  //   saveSearchResults(results) {
-  //     this.$store.commit('SET_SEARCH_RESULTS', results);
-  //   }
-  // }
+  
 </script>
 
 <style>
