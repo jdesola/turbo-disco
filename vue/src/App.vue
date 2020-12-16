@@ -11,16 +11,19 @@
       >
     </div>
     <router-view/>
+    <footer-main />
   </v-app>
 </template>
 
 <script>
 import HeaderMain from "../src/components/header.vue";
+import FooterMain from "../src/components/Footer.vue";
 
 export default {
   name: "app",
   components: {
     HeaderMain,
+    FooterMain,
   },
   data() {
     return {
