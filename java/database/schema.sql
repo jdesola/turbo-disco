@@ -102,11 +102,16 @@ insert into catch_cats values (default, 'Test Name', 3, 'Test Skills', 'Long', 1
 insert into catch_cats values (default, 'Keamew Reeves', 5, 'Jack of all Trades', 'Long', 5, 'Hitman', 'Gryffindor at heart', 'Brown', false, 'keanu-2.jpg',true, 3,5,4,3,1);
 insert into catch_cats values (default, 'Nosferatmew', 100, 'Transmogrification', 'Short', 80, 'Count of a Forgotten European Country', 'Mysteriously nocturnal', 'Black', false, '0_CATERS_VAMPIRE_CAT_01-768x768.jpg', true, 5,4,5,3,2);
 insert into catch_cats values (default, 'Paw Jovi', 45, 'Singing, being adorable','Short', 60, 'lives life to the fullest','Paw Jovi likes to eat bar food and sing karaoke', 'Tan', false, 'licking-cat.jpg', true, 3,4,2,3,2);
+insert into catch_cats values (default, 'Mew.js', 2, 'Interior design, agility', 'Long', 12,'Programmer', 'Mew.js is very good at making the things behind the scenes look pretty up front', 'White, brown, gray', false, 'cat_using_computer.jpg', true, 2,4,3,3,1);
+insert into catch_cats values (default, 'Kitty Purry', 3, 'Pretending to sing', 'Long', 43, 'Singer', 'Starting catfights', 'White', false, 'Katy_perry_and_kitty_purry.jpg', true, 1,1,1,1,1);
+insert into catch_cats values (default, 'Mammal', 1, 'Existing, eating, sleeping', 'Hairless', 0, 'N/A', 'Likes to snuggle, but is so unattractive people generally avoid him', 'Flesh', false, 'hairlesscat.jpg',true, 2,3,4,2,2);
 
 
 insert into success_stories values (default, 2, 'Laurence of Olivier', '12/24/2019', 'I adopted Keamew in the middle of a knife fight. The other guy pulled a gun on me (totes breaking the rules) and Keamew jumped out to take the bullet. He survived and we’ve been buddies ever since. He will be the best man at my wedding next week!');
 insert into success_stories values (default, 3, 'Cindy Lauper', '10/31/2020', 'Nosferatmew is weird because he only comes out in the evenings, but he definitely gets the job done! We haven’t seen a single live mouse since we adopted him, just their sad, shriveled little corpses. We make our daughter bury them out back to build character.');
 insert into success_stories values (default, 4, 'Bob Belcher', '11/27/2020', 'It''s my life / It''s meow or never / I ain''t gonna live furever');
-
+insert into success_stories values (default, 5, 'Brian Lauvray', '12/18/2020', 'Props to the Catch team. Mew.js has become a major component in my life!');
+insert into success_stories values (default, 6, 'Rachelle Raugh', '12/18/2020', 'Our experience with Catch has been nothing short of phenomenal. We love our Kitty Purry! They say she used to be a singer, but we just don’t hear it. In fact, whenever she meows, it sounds kind of like when you shove too many potato peels down a garbage disposal. Oh well, at least she is pretty to look at!');
+insert into success_stories values (default, 7, 'Human Being', '08/13/2020', 'We are pleased with Catch. They have provided a functional cat devoid of defects.');
 
 COMMIT TRANSACTION;
