@@ -24,7 +24,6 @@ export default {
   },
   data() {
     return {
-    color: "rgb(113, 116, 116)",
   }
   },
   computed: {

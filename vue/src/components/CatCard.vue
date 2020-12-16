@@ -24,10 +24,18 @@
           :lng='scene.lng'
            pitch="5"
            bearing="0"
-          zoom="13"
+          
           mapStyle="mapbox://styles/livtolle/ckimct6b505dc18k62mdbx7i8"
           @click.stop
         ></vue-mapbox-map>
+
+        <div class="locationInformation">
+          <p>Cat Location: </p>
+          <p>{{this.cat.catLocation.name}}</p>
+          <p> {{this.cat.catLocation.streetAddress }}</p>
+          <p> {{ this.cat.catLocation.city }}, {{ this.cat.catLocation.state }} {{this.cat.catLocation.zipCode}}</p>
+          
+        </div>
     <div class="catCardActions" @click.stop v-if="userLoggedIn">
       
       <button class="deleteButton" >
@@ -149,18 +157,13 @@ export default {
             }
       }
     },
-    setAdmin() {
-      this.$store.state.user.authorities.forEach(role => {
-        if(role.name == 'ROLE_ADMIN') {
-          this.isAdmin = true;
-        }
-      });
-    },
+    
+
+
     
   },
     created() {
       this.setImageUrl();
-      this.setAdmin();
     }
 };
 </script>
@@ -177,13 +180,18 @@ export default {
   grid-template-columns: 25% 10% 20% 25% 20%;
   grid-template-rows: 25% 25% 25% 25%;
   grid-template-areas:
-    "pic ageIcon age description  ."
-    "pic hairIcon hair description ."
-    "pic jobIcon title description ."
-    "name experienceIcon months description  catCardActions";
+    "pic ageIcon age map  location-info"
+    "pic hairIcon hair map location-info"
+    "pic jobIcon title map location-info"
+    "name experienceIcon months map catCardActions";
 }
 
-
+.locationInformation {
+  grid-area: location-info;
+  margin-top: 28%;
+  font-weight: 600 !important;
+  margin-left: -10%;
+}
 
 .icon {
   font-size: 185%;
@@ -223,30 +231,23 @@ export default {
   grid-area: age;
   color: #c24a15;
   justify-self: left;
+  font-weight: 700;
 }
 
 #ageIcon {
   grid-area: ageIcon;
-  /* margin-right: 2%;
-  margin-bottom: 3%;
-  height: 60%;
-  filter: invert(51%) sepia(97%) saturate(1488%) hue-rotate(180deg)
-    brightness(90%) contrast(93%); */
+  
 }
 
 #hairType {
   grid-area: hair;
   color: #c24a15;
   justify-self: left;
+  font-weight: 700;
 }
 
 #hairIcon {
   grid-area: hairIcon;
-  /* margin-bottom: 3%;
-  margin-right: 5%;
-  height: 60%;
-  filter: invert(51%) sepia(97%) saturate(1488%) hue-rotate(180deg)
-    brightness(90%) contrast(93%); */
 }
 
 #jobIcon {
@@ -260,6 +261,7 @@ export default {
   grid-area: title;
   color: #c24a15;
   justify-self: left;
+  font-weight: 700;
 }
 
 #experienceIcon {
@@ -270,23 +272,15 @@ export default {
   grid-area: months;
   color: #c24a15;
   justify-self: left;
+  font-weight: 700;
 }
 
-/* .map {
-  position: relative;
-  grid-area: description;
-  color: #c24a15;
- 
-  
-} */
-
 #map-container {
-  grid-area: description;
+  grid-area: map;
   position: relative;
-   /* position: absolute; */
   height: 100%;
-  width: 100%;
-  border-radius: 14px;
+  width:100%;
+  border-radius: 30px;
 }
 
 .deleteButton {
