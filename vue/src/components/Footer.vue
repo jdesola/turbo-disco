@@ -3,13 +3,13 @@
     <img class="big-logo" src="../assets/png/big-logo-50.png" />
     <div class="facts">
       <button type="button" id="get-joke" @click="fetchAPIData">Test</button>
-      <div v-if = "responseAvailable == true">
-        <hr>
+      <div v-if="responseAvailable ==true">
+        <hr />
         <p>
-            <i>{{result}}</i>
+          <i>{{ result }}</i>
         </p>
-        <hr>
-</div>
+        <hr />
+      </div>
     </div>
   </div>
 </template>
@@ -17,8 +17,12 @@
 <script>
 export default {
   name: "Footer",
-  data() {
-    return {};
+  data: function () {
+    return {
+      result: "",
+      responseAvailable: false,
+      apiKey: "<9a1eac439fmsh40558f4c87b06c7p13e515jsn9c3b5cefc1e7>",
+    };
   },
   methods: {
     fetchAPIData() {
