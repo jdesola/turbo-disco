@@ -99,6 +99,14 @@ CREATE TABLE success_stories (
 
 
 insert into catch_cats values (default, 'Test Name', 3, 'Test Skills', 'Long', 16, 'Test Job', 'Test Description', 'test color', false, null, false, 3, 2, 5, 1, 1);
+insert into catch_cats values (default, 'Keamew Reeves', 5, 'Jack of all Trades', 'Long', 5, 'Hitman', 'Gryffindor at heart', 'Brown', false, 'keanu-2.jpg',true, 3,5,4,3,1);
+insert into catch_cats values (default, 'Nosferatmew', 100, 'Transmogrification', 'Short', 80, 'Count of a Forgotten European Country', 'Mysteriously nocturnal', 'Black', false, '0_CATERS_VAMPIRE_CAT_01-768x768.jpg', true, 5,4,5,3,2);
+insert into catch_cats values (default, 'Paw Jovi', 45, 'Singing, being adorable','Short', 60, 'lives life to the fullest','Paw Jovi likes to eat bar food and sing karaoke', 'Tan', false, 'licking-cat.jpg', true, 3,4,2,3,2);
+
+
+insert into success_stories values (default, 2, 'Laurence of Olivier', '12/24/2019', 'I adopted Keamew in the middle of a knife fight. The other guy pulled a gun on me (totes breaking the rules) and Keamew jumped out to take the bullet. He survived and we’ve been buddies ever since. He will be the best man at my wedding next week!');
+insert into success_stories values (default, 3, 'Cindy Lauper', '10/31/2020', 'Nosferatmew is weird because he only comes out in the evenings, but he definitely gets the job done! We haven’t seen a single live mouse since we adopted him, just their sad, shriveled little corpses. We make our daughter bury them out back to build character.');
+insert into success_stories values (default, 4, 'Bob Belcher', '11/27/2020', 'It''s my life / It''s meow or never / I ain''t gonna live furever');
 
 
 COMMIT TRANSACTION;
