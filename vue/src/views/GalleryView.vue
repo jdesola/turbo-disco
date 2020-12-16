@@ -9,6 +9,7 @@
             :src="item.src"
             reverse-transition="fade-transition"
             transition="fade-transition"
+            @click='this.retrieveStories()'
           >
             <v-hover v-slot="{ hover }">
               <v-card
@@ -57,10 +58,11 @@
 
 <script>
  import StoryService from '@/services/StoryService';
+ import Gallery from '@/components/Gallery';
 
 export default {
-  name: "galleryPage",
-  components: StoryService,
+  name: "home",
+  components: StoryService, Gallery,
   methods: {
     retrieveStories() {
         StoryService.getStories().then(response => {
