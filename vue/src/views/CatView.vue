@@ -322,14 +322,9 @@ export default {
           }
         }.bind(this));
       },
-    },
-    // retrieveCats() {
-    //   catService.getCats().then(response => {
-    //       this.$store.commit("SET_CAT_LIST", response.data);
-    //     });
-    // }
- 
-};
+      
+    }
+}; 
 </script>
 
 <style>
@@ -347,18 +342,10 @@ export default {
   position: static;
 }
 
-
-
-/* #map-container {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-} */
 .ratings-header {
   grid-area: ratings-header;
   text-align: center;
   font-weight: 500;
-  /* border-bottom: 1px solid black; */
   font-family: "subscriber";
   font-size: 35px;
   color: #c24a15;
