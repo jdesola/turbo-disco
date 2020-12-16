@@ -108,7 +108,8 @@ insert into catch_cats values (default, 'Kitty Purry', 3, 'Pretending to sing', 
 insert into catch_cats values (default, 'Mammal', 1, 'Existing, eating, sleeping', 'Hairless', 0, 'N/A', 'Likes to snuggle, but is so unattractive people generally avoid him', 'Flesh', false, 'hairlesscat.jpg',true, 2,3,4,2,2);
 --need homes
 insert into catch_cats values (default, 'Pancake', 12, 'Carboloading, getting beefcake', 'Short', 4, 'Sommelier', 'Has an appreciation for the finer things in life', 'Orange', false, 'image.png', false, 3, 3, 3, 5, 3);
-
+insert into catch_cats values (default, 'Genevieve', 2, 'Belly flops, marathon training', 'Short', 17, 'Bodybuilder', 'Genevieve is a part-time fitness model and loves pina coladas and long walks on the beach', 'Multi', false, 'bellycat.jpg', false, 4, 3, 4, 5, 2);
+insert into catch_cats values (default, 'Izzy', 1, 'Costume design, photography, Adobe Suite', 'Short', 2, 'Seamstress', 'Izzy likes to cosplay in her spare time. Once she is bigger than the typical mouse, she looks forward to chasing them out of the house', 'Orange',false, 'leia.jpg',false, 1, 4,3,4,1);
 
 
 insert into success_stories values (default, 2, 'Laurence of Olivier', '12/24/2019', 'I adopted Keamew in the middle of a knife fight. The other guy pulled a gun on me (totes breaking the rules) and Keamew jumped out to take the bullet. He survived and we’ve been buddies ever since. He will be the best man at my wedding next week!');
