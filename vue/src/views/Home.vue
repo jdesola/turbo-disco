@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col col="12">
-        <v-carousel>
+        <v-carousel class="carousel">
           <v-carousel-item
             v-for="(item, i) in items"
             :key="i"
@@ -162,5 +162,12 @@ p {
 .v-card:not(.on-hover) {
   opacity: 0.0;
  }
+
+ .carousel{
+   
+   padding-top: 135px;
+  
+ }
+
 </style>
 <!-- -->
