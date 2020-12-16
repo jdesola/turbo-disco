@@ -88,7 +88,7 @@ CREATE TABLE success_stories (
         cat_id integer NOT NULL,
         adopter_name varchar (50) NOT NULL,
         date_adopted date not null, 
-        story varchar (255) NOT NULL,
+        story text NOT NULL,
         foreign key (cat_id) references catch_cats (id)
 
 
