@@ -1,5 +1,5 @@
 <template>
-  <div class="dumb-fucking-bitch">
+  <div class="adoptableCatGallery">
     <v-carousel
       class="images"
       cycle
@@ -14,9 +14,11 @@
               {{ slide }} boobs
               <v-fade-transition>
                 <v-overlay v-if="hover" absolute color=#036358>
-                  <v-btn color=#FFFFFF> 
-                    <a href="http://localhost:8081/cats">CATCH a cat now! 
-                    </a>
+                  <v-btn color=#FFFFFF>
+                    <router-link 
+                    v-bind:to="{name: 'cats'}">
+                    Catch this cat!
+                    </router-link>
                   </v-btn>
                 </v-overlay>
               </v-fade-transition>
@@ -72,7 +74,7 @@ p {
   font-weight: bold;
 }
 
-.dumb-fucking-bitch {
+.adoptableCatGallery {
   margin-top: 15%;
   /* padding-left: 77%; */
   width: 50%;
@@ -86,15 +88,3 @@ a{
   color: white;
 }
 </style>
-<!--// images: [
-      //   "https://placekitten.com/801/800",
-      //   "https://placekitten.com/802/800",
-      //   "https://placekitten.com/803/800",
-      //   "https://placekitten.com/804/800",
-      //   "https://placekitten.com/805/800",
-      //   "https://placekitten.com/806/800",
-      //   "https://placekitten.com/807/800",
-      //   "https://placekitten.com/808/800",
-      //   "https://placekitten.com/809/800",
-      //   "https://placekitten.com/810/800",
-      // ], -->
