@@ -12,6 +12,7 @@
     </div>
     <router-view/>
     <footer-main />
+    <cat-facts />
   </v-app>
 </template>
 
@@ -20,12 +21,14 @@ import HeaderMain from "../src/components/header.vue";
 import FooterMain from "../src/components/Footer.vue";
 import catService from "../src/services/CatService"
 import locationService from "../src/services/LocationService"
+import CatFacts from '../src/components/CatFacts';
 
 export default {
   name: "app",
   components: {
     HeaderMain,
     FooterMain,
+    CatFacts,
   },
   data() {
     return {
