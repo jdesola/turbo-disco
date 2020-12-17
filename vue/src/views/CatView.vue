@@ -336,7 +336,7 @@ export default {
   position: static;
   margin-top: 2%;
   width: 100%;
-  height: 7%;
+  height: 2%;
   font-size: 200% !important;
   font-weight: 800 !important;
   background-color: whitesmoke;

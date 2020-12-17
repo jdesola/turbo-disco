@@ -98,7 +98,6 @@ CREATE TABLE success_stories (
 
 
 
-insert into catch_cats values (default, 'Test Name', 3, 'Test Skills', 'Long', 16, 'Test Job', 'Test Description', 'test color', false, null, false, 3, 2, 5, 1, 1);
 --adopted
 insert into catch_cats values (default, 'Keamew Reeves', 5, 'Jack of all Trades', 'Long', 5, 'Hitman', 'Gryffindor at heart', 'Brown', false, 'keanu-2.jpg',true, 3,5,4,3,1);
 insert into catch_cats values (default, 'Nosferatmew', 100, 'Transmogrification', 'Short', 80, 'Count of a Forgotten European Country', 'Mysteriously nocturnal', 'Black', false, '0_CATERS_VAMPIRE_CAT_01-768x768.jpg', true, 5,4,5,3,2);
@@ -111,10 +110,10 @@ insert into catch_cats values (default, 'Pancake', 12, 'Carboloading, getting be
 insert into catch_cats values (default, 'Genevieve', 2, 'Belly flops, marathon training', 'Short', 17, 'Bodybuilder', 'Genevieve is a part-time fitness model and loves pina coladas and long walks on the beach', 'Multi', false, 'bellycat.jpg', false, 4, 3, 4, 5, 2);
 insert into catch_cats values (default, 'Izzy', 1, 'Costume design, photography, Adobe Suite', 'Short', 2, 'Seamstress', 'Izzy likes to cosplay in her spare time. Once she is bigger than the typical mouse, she looks forward to chasing them out of the house', 'Orange',false, 'leia.jpg',false, 1, 4,3,4,1);
 insert into catch_cats values (default, 'Brian', 20, 'Avid guitar player and java development wizard', 'Short', 24, 'Java Development Instructor', 'Brian likes to do Bee cosplay and is a Bob Seger fanatic', 'Grey',false, 'brian.png',false, 3,4,3,4,3);
-insert into catch_cats values (default, 'Rachelle', 14, 'The Lady of Perpetual Breaks', 'Short', 2, 'Assistant Java Instructor', 'She loves her students, her kittens, and her dog Turkey', 'Grey/White', false, 'rachelle.png',false, 2,4,2,4,2);
-insert into catch_cats values (default, 'Chloe', 2, 'Drawing and sleeping', 'Short', 3, 'Ice Cream Scooper', 'Playing minecraft, draw, and thats about it', 'White/Brown', false, 'chloe1.png',false, 2,3,2,4,8);
+insert into catch_cats values (default, 'Rachelle', 14, 'The Lady of Perpetual Breaks', 'Short', 2, 'Assistant Java Development Instructor', 'She loves her students, her kittens, and her dog Turkey', 'Grey/White', false, 'rachelle.png',false, 2,4,2,4,2);
+insert into catch_cats values (default, 'Chloe', 2, 'Drawing and sleeping', 'Short', 3, 'Ice Cream Scooper', 'Playing minecraft, draw, and that is about it', 'White/Brown', false, 'chloe1.png',false, 2,3,2,4,8);
 insert into catch_cats values (default, 'Olivia', 3, 'Photgraphy, website development ', 'Short', 7, 'Optician', 'Likes to go to South Carolina, drives fast and take pictures', 'Grey', false, 'olivia.png',false, 2,4,5,3,6);
-insert into catch_cats values (default, 'Josh', 5, 'Building PCs', 'Short', 9, 'Project Manager', 'Loves to build PCs and cosplaying as his Spidey-sona', 'White/Orange', false, 'josh.jpg',false, 3, 3,2,4,3);
+insert into catch_cats values (default, 'Josh', 5, 'Building PCs', 'Short', 9, 'Project Manager', 'Loves to build PCs and cosplay as his Spidey-sona', 'White/Orange', false, 'josh.jpg',false, 3, 3,2,4,3);
 insert into catch_cats values (default, 'Elaina', 5, 'Makeup and Therapy for friends', 'Long', 6, 'Roofing Contract Specialist', 'Elaina loves to play with makeup in her spare time, and playing Dont Starve', 'Black', false, 'catsona.png',false, 3,3,5,4,7);
 insert into catch_cats values (default, 'Kevin', 9, 'DESTRUCTION', 'Short', 9999, 'DESTORYER OF WORLDS', 'HATES RAINBOWS AND JOY', 'Black/Brown', false, 'image.png',false, 5,5,5,5,9);
 insert into catch_cats values (default, 'Winston', 1, 'Being adorable', 'Short', 1, 'Crown Prince', 'Winston loves to lick everyone on the face', 'Mix', false, 'teacup.jpg',false, 1,1,1,1,8);
