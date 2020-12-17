@@ -7,11 +7,10 @@
       hide-delimiter-background
       show-arrows-on-hover
     >
-      <v-carousel-item v-for="(slide, i) in slides" :key="i" @mouseenter="hover=true" @mouseleave="hover=false">
+      <v-carousel-item v-for="(slide, i) in slides" :key="i" :src="slide[i]" @mouseenter="hover=true" @mouseleave="hover=false">
         <v-sheet :color="colors[i]" height="100%">
           <v-row class="fill-height" align="center" justify="center">
             <div class="display-3" >
-              {{ slide }} boobs
               <v-fade-transition>
                 <v-overlay v-if="hover" absolute color=#036358>
                   <v-btn color=#FFFFFF>
@@ -37,6 +36,7 @@
 
 
 <script>
+import firebase from 'firebase';
 
 export default {
   name: "Home",
@@ -52,11 +52,34 @@ export default {
         "red lighten-1",
         "deep-purple accent-4",
       ],
-      slides: ["Penguin", "Ass", "Titty", "big", "chile anyways"],
+      slides: [],
     };
+  },
+  methods: {
+  getImages() {
+    
+     this.$store.state.catList.forEach(cat => { 
+       this.setImageUrl(cat.imageName);
+  })
+  },
+  async setImageUrl(catImageName) {
+      if (catImageName != null){
+        try {
+                const imageName = catImageName;
+                const storageRef = firebase.storage().ref();
+                const imageRef = storageRef.child(`${imageName}`);
+
+                let imageUrl = await imageRef.getDownloadURL();
+                this.slides.push(imageUrl);
+            } catch (error) {
+                console.log(error);
+            }
+  }
+  }
   },
   created() {
     document.title = 'Home';
+    this.getImages();
   },
 };
 </script>
