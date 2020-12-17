@@ -1,30 +1,32 @@
 <template>
-  <v-carousel
-    cycle
-    height="400"
-    hide-delimiter-background
-    show-arrows-on-hover
-  >
-    <v-carousel-item
-      v-for="(slide, i) in slides"
-      :key="i"
+  <div class='dumb-fucking-bitch'>
+    <v-carousel class='images'
+      cycle
+      height="400"
+      hide-delimiter-background
+      show-arrows-on-hover
     >
-      <v-sheet
-        :color="colors[i]"
-        height="100%"
+      <v-carousel-item
+        v-for="(slide, i) in slides"
+        :key="i"
       >
-        <v-row
-          class="fill-height"
-          align="center"
-          justify="center"
+        <v-sheet
+          :color="colors[i]"
+          height="100%"
         >
-          <div class="display-3">
-            {{ slide }} Slide
-          </div>
-        </v-row>
-      </v-sheet>
-    </v-carousel-item>
-  </v-carousel>
+          <v-row
+            class="fill-height"
+            align="center"
+            justify="center"
+          >
+            <div class="display-3">
+              {{ slide }} boobs
+            </div>
+          </v-row>
+        </v-sheet>
+      </v-carousel-item>
+    </v-carousel>
+    </div>
 </template>
 
     <!-- <img class="image" v-bind:key ='image' v-for="(image, i) in images" :src="image" @click="onClick(i)"  @mouseover="hover = true"
@@ -49,11 +51,11 @@
           'deep-purple accent-4',
         ],
         slides: [
-          'First',
-          'Second',
-          'Third',
-          'Fourth',
-          'Fifth',
+          'Penguin',
+          'Ass',
+          'Titty',
+          'big',
+          'chile anyways',
         ],
       }
     },
@@ -66,11 +68,23 @@
 body {
   font-family: 'Quicksand', sans-serif;
 }
-
+template > v-carousel{
+  padding-top: 25%;
+  
+}
 p {
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
 }
+
+.dumb-fucking-bitch{
+  margin-top: 15%;
+  /* padding-left: 77%; */
+  width: 50%;
+  align-self: center;
+
+}
+
 
 .subheading{
   font-family: 'Quicksand', sans-serif;
