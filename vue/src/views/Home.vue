@@ -15,7 +15,7 @@
               <v-fade-transition>
                 <v-overlay v-if="hover" absolute color=#036358>
                   <v-btn color=#FFFFFF> 
-                    <a href="http://localhost:8081/cats">CATCH this cat! 
+                    <a href="http://localhost:8081/cats">CATCH a cat now! 
                     </a>
                   </v-btn>
                 </v-overlay>
