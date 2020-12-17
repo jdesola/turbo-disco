@@ -3,13 +3,13 @@
     <v-carousel
       class="images"
       cycle
-      height="400"
+      height="800"
       hide-delimiter-background
       show-arrows-on-hover
     >
-      <v-carousel-item v-for="(slide, i) in slides" :key="i" :src="slide[i]" @mouseenter="hover=true" @mouseleave="hover=false">
-        <v-sheet :color="colors[i]" height="100%">
-          <v-row class="fill-height" align="center" justify="center">
+      <v-carousel-item v-for="(slide, i) in slides" :key="i" :src="slide" @mouseenter="hover=true" aspect-ratio="16/9" :height="max-content" @mouseleave="hover=false" >
+        <!-- <v-sheet :color="colors[i]" height="100%"> -->
+          <v-row class="fill-height" align="center" justify="center" >
             <div class="display-3" >
               <v-fade-transition>
                 <v-overlay v-if="hover" absolute color=#036358>
@@ -23,7 +23,7 @@
               </v-fade-transition>
             </div>
           </v-row>
-        </v-sheet>
+        <!-- </v-sheet> -->
       </v-carousel-item>
     </v-carousel>
   </div>
@@ -89,16 +89,14 @@ export default {
 body {
   font-family: "Quicksand", sans-serif;
 }
-template > v-carousel {
-  padding-top: 25%;
-}
+
 p {
   font-family: "Quicksand", sans-serif;
   font-weight: bold;
 }
 
 .adoptableCatGallery {
-  margin-top: 15%;
+  margin-top: 12%;
   /* padding-left: 77%; */
   width: 50%;
   align-self: center;
