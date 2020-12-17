@@ -34,7 +34,7 @@ export default {
 .facts {
   grid-area: facts;
   margin-top: 5%;
-  width: 60%
-
+  width: 78%;
+ margin-left: -33%;
 }
 </style>
