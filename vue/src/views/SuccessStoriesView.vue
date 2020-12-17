@@ -5,7 +5,7 @@
       <v-col
       v-for="story in this.$store.state.storyList"
      v-bind:key="story.storyId"
-     :cols="story.flex">
+     cols=5>
      <success-stories 
      class="success-stories "
      
