@@ -33,6 +33,8 @@ export default {
 
 .facts {
   grid-area: facts;
-  position: float;
+  margin-top: 5%;
+  
+  
 }
 </style>
