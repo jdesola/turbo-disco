@@ -56,7 +56,7 @@
     <gallery :images="images"  @close="index = null"></gallery> -->
 
 
-<script>
+<script >
  import StoryService from '@/services/StoryService';
  import Gallery from '@/components/Gallery';
 
@@ -113,7 +113,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 

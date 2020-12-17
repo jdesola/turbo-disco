@@ -1,8 +1,8 @@
 <template >
   <div class="catCard" >
-    <v-avatar class="profilePicture" size="300" aspect-ratio="1">
-      <img contain v-bind:src="(this.imageUrl === null) ? `${this.genericPath}` : `${this.imageUrl}`" />
-
+    <v-avatar class="profilePicture" size="300" >
+      <v-img aspect-ratio="1.5" v-bind:src="(this.imageUrl === null) ? `${this.genericPath}` : `${this.imageUrl}`" >
+      </v-img>
     </v-avatar>
     
     <h2 id="name">{{ cat.name }}</h2>

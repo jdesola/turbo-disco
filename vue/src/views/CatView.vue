@@ -118,9 +118,6 @@ export default {
   },
   props: [],
   computed: {
-    resultListLength() {
-      return this.$store.state.resultList.length;
-    },
     allCats: function() {
       return this.$store.state.catList.filter(function(cat) {
         return !cat.adopted;

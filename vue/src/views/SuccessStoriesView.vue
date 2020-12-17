@@ -1,15 +1,20 @@
 <template>
   
-  <div class ="successStoriesPage">
-     <success-stories 
-     class="success-stories"
-     v-for="story in this.$store.state.storyList"
+  <v-container fluid class ="successStoriesPage">
+    <v-row dense>
+      <v-col
+      v-for="story in this.$store.state.storyList"
      v-bind:key="story.storyId"
+     :cols="story.flex">
+     <success-stories 
+     class="success-stories "
+     
      v-bind:story="story"
      >
      </success-stories>
-    
-  </div>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -43,9 +48,14 @@ export default {
 <style>
 .successStoriesPage {
   position: absolute;
-  z-index: 5;
-  margin-top: 25%;
+  z-index: 1;
+  margin-top: 12%;
   height: 100%;
   width: 100%;
+}
+
+.success-stories {
+  z-index:2;
+
 }
 </style>
