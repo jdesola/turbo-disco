@@ -1,32 +1,31 @@
 <template>
-  <div class='dumb-fucking-bitch'>
-    <v-carousel class='images'
+  <div class="dumb-fucking-bitch">
+    <v-carousel
+      class="images"
       cycle
       height="400"
       hide-delimiter-background
       show-arrows-on-hover
     >
-      <v-carousel-item
-        v-for="(slide, i) in slides"
-        :key="i"
-      >
-        <v-sheet
-          :color="colors[i]"
-          height="100%"
-        >
-          <v-row
-            class="fill-height"
-            align="center"
-            justify="center"
-          >
-            <div class="display-3">
+      <v-carousel-item v-for="(slide, i) in slides" :key="i" @mouseenter="hover=true" @mouseleave="hover=false">
+        <v-sheet :color="colors[i]" height="100%">
+          <v-row class="fill-height" align="center" justify="center">
+            <div class="display-3" >
               {{ slide }} boobs
+              <v-fade-transition>
+                <v-overlay v-if="hover" absolute color=#036358>
+                  <v-btn color=#FFFFFF> 
+                    <a href="http://localhost:8081/cats">CATCH this cat! 
+                    </a>
+                  </v-btn>
+                </v-overlay>
+              </v-fade-transition>
             </div>
           </v-row>
         </v-sheet>
       </v-carousel-item>
     </v-carousel>
-    </div>
+  </div>
 </template>
 
     <!-- <img class="image" v-bind:key ='image' v-for="(image, i) in images" :src="image" @click="onClick(i)"  @mouseover="hover = true"
@@ -37,90 +36,53 @@
 
 <script>
 //  import StoryService from '@/services/StoryService';
-  import Gallery from '@/components/Gallery';
+import Gallery from "@/components/Gallery";
 
-  export default {
-    components: Gallery,
-    data () {
-      return {
-        colors: [
-          'indigo',
-          'warning',
-          'pink darken-2',
-          'red lighten-1',
-          'deep-purple accent-4',
-        ],
-        slides: [
-          'Penguin',
-          'Ass',
-          'Titty',
-          'big',
-          'chile anyways',
-        ],
-      }
-    },
-  }
+export default {
+  components: Gallery,
+  data() {
+    return {
+      overlay: false,
+      hover: false,
+      colors: [
+        "indigo",
+        "warning",
+        "pink darken-2",
+        "red lighten-1",
+        "deep-purple accent-4",
+      ],
+      slides: ["Penguin", "Ass", "Titty", "big", "chile anyways"],
+    };
+  },
+};
 </script>
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 
 body {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
-template > v-carousel{
+template > v-carousel {
   padding-top: 25%;
-  
 }
 p {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
 }
 
-.dumb-fucking-bitch{
+.dumb-fucking-bitch {
   margin-top: 15%;
   /* padding-left: 77%; */
   width: 50%;
   align-self: center;
-
 }
 
-
-.subheading{
-  font-family: 'Quicksand', sans-serif;
-  font-style: initial;
+v-btn{
+  margin-right: 50px;
 }
-
-.caption{
-  font-family: 'Quicksand', sans-serif;
-    font-style: initial;
+a{
+  color: white;
 }
-
-
-.image {
-  width: 100px;
-  height: 100px;
-  background-size: contain;
-  cursor: pointer;
-  margin: 10px;
-  border-radius: 3px;
-  color: pink;
-}
-.v-application{
-  font-family: 'Quicksand', sans-serif;;
-}
-.v-card {
-  font-family: 'Quicksand', sans-serif;
-  transition: opacity .4s ease-in-out;
-}
-
-.v-card-title{
-    font-family: 'Quicksand', sans-serif;
-}
-
-.v-card:not(.on-hover) {
-  opacity: 0.0;
- }
 </style>
 <!--// images: [
       //   "https://placekitten.com/801/800",
