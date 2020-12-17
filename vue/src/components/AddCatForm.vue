@@ -141,6 +141,7 @@ import catService from "../services/CatService";
 import firebase from "firebase";
 
 export default {
+  name: "AddCatForm",
   components: {},
   data() {
     return {

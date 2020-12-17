@@ -1,7 +1,7 @@
 <template>
   <div class="footer-container">
     <img class="big-logo" src="../assets/png/big-logo-50.png" />
-      <cat-facts />
+      <cat-facts class="facts"/>
     </div>
 </template>
 
@@ -9,7 +9,7 @@
 import CatFacts from '@/components/CatFacts';
 
 export default {
-   components: CatFacts,
+   components: {CatFacts},
   name: "Footer",
 };
 </script>

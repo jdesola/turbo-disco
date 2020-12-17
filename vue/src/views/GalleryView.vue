@@ -61,7 +61,7 @@
  import Gallery from '@/components/Gallery';
 
 export default {
-  name: "home",
+  name: "GalleryView",
   components: StoryService, Gallery,
   methods: {
     retrieveStories() {

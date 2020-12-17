@@ -29,6 +29,7 @@
 
 <script>
  export default {
+   name: "Gallery",
     data () {
       return {
         colors: [

@@ -1,18 +1,18 @@
 <template>
-  <v-app id="main" :style="{background: $vuetify.theme.themes[theme].background}">
+  <v-app id="main-style" :style="{background: $vuetify.theme.themes[theme].background}">
     
-    <div id="nav">
+    <div id="nav-bar">
       <header-main />
 
-      <router-link
+     
+    </div>
+     <router-link
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token != ''"
         >Logout</router-link
       >
-    </div>
     <router-view/>
     <footer-main />
-    <cat-facts />
   </v-app>
 </template>
 
@@ -21,19 +21,14 @@ import HeaderMain from "../src/components/header.vue";
 import FooterMain from "../src/components/Footer.vue";
 import catService from "../src/services/CatService"
 import locationService from "../src/services/LocationService"
-import CatFacts from '../src/components/CatFacts';
 
 export default {
   name: "app",
   components: {
     HeaderMain,
     FooterMain,
-    CatFacts,
   },
-  data() {
-    return {
-  }
-  },
+ 
   computed: {
     theme() {
       return (this.$vuetify.theme.dark) ? 'dark' : 'light'
@@ -63,7 +58,7 @@ export default {
 </script>
 
 <style>
-#main {
+#main-style {
   padding-left: 7.5%;
   padding-right: 7.5%;
 }

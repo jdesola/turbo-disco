@@ -37,6 +37,7 @@
 import FixedHeader from 'vue-fixed-header'
 
 export default {
+  name: "headerMain",
   components: { FixedHeader },
   computed: {
     },

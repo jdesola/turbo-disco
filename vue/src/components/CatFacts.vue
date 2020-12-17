@@ -1,10 +1,10 @@
 <template>
    <div class="facts">
-      <button type="button" id="get-joke" @click="fetchAPIData">Test</button>
-      <div v-if="responseAvailable ==true">
+      <button type="button" id="get-fact" @click="getFact">Get New Cat Fact</button>
+      <div v-if="this.responseAvailable ==true">
         <hr />
         <p>
-          <i>{{ result }}</i>
+        {{ this.result }}
         </p>
         <hr />
       </div>
@@ -12,24 +12,43 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import axios from 'axios';
-import VueAxios from 'vue-axios'
-Vue.use(VueAxios, axios)
+import CatFactService from '../services/CatFactService'
 
 export default {
-    name: 'CatList',
+    name: 'CatFacts',
     data()
     {
-        return {button: undefined}
+      return {
+      result: '',
+      responseAvailable: false,
+      }
+    },
+    methods: {
+    getFact() {
+      CatFactService
+        .getCatFacts()
+        .then((response) => {
+          if (response.status === 200) {
+            response.data.data.forEach(text => 
+            this.result = text.fact)
+            this.responseAvailable = true;
+          }
+        })
+        .catch((error) => {
+          if (error.response) {
+            this.errorMsg = `Error getting cat fact.  ${error.response.status} - ${error.response.statusText}`;
+          } else if (error.request) {
+            this.errorMsg = "Could not connect to server";
+          } else {
+            this.errorMsg = "Unexpected error";
+            console.error(error);
+          }
+        });
+    }
     },
     mounted()
     {
-        Vue.axios.get('https://brianiswu-cat-facts-v1.p.rapidapi.com/facts')
-        .then((resp)=>{
-            this.button=resp.data.data;
-            console.warn(resp.data.data);
-        })
+      this.getFact()
     }
 
 }

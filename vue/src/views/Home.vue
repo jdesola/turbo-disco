@@ -35,11 +35,10 @@
 
 
 <script>
-//  import StoryService from '@/services/StoryService';
-import Gallery from "@/components/Gallery";
 
 export default {
-  components: Gallery,
+  name: "Home",
+  
   data() {
     return {
       overlay: false,
