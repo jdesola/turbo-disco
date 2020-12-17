@@ -73,3 +73,11 @@ export default {
   }
 };
 </script>
+<style scoped>
+#login{
+  padding: 200px;
+}
+button{
+  padding-left: 15px;
+}
+</style>
