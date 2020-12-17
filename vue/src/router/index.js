@@ -8,7 +8,7 @@ import store from '../store/index'
 import CatForm from '../views/CatForm'
 import Cats from '../views/CatView'
 import FeaturedCats from '../views/FeaturedCats'
-import Gallery from '../views/GalleryView'
+
 import SuccessStoriesForm from '../components/SuccessStoriesForm'
 import SuccessStoriesView from '@/views/SuccessStoriesView'
 
@@ -30,7 +30,7 @@ const router = new Router({
     {
       path: '/',
       name: 'home',
-      component: Home, Gallery,
+      component: Home, 
       meta: {
         requiresAuth: false
       }

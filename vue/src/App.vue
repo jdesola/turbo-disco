@@ -65,9 +65,17 @@ export default {
 </script>
 
 <style>
+
 #main-style {
   padding-left: 7.5%;
   padding-right: 7.5%;
+}
+
+
+#nav-bar {
+  margin-left: -8.75% !important;
+  margin-right: -8.75% !important;
+  width: 200% !important; 
 }
 
 @font-face {
