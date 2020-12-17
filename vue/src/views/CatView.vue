@@ -325,6 +325,9 @@ export default {
         }.bind(this));
       },
       
+    },
+    created() {
+      document.title = 'Available Cats';
     }
 }; 
 </script>

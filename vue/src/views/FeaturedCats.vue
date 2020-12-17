@@ -20,6 +20,9 @@ export default {
   data() {
     return {};
   },
+  created() {
+    document.title = 'Featured Cats';
+  },
   computed: {
     featuredCats: function () {
       return this.$store.state.catList.filter(function (cat) {

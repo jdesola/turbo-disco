@@ -53,6 +53,9 @@ export default {
       slides: ["Penguin", "Ass", "Titty", "big", "chile anyways"],
     };
   },
+  created() {
+    document.title = 'Home';
+  },
 };
 </script>
 <style>

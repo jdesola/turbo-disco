@@ -21,6 +21,7 @@ import HeaderMain from "../src/components/header.vue";
 import FooterMain from "../src/components/Footer.vue";
 import catService from "../src/services/CatService"
 import locationService from "../src/services/LocationService"
+import storyService from "../src/services/StoryService"
 
 export default {
   name: "app",
@@ -47,11 +48,17 @@ export default {
       locationService.getLocations().then(response => {
         this.$store.commit("SET_LOCATION_LIST", response.data);
       });
+    },
+    retrieveStories() {
+      storyService.getStories().then(response => {
+        this.$store.commit("SET_STORY_LIST", response.data);
+      });
     }
   },
   created() {
     this.retrieveCats();
     this.retrieveLocations();
+    this.retrieveStories();
   }
   };
   

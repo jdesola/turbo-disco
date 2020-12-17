@@ -13,6 +13,9 @@ export default {
   components: {
     addCatForm,
   },
+  created() {
+    document.title = 'Add a Cat';
+  }
 };
 </script>
 

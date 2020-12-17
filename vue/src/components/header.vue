@@ -14,9 +14,9 @@
         <v-icon class="material-icons catsIcon" size="80" > pets </v-icon>
         <h1>Cats</h1>
       </router-link>
-      <router-link class="button tools d-flex align-center" v-on:click="resetList" v-bind:to="{name: 'featuredCats'}">
-        <v-icon class="material-icons toolsIcon" size="80" > build </v-icon>
-        <h1>Tools</h1>
+      <router-link class="button tools d-flex align-center" v-on:click="resetList" v-bind:to="{name: 'featuredCats'}" >
+        <v-icon class="material-icons toolsIcon" size="80" v-text="(userLoggedIn) ? 'build' : 'login'">  </v-icon>
+        <h1 v-text="(userLoggedIn) ? 'Tools' : 'Login'"></h1>
       </router-link>
       <div class="search-container">
         <input type="text" class="search-bar" v-model=searchTerm @keyup.enter="runSearch" placeholder="Search"/>
@@ -40,6 +40,12 @@ export default {
   name: "headerMain",
   components: { FixedHeader },
   computed: {
+    userLoggedIn() {
+      let isLoggedIn = false;
+      if(this.$store.state.token != '') {
+        isLoggedIn = true;}
+        return isLoggedIn;
+      }
     },
   data() {
     return {
@@ -68,6 +74,8 @@ export default {
         });
       }
     },
+
+    
   }
 
 };
@@ -88,7 +96,7 @@ export default {
     ". logo . . . . .";
   justify-content: space-evenly;
   overflow: hidden;
-  z-index: 2;
+  z-index: 0;
 }
 
 .bar {

@@ -1,4 +1,5 @@
 <template>
+  
   <div class ="successStoriesPage">
      <success-stories 
      class="success-stories"
@@ -13,7 +14,7 @@
 
 <script>
 import SuccessStories from "@/components/SuccessStories";
-import StoryService from '@/services/StoryService';
+// import StoryService from '@/services/StoryService';
 
 export default {
     name: "SuccessStoriesView",
@@ -21,14 +22,15 @@ export default {
         SuccessStories,
     },
     methods: {
-      retrieveStories() {
-        StoryService.getStories().then(response => {
-        this.$store.commit('SET_STORY_LIST', response.data);
-        })
-      }
+      // retrieveStories() {
+      //   StoryService.getStories().then(response => {
+      //   this.$store.commit('SET_STORY_LIST', response.data);
+      //   })
+      // }
     },
     created() {
-      this.retrieveStories();
+      document.title = 'Success Stories';
+      // this.retrieveStories();
     },
     data() {
       return {};
@@ -39,5 +41,11 @@ export default {
 
 
 <style>
-
+.successStoriesPage {
+  position: absolute;
+  z-index: 5;
+  margin-top: 25%;
+  height: 100%;
+  width: 100%;
+}
 </style>
