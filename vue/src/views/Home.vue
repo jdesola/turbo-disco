@@ -1,53 +1,30 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col col="12">
-        <v-carousel class="carousel">
-          <v-carousel-item
-            v-for="(item, i) in items"
-            :key="i"
-            :src="item.src"
-            reverse-transition="fade-transition"
-            transition="fade-transition"
-            @click='this.retrieveStories()'
-          >
-            <v-hover v-slot="{ hover }">
-              <v-card
-                :elevation="hover ? 12 : 2"
-                :class="{ 'on-hover': hover }"
-              >
-                <v-img :src="item.img" height="225px">
-                  <v-card-title class="title white--text">
-                    <v-row
-                      class="fill-height flex-column"
-                      justify="space-between"
-                    >
-                      <p class="mt-4 subheading text-left">
-                        {{ item.title }}
-                      </p>
-
-                      <div>
-                        <p
-                          class="subheading"
-                        >
-                          {{ item.text }}
-                        </p>
-                        <p
-                          class="caption"
-                        >
-                          {{ item.subtext }}
-                        </p>
-                      </div>    
-                    </v-row>
-                  </v-card-title>
-                </v-img>
-              </v-card>
-            </v-hover>
-          </v-carousel-item>
-        </v-carousel>
-      </v-col>
-    </v-row>
-  </v-container>
+  <v-carousel
+    cycle
+    height="400"
+    hide-delimiter-background
+    show-arrows-on-hover
+  >
+    <v-carousel-item
+      v-for="(slide, i) in slides"
+      :key="i"
+    >
+      <v-sheet
+        :color="colors[i]"
+        height="100%"
+      >
+        <v-row
+          class="fill-height"
+          align="center"
+          justify="center"
+        >
+          <div class="display-3">
+            {{ slide }} Slide
+          </div>
+        </v-row>
+      </v-sheet>
+    </v-carousel-item>
+  </v-carousel>
 </template>
 
     <!-- <img class="image" v-bind:key ='image' v-for="(image, i) in images" :src="image" @click="onClick(i)"  @mouseover="hover = true"
@@ -57,62 +34,31 @@
 
 
 <script>
- import StoryService from '@/services/StoryService';
- import Gallery from '@/components/Gallery';
+//  import StoryService from '@/services/StoryService';
+  import Gallery from '@/components/Gallery';
 
-export default {
-  name: "home",
-  components: StoryService, Gallery,
-  methods: {
-    retrieveStories() {
-        StoryService.getStories().then(response => {
-        this.$store.commit('SET_STORY_LIST', response.data);
-        })
+  export default {
+    components: Gallery,
+    data () {
+      return {
+        colors: [
+          'indigo',
+          'warning',
+          'pink darken-2',
+          'red lighten-1',
+          'deep-purple accent-4',
+        ],
+        slides: [
+          'First',
+          'Second',
+          'Third',
+          'Fourth',
+          'Fifth',
+        ],
       }
     },
-    onClick(i) {
-      this.index = i;
-  },
-  data: function () {
-    return {
-      items: [
-        {
-          src: "https://placekitten.com/801/800",
-          title: 'Gary',   
-          text: 'A New Start',
-          subtext: 'Gary loves his new home. Ever since Nancy picked him up at the shelter, he has been rocking it at his new job!'    
-        },
-        {
-          src: "https://placekitten.com/802/800",
-        },
-        {
-          src: "https://placekitten.com/805/800",
-        },
-        {
-          src: "https://placekitten.com/806/800",
-        },
-        {
-          src: "https://placekitten.com/807/800",
-        },
-      ],
-      // images: [
-      //   "https://placekitten.com/801/800",
-      //   "https://placekitten.com/802/800",
-      //   "https://placekitten.com/803/800",
-      //   "https://placekitten.com/804/800",
-      //   "https://placekitten.com/805/800",
-      //   "https://placekitten.com/806/800",
-      //   "https://placekitten.com/807/800",
-      //   "https://placekitten.com/808/800",
-      //   "https://placekitten.com/809/800",
-      //   "https://placekitten.com/810/800",
-      // ],
-      index: null,
-    };
-  },
-};
+  }
 </script>
-
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
@@ -134,7 +80,6 @@ p {
 .caption{
   font-family: 'Quicksand', sans-serif;
     font-style: initial;
-
 }
 
 
@@ -162,12 +107,16 @@ p {
 .v-card:not(.on-hover) {
   opacity: 0.0;
  }
-
- .carousel{
-   
-   padding-top: 135px;
-  
- }
-
 </style>
-<!-- -->
+<!--// images: [
+      //   "https://placekitten.com/801/800",
+      //   "https://placekitten.com/802/800",
+      //   "https://placekitten.com/803/800",
+      //   "https://placekitten.com/804/800",
+      //   "https://placekitten.com/805/800",
+      //   "https://placekitten.com/806/800",
+      //   "https://placekitten.com/807/800",
+      //   "https://placekitten.com/808/800",
+      //   "https://placekitten.com/809/800",
+      //   "https://placekitten.com/810/800",
+      // ], -->
