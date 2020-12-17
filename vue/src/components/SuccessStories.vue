@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="d-flex">
     <v-card class="successStoriesCard" elevation="2" >
       <v-card-title id="name">{{ this.story.catName }}</v-card-title>
         <v-avatar class="catPicture" size="250" >
@@ -96,6 +96,8 @@ export default {
   margin-bottom: 0.77%;
   text-decoration-color: black;
   font-family: Quicksand;
+  width: 200%;
+  height: 100%;
 }
 #name {
   font-family: "subscriber";
