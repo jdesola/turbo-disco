@@ -42,7 +42,7 @@
         <div v-show="show">
           <v-divider></v-divider>
 
-          <v-card-text class="cardText">{{
+          <v-card-text class="cardTextDrop">{{
             this.story.successStory
           }}</v-card-text>
         </div>
@@ -132,6 +132,11 @@ export default {
   font-size: 140%;
   width: 100%;
   margin-top: 40%;
+}
+
+.cardTextDrop {
+  font-size: 140%;
+  width: 100%;
 }
 
 .catPicture {
