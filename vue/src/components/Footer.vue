@@ -1,15 +1,15 @@
 <template>
   <div class="footer-container">
     <img class="big-logo" src="../assets/png/big-logo-50.png" />
-      <cat-facts class="facts"/>
+    <!-- <cat-facts class="facts"/> -->
     </div>
 </template>
 
 <script>
-import CatFacts from '@/components/CatFacts';
+//import CatFacts from '@/components/CatFacts';
 
 export default {
-   components: {CatFacts},
+  // components: {CatFacts},
   name: "Footer",
 };
 </script>
@@ -17,7 +17,7 @@ export default {
 <style>
 .footer-container {
   display: grid;
-  grid-template-areas: "logo facts";
+  grid-template-areas: "logo ";
   left: 0;
   bottom: 0;
   width: 100%;
@@ -31,10 +31,10 @@ export default {
   grid-area: logo;
 }
 
-.facts {
+/* .facts {
   grid-area: facts;
   margin-top: 5%;
   width: 40%;
  margin-left: 700px;
-}
+} */
 </style>

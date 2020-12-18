@@ -123,11 +123,11 @@ insert into catch_cats values (default, 'Sebastian', 3, 'Being smart', 'Hairless
 
 --success stories---
 
-insert into success_stories values (default, 1, 'Laurence of Olivier', '12/24/2019', 'I adopted Keamew in the middle of a knife fight. The other guy pulled a gun on me (totes breaking the rules) and Keamew jumped out to take the bullet. He survived and we�ve been buddies ever since. He will be the best man at my wedding next week!');
-insert into success_stories values (default, 2, 'Cindy Lauper', '10/31/2020', 'Nosferatmew is weird because he only comes out in the evenings, but he definitely gets the job done! We haven�t seen a single live mouse since we adopted him, just their sad, shriveled little corpses. We make our daughter bury them out back to build character.');
+insert into success_stories values (default, 1, 'Laurence of Olivier', '12/24/2019', 'I adopted Keamew in the middle of a knife fight. The other guy pulled a gun on me (totes breaking the rules) and Keamew jumped out to take the bullet. He survived and we have been buddies ever since. He will be the best man at my wedding next week!');
+insert into success_stories values (default, 2, 'Cindy Lauper', '10/31/2020', 'Nosferatmew is weird because he only comes out in the evenings, but he definitely gets the job done! We have not seen a single live mouse since we adopted him, just their sad, shriveled little corpses. We make our daughter bury them out back to build character.');
 insert into success_stories values (default, 3, 'Bob Belcher', '11/27/2020', 'It''s my life / It''s meow or never / I ain''t gonna live furever');
 insert into success_stories values (default, 4, 'Brian Lauvray', '12/18/2020', 'Props to the Catch team. Mew.js has become a major component in my life!');
-insert into success_stories values (default, 5, 'Rachelle Rauch', '12/18/2020', 'Our experience with Catch has been nothing short of phenomenal. We love our Kitty Purry! They say she used to be a singer, but we just don�t hear it. In fact, whenever she meows, it sounds kind of like when you shove too many potato peels down a garbage disposal. Oh well, at least she is pretty to look at!');
+insert into success_stories values (default, 5, 'Rachelle Rauch', '12/18/2020', 'Our experience with Catch has been nothing short of phenomenal. We love our Kitty Purry! They say she used to be a singer, but we just do not hear it. In fact, whenever she meows, it sounds kind of like when you shove too many potato peels down a garbage disposal. Oh well, at least she is pretty to look at!');
 insert into success_stories values (default, 6, 'Human Being', '08/13/2020', 'We are pleased with Catch. They have provided a functional cat devoid of defects.');
 
 COMMIT TRANSACTION;
