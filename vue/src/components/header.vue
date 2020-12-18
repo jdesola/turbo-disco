@@ -86,10 +86,16 @@ export default {
 </script>
 
 <style scoped>
+.header-container {
+  position: absolute;
+  top: 0;
+}
 
 .header-main {
   display: grid;
-  position: fixed;
+  position: absolute;
+  top: 0;
+
   font-family: 'Subscriber';
   font-size: 350%;
   grid-template-columns: 2% 12% 15% 15% 15% 15% 10%;
@@ -105,9 +111,10 @@ export default {
 
 .bar {
   
-  position: fixed;
-   height:5%;
-  width: 100%;
+  position: absolute;
+  top:0;
+   height:35%;
+  width: 200%;
   background-color: rgb(255, 255, 255);
   z-index: -1;
   margin-top: 3%;
