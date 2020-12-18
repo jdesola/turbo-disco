@@ -52,6 +52,7 @@ export default {
   margin-top: 12%;
   height: 100%;
   width: 100%;
+  margin-left: 8%;
 }
 
 .success-stories {

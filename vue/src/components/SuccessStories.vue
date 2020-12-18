@@ -1,29 +1,43 @@
 <template>
-  <div class="d-flex">
-    <v-card class="successStoriesCard" elevation="2" >
-      <v-card-title id="name">{{ this.story.catName }}</v-card-title>
+  <div class="d-flex ">
+    <v-card  shaped class="successStoriesCard" elevation="2" >
+      <v-container>
+        <v-row>
+      <v-card-title id="name" class="justify-self-center">{{ this.story.catName }}</v-card-title>
+        </v-row>
+        <v-row>
         <v-avatar class="catPicture" size="250" >
       <v-img aspect-ratio="1.5"  v-bind:src="(this.imageUrl === null) ? `${this.genericPath}` : `${this.imageUrl}`"></v-img>
 
     </v-avatar>
+        
+          <v-col cols="2.5">
       <v-card-text class="cardText"
         >Adopted By: {{ this.story.adopterName }}</v-card-text
       >
+          </v-col>
+        <v-col>
       <v-card-text class="cardText"
         >Date Adopted: {{ this.story.dateAdopted }}</v-card-text
       >
+        </v-col>
+        </v-row>
+
+        <v-row>
       <v-card-actions>
-        <v-btn id="readStoryBtn" v-on:click="show = !show" text>
+        <v-btn id="readStoryBtn"  v-on:click="show = !show" text>
           Click to Read Story
         </v-btn>
-
         <v-spacer></v-spacer>
 
         <v-btn icon @click="show = !show">
           <v-icon>{{ show ? "mdi-chevron-up" : "mdi-chevron-down" }}</v-icon>
         </v-btn>
       </v-card-actions>
+    </v-row>
 
+    <v-row>
+ 
       <v-expand-transition>
         <div v-show="show">
           <v-divider></v-divider>
@@ -33,6 +47,9 @@
           }}</v-card-text>
         </div>
       </v-expand-transition>
+
+    </v-row>
+      </v-container>
     </v-card>
   </div>
 </template>
@@ -89,27 +106,32 @@ export default {
   };
 </script>
 
-<style>
+<style scoped>
 .successStoriesCard {
   margin-left: 10%;
   margin-right: 10%;
   margin-bottom: 0.77%;
   text-decoration-color: black;
   font-family: Quicksand;
-  width: 200%;
+  width: 150%;
   height: 100%;
 }
 #name {
   font-family: "subscriber";
   font-size: 300%;
   color: #161fc2;
-  margin-bottom: 1%;
+  margin-bottom: 2%;
+  margin-left: 4.5%;
+
 }
 #readStoryBtn {
   color: #33a3f5;
+  margin-left: 107%;
 }
 .cardText {
   font-size: 140%;
+  width: 100%;
+  margin-top: 40%;
 }
 
 .catPicture {
@@ -118,8 +140,4 @@ export default {
 }
 
 
-.catPicture > v-img {
-  height: auto;
-  width: 100%;
-}
 </style>
