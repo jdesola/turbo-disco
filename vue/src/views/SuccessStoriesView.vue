@@ -45,7 +45,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 .successStoriesPage {
   position: absolute;
   z-index: 1;

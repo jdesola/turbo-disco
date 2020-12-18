@@ -16,7 +16,7 @@
       class="catImage"
     />
 
-    <v-form class="catForm d-flex flex-column justify-space-around ">
+    <v-form class="catForm d-flex flex-column  ">
       <v-text-field
         type="text"
         id="name"
@@ -240,8 +240,9 @@ export default {
 
 <style>
 .catFormContainer {
-  
-  margin: 0px auto;
+
+    padding: 1%;
+    background-color: #ebebeb;
 }
 
 .catImage {
@@ -260,6 +261,7 @@ export default {
   text-align: center;
   padding-right: 2%;
   padding-left: 2%;
+
 }
 
 .catForm > v-select {

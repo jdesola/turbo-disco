@@ -11,7 +11,7 @@
 
       show-arrows-on-hover
     >
-      <v-carousel-item class="imageContainer" v-for="(slide, i) in slides" :key="i" :src="slide" @mouseenter="hover=true"  @mouseleave="hover=false" :aspect-ratio="2">
+      <v-carousel-item class="imageContainer" v-for="(slide, i) in slides" :key="i" :src="slide" @mouseenter="hover=true"  @mouseleave="hover=false" :aspect-ratio="2" contain>
           <v-row class="fill-height" align="center" justify="center" >
             <div class="display-3" >
               <v-fade-transition>

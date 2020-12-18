@@ -1,6 +1,6 @@
 <template>
 
-  <v-container elevation="12">
+  <v-container class="successFormPage" elevation="12">
      <v-subheader > Add Success Story</v-subheader>
     <v-form ref="successForm">
          
@@ -134,7 +134,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.successFormPage {
+  background-color: #ebebeb;
+}
 
 .v-subheader {
     font-family: 'Subscriber';

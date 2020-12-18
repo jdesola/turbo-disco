@@ -16,13 +16,13 @@
       <v-expansion-panel-content>
         <div class="expansion-panel-grid">
           <div class="info-container">
-          <div class="cat-description"> <v-subheader>Description: </v-subheader>
+          <div class="cat-description"> <h2>Description: </h2>
         <p class ="cat-description">{{ cat.description }}</p></div>
           <div class="cat-skills"> 
-            <v-subheader color="#121FCA">Skills: </v-subheader>  <p class="cat-skills">{{ cat.skills }}</p></div>
+            <h2 color="#121FCA">Skills: </h2>  <p class="cat-skills">{{ cat.skills }}</p></div>
            
           <div class="cat-color"> 
-            <v-subheader >Color: </v-subheader>  <p class="cat-color">{{ cat.color }}</p></div>
+            <h2 >Color: </h2>  <p class="cat-color">{{ cat.color }}</p></div>
           </div>
         <div class="ratings-container" >
           <div class="ratings-header">Cat Stats</div>
@@ -365,7 +365,7 @@ box-shadow: -1px 2px 8px 1px rgba(0, 0, 0, 0.25);
 }
 
 .cat-list-container {
-  margin-top: 8%;
+  margin-top: 9%;
   position: static;
 }
 
@@ -374,7 +374,7 @@ box-shadow: -1px 2px 8px 1px rgba(0, 0, 0, 0.25);
   text-align: center;
   font-weight: 500;
   font-family: "subscriber";
-  font-size: 35px;
+  font-size: 150%;
   color: #c24a15;
 }
 .strength {
@@ -414,6 +414,7 @@ box-shadow: -1px 2px 8px 1px rgba(0, 0, 0, 0.25);
   font-size: 18pt;
   padding-bottom: 5px;
   transition: 1s ease;
+  font-size: 200%;
 }
 .ratings-container:hover, .info-container:hover{
 -webkit-transform: scale(1.2);
@@ -434,7 +435,7 @@ grid-template-areas:
 }
 .cat-skills, .cat-description, .cat-color{
   
-  font-size: 115%;
+  font-size: 115% !important;
   font-family: 'Subscriber', sans-serif;
   margin-left: 10%;
 }
@@ -444,27 +445,38 @@ grid-template-areas:
   
 }
 
+h2 {
+  font-size: 225%;
+}
+
+.cat-color > h2, .cat-description > h2, .cat-skills > h2 {
+  color: #161fc2;
+}
+
+
+
 .cat-skills > p, .cat-description > p, .cat-color > p{
-  font-size: 100%;
-  color:  rgb(65, 63, 63);
+  font-size: 100% !important;
+  color:  rgb(65, 63, 63) !important;
   font-family: "Quicksand";
-  font-weight: 600;
-  padding-top: 2% ;
+  font-weight: 600 !important;
+  padding-top: 2% !important ;
 }
 .cat-description  {
   grid-area: cat-description;
 }
-
 .cat-color{
   padding-top: 2%;
   grid-area: cat-color;
 }
 
+
+
 .info-container {
   grid-area: info-container;
   display: grid;
-  grid-column-gap: 10%;
-  border: 1px solid #575a8f;
+  grid-column-gap: 10% ;
+  border: 1px solid #575a8f !important;
   border-radius: 10px;
   box-shadow: -1px 2px 8px 1px rgba(0, 0, 0, 0.5);
   width: 100%;

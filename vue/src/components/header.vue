@@ -169,7 +169,10 @@ export default {
    
 }
 
- 
+ .featuredIcon {
+   margin-top: 4%;
+   margin-right: 0.5%;
+ }
 
 .featured > h1 {
   padding-bottom: 5%;
@@ -220,15 +223,26 @@ export default {
   grid-area: success;
   color:  #facf67 !important;
   background-color: #3eb0c7 ;
-  
-  
+}
+
+.storiesIcon {
+  padding-bottom: 2%;
+}
+
+.success-link > h1{
+  padding-bottom: 4%;
+  margin-left: -1%;
 }
 
 .tools > h1 {
   padding-bottom: 5%;
+  margin-top: 0%;
   
 }
 
+.toolsIcon {
+  margin-top: 6%;
+}
 
 .success-link {
 
@@ -237,6 +251,7 @@ export default {
 
 .admin-link {
   margin-left: 25%;
+
 }
 
 

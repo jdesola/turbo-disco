@@ -159,7 +159,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .catCard {
   
   font-family: Quicksand;
@@ -285,20 +285,20 @@ export default {
 
 .deleteButton {
   justify-self: right;
-  font-size: 125%;
-  color: rgb(128, 1, 1);
+  font-size: 125% !important;
+  color: rgb(128, 1, 1) !important;
  
-  border: none;
-  cursor: pointer;
+  border: none !important;
+  cursor: pointer !important;
 }
 
 .featureButton {
   justify-self: right;
-  font-size: 125%;
-  color: #161fc2;
+  font-size: 125% !important;
+  color: #161fc2 !important;
 
-  border: none;
-  cursor: pointer;
+  border: none !important;
+  cursor: pointer !important;
 }
 
 .catCardActions {

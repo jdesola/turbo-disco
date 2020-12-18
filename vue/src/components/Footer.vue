@@ -14,7 +14,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .footer-container {
   left: 0;
   bottom: 0;

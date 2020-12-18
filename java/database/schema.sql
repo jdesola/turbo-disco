@@ -43,15 +43,10 @@ CREATE TABLE cat_locations (
        );
        
 insert into cat_locations (location_name, street_address, city, state_abbr, zip_code, latitude, longitude) values ('Cozy Cat Cottage', '10344 Sawmill Road', 'Powell', 'OH', 43065, '40.147603', '-83.089515');
-insert into cat_locations (location_name, street_address, city, state_abbr, zip_code, latitude, longitude) values ('Homeless to Home Animal Rescue and Cat Sanctuary', '1745 Marion-Waldo Road', 'Marion', 'OH', 43302, '41.80000434461222', '-82.10635851250001');
-insert into cat_locations (location_name, street_address, city, state_abbr, zip_code, latitude, longitude) values ('Paws & Whiskers Cat Shelter', '32 Hillwyck Drive', 'Toledo', 'OH', 43615, '42.14671967905339', '-82.92257586953126');
 insert into cat_locations (location_name, street_address, city, state_abbr, zip_code, latitude, longitude) values ('Colony Cats', '2740 Festival Lane', 'Dublin', 'OH', 43017, '40.09378251395264', '-83.08961751509419');
-insert into cat_locations (location_name, street_address, city, state_abbr, zip_code, latitude, longitude) values ('Cat Tails', '6622 Beach Drive SW', 'Ocean Isle Beach', 'NC', 28469, '36.0421218', '-78.0222493');
 insert into cat_locations (location_name, street_address, city, state_abbr, zip_code, latitude, longitude) values ('Pets Without Parents', '629 Oakland Park Avenue', 'Columbus', 'OH', 43214, '40.03282962229468', '-82.99861995970622');
-insert into cat_locations (location_name, street_address, city, state_abbr, zip_code, latitude, longitude) values ('Cats Haven', '2603 N College Avenue', 'Indianapolis', 'IN', 46205, '39.804364', '-86.144398');
 insert into cat_locations (location_name, street_address, city, state_abbr, zip_code, latitude, longitude) values ('McDonald''s', '1074 Gemini Place', 'Columbus', 'OH', 43240, '40.14830510461983', '-82.98874307276557');
 insert into cat_locations (location_name, street_address, city, state_abbr, zip_code, latitude, longitude) values ('The Cat Welfare Association', '741 Wetmore Road', 'Columbus', 'OH', 43214, '40.05910051891913', '-82.9993228465449');
-insert into cat_locations (location_name, street_address, city, state_abbr, zip_code, latitude, longitude) values ('Best Friends Lifesaving Center', '307 W Broadway', 'New York', 'NY', 10013, '40.77352015741932', '-73.68874422343505');
 
 CREATE TABLE catch_cats (
     id serial NOT NULL,
@@ -106,17 +101,17 @@ insert into catch_cats values (default, 'Mew.js', 2, 'Interior design, agility',
 insert into catch_cats values (default, 'Kitty Purry', 3, 'Pretending to sing', 'Long', 43, 'Singer', 'Starting catfights', 'White', false, 'Katy_perry_and_kitty_purry.jpg', true, 1,1,1,1,1);
 insert into catch_cats values (default, 'Mammal', 1, 'Existing, eating, sleeping', 'Hairless', 0, 'N/A', 'Likes to snuggle, but is so unattractive people generally avoid him', 'Flesh', false, 'hairlesscat.jpg',true, 2,3,4,2,2);
 --need homes--
-insert into catch_cats values (default, 'Pancake', 12, 'Carboloading, getting beefcake', 'Short', 4, 'Sommelier', 'Has an appreciation for the finer things in life', 'Orange', false, 'image.png', false, 3, 3, 3, 5, 5);
+insert into catch_cats values (default, 'Pancake', 12, 'Carboloading, getting beefcake', 'Short', 4, 'Sommelier', 'Has an appreciation for the finer things in life', 'Orange', false, 'pancake.png', false, 3, 3, 3, 5, 5);
 insert into catch_cats values (default, 'Genevieve', 2, 'Belly flops, marathon training', 'Short', 17, 'Bodybuilder', 'Genevieve is a part-time fitness model and loves pina coladas and long walks on the beach', 'Multi', false, 'bellycat.jpg', false, 4, 3, 4, 5, 2);
 insert into catch_cats values (default, 'Izzy', 1, 'Costume design, photography, Adobe Suite', 'Short', 2, 'Seamstress', 'Izzy likes to cosplay in her spare time. Once she is bigger than the typical mouse, she looks forward to chasing them out of the house', 'Orange',false, 'leia.jpg',false, 1, 4,3,4,1);
 insert into catch_cats values (default, 'Brian', 20, 'Avid guitar player and java development wizard', 'Short', 24, 'Java Development Instructor', 'Brian likes to do Bee cosplay and is a Bob Seger fanatic', 'Grey',false, 'brian.png',false, 3,4,3,4,3);
 insert into catch_cats values (default, 'Rachelle', 14, 'The Lady of Perpetual Breaks', 'Short', 2, 'Assistant Java Development Instructor', 'She loves her students, her kittens, and her dog Turkey', 'Grey/White', false, 'rachelle.png',false, 2,4,2,4,2);
-insert into catch_cats values (default, 'Chloe', 2, 'Drawing and sleeping', 'Short', 3, 'Ice Cream Scooper', 'Playing minecraft, draw, and that is about it', 'White/Brown', false, 'chloe1.png',false, 2,3,2,4,8);
-insert into catch_cats values (default, 'Olivia', 3, 'Photgraphy, website development ', 'Short', 7, 'Optician', 'Likes to go to South Carolina, drives fast and take pictures', 'Grey', false, 'olivia.png',false, 2,4,5,3,6);
+insert into catch_cats values (default, 'Chloe', 2, 'Drawing and sleeping', 'Short', 3, 'Ice Cream Scooper', 'Playing minecraft, draw, and that is about it', 'White/Brown', false, 'chloe1.png',false, 2,3,2,4,3);
+insert into catch_cats values (default, 'Olivia', 3, 'Photgraphy, website development ', 'Short', 7, 'Optician', 'Likes to go to South Carolina, drives fast and take pictures', 'Grey', false, 'olivia.png',false, 2,4,5,3,1);
 insert into catch_cats values (default, 'Josh', 5, 'Building PCs', 'Short', 9, 'Project Manager', 'Loves to build PCs and cosplay as his Spidey-sona', 'White/Orange', false, 'josh.jpg',false, 3, 3,2,4,3);
-insert into catch_cats values (default, 'Elaina', 5, 'Makeup and Therapy for friends', 'Long', 6, 'Roofing Contract Specialist', 'Elaina loves to play with makeup in her spare time, and playing Dont Starve', 'Black', false, 'catsona.png',false, 3,3,5,4,7);
-insert into catch_cats values (default, 'Kevin', 9, 'DESTRUCTION', 'Short', 9999, 'DESTORYER OF WORLDS', 'HATES RAINBOWS AND JOY', 'Black/Brown', false, 'image.png',false, 5,5,5,5,9);
-insert into catch_cats values (default, 'Winston', 1, 'Being adorable', 'Short', 1, 'Crown Prince', 'Winston loves to lick everyone on the face', 'Mix', false, 'teacup.jpg',false, 1,1,1,1,8);
+insert into catch_cats values (default, 'Elaina', 5, 'Makeup and Therapy for friends', 'Long', 6, 'Roofing Contract Specialist', 'Elaina loves to play with makeup in her spare time, and playing Dont Starve', 'Black', false, 'catsona.png',false, 3,3,5,4,3);
+insert into catch_cats values (default, 'Kevin', 9, 'DESTRUCTION', 'Short', 9999, 'DESTORYER OF WORLDS', 'HATES RAINBOWS AND JOY', 'Black/Brown', false, 'image.png',false, 5,5,5,5,4);
+insert into catch_cats values (default, 'Winston', 1, 'Being adorable', 'Short', 1, 'Crown Prince', 'Winston loves to lick everyone on the face', 'Mix', false, 'teacup.jpg',false, 1,1,1,1,5);
 insert into catch_cats values (default, 'Sebastian', 3, 'Being smart', 'Hairless', 6, 'Head Scientist at NASA', 'Likes to read scientific articles and observing stars in the visible universe ', 'Bald', false, 'hairlesscat.jpg',false, 5,5,5,5,2);
 
 
