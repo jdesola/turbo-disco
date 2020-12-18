@@ -40,7 +40,7 @@ public class CatchController {
 		catDao.createCat(cat);
 	}
 	
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(path="/cats", method=RequestMethod.PUT) 
 	public void update(@RequestBody Cat updatedCat) { 
 		catDao.updateCat(updatedCat); 
