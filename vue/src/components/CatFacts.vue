@@ -56,5 +56,9 @@ export default {
 </script>
 
 <style>
+ #get-fact {
+  margin-top: 7%
+  
+} 
 
 </style>

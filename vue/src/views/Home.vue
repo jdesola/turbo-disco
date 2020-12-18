@@ -26,6 +26,7 @@
         <!-- </v-sheet> -->
       </v-carousel-item>
     </v-carousel>
+    <cat-facts class="facts"/>
   </div>
 </template>
 
@@ -37,8 +38,9 @@
 
 <script>
 import firebase from 'firebase';
-
+import CatFacts from '@/components/CatFacts';
 export default {
+  components: {CatFacts},
   name: "Home",
   
   data() {
@@ -107,5 +109,11 @@ v-btn{
 }
 a{
   color: white;
+}
+
+.facts{
+font-family:"Quicksand", sans-serif;
+font-weight: bold;
+font-size: 150%;
 }
 </style>
