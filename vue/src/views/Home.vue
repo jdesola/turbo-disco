@@ -19,7 +19,7 @@
                   <v-btn color=#FFFFFF background-color=#FFFFFF>
                     <router-link 
                     v-bind:to="{name: 'cats'}">
-                    Catch this cat!
+                    Catch a cat!
                     </router-link>
                   </v-btn>
                 </v-overlay>
