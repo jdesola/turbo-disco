@@ -18,7 +18,7 @@
         <v-icon class="material-icons storiesIcon icon" size="80" > emoji_events </v-icon>
         <h1>Stories</h1>
       </router-link>
-      <router-link class="button tools d-flex align-center admin-link" v-on:click="resetList" v-bind:to="{name: 'featuredCats'}" >
+      <router-link class="button tools d-flex align-center admin-link" v-on:click="resetList" v-bind:to="{name: 'tools'}" >
         <v-icon class="material-icons toolsIcon icon" size="80" v-text="(userLoggedIn) ? 'build' : 'login'">  </v-icon>
         <h1 v-text="(userLoggedIn) ? 'Tools' : 'Login'"></h1>
       </router-link>
@@ -29,6 +29,11 @@
             <v-icon v-on:click="runSearch" class="material-icons search-icon icon" size="55" >search</v-icon>
           </button>
       </div>
+       <router-link class="logoutBtn"
+        v-bind:to="{ name: 'logout' }"
+        v-if="$store.state.token != ''"
+        >Logout</router-link
+      >
        <div class="bar">
       </div>
       
@@ -98,15 +103,21 @@ export default {
 
   font-family: 'Subscriber';
   font-size: 350%;
-  grid-template-columns: 2% 12% 15% 15% 15% 15% 10%;
+  grid-template-columns: 2% 12% 15% 15% 15% 15% 10% 16%;
   grid-template-rows: 33% 34% 33%;
   grid-template-areas:
-    ". logo . . . . ."
-    ". logo feat cats success tools search "
-    ". logo . . . . .";
+    ". logo . . . . . ."
+    ". logo feat cats success tools search logout"
+    ". logo . . . . . .";
   justify-content: space-evenly;
   
   z-index: 0;
+}
+
+.logoutBtn{
+  grid-area: logout;
+  justify-self: right;
+  margin-top: -4%; 
 }
 
 .bar {
@@ -140,7 +151,7 @@ export default {
   grid-area: logo;
   width: 95%;
   margin-top: 2%;
-  margin-left: -20%;
+  margin-left: 5%;
   padding-bottom: -20%;
   justify-self: center;
 }
@@ -166,7 +177,7 @@ export default {
 }
 
 .featured-link {
-  margin-left: -10%; 
+  margin-left: 35%; 
 }
 
 
@@ -189,10 +200,10 @@ export default {
   
 }
 
-.cats-link {
-  margin-left: -5%;
-}
 
+.cats-link {
+  margin-left: 35%;
+}
 
 
 .tools, .toolsIcon {
@@ -221,11 +232,11 @@ export default {
 
 .success-link {
 
-  margin-left: 0%;
+  margin-left: 30%;
 }
 
 .admin-link {
-  margin-left: 15%;
+  margin-left: 25%;
 }
 
 

@@ -60,5 +60,11 @@ export default {
   margin-top: 7%
   
 } 
+button {
+  text-decoration: underline;
+}
 
+button:hover {
+  color: #161fc2;
+}
 </style>

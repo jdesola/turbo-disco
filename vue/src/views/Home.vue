@@ -1,19 +1,22 @@
 <template>
   <div class="adoptableCatGallery">
+    <h1>Welcome to CATCH!</h1>
+    <h2>See some of our available cats in the gallery below!</h2>
     <v-carousel
       class="images"
       cycle
-      height="800"
+      
+      interval="3000"
       hide-delimiter-background
+
       show-arrows-on-hover
     >
-      <v-carousel-item v-for="(slide, i) in slides" :key="i" :src="slide" @mouseenter="hover=true" aspect-ratio="16/9" :height="max-content" @mouseleave="hover=false" >
-        <!-- <v-sheet :color="colors[i]" height="100%"> -->
+      <v-carousel-item class="imageContainer" v-for="(slide, i) in slides" :key="i" :src="slide" @mouseenter="hover=true"  @mouseleave="hover=false" :aspect-ratio="2">
           <v-row class="fill-height" align="center" justify="center" >
             <div class="display-3" >
               <v-fade-transition>
                 <v-overlay v-if="hover" absolute color=#036358>
-                  <v-btn color=#FFFFFF>
+                  <v-btn color=#FFFFFF background-color=#FFFFFF>
                     <router-link 
                     v-bind:to="{name: 'cats'}">
                     Catch this cat!
@@ -23,18 +26,11 @@
               </v-fade-transition>
             </div>
           </v-row>
-        <!-- </v-sheet> -->
       </v-carousel-item>
     </v-carousel>
     <cat-facts class="facts"/>
   </div>
 </template>
-
-    <!-- <img class="image" v-bind:key ='image' v-for="(image, i) in images" :src="image" @click="onClick(i)"  @mouseover="hover = true"
-      @mouseleave="hover = false">
-    <span v-if="hover"> <br>This kitty is just so darn adorable! </span>
-    <gallery :images="images"  @close="index = null"></gallery> -->
-
 
 <script>
 import firebase from 'firebase';
@@ -86,34 +82,42 @@ export default {
 };
 </script>
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
-
-body {
-  font-family: "Quicksand", sans-serif;
+h2 {
+  font-family: 'Quicksand';
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 1%;
 }
 
-p {
-  font-family: "Quicksand", sans-serif;
-  font-weight: bold;
+h1 {
+  margin-top: 7%;
+  margin-bottom: 1%;
+
+  text-align: center;
+  font-size: 500%;
+  font-weight: 800;
+  font-family: 'Subscriber';
+  color: #c24a15;
+  letter-spacing: 2px;
 }
+
+
 
 .adoptableCatGallery {
-  margin-top: 12%;
-  /* padding-left: 77%; */
+  padding-top: 5%;
   width: 50%;
   align-self: center;
 }
 
-v-btn{
-  margin-right: 50px;
-}
-a{
-  color: white;
-}
 
 .facts{
+position: relative;
 font-family:"Quicksand", sans-serif;
 font-weight: bold;
 font-size: 150%;
+z-index: 2;
+text-align: center;
+
 }
+
 </style>

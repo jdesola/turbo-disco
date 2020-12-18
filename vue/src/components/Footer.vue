@@ -16,19 +16,20 @@ export default {
 
 <style>
 .footer-container {
-  display: grid;
-  grid-template-areas: "logo ";
   left: 0;
   bottom: 0;
   width: 100%;
   position: fixed;
-  height: 15%;
+  height: 35%;
   width: 100%;
+  background-color: #adcff0;
   /* color: white; */
 }
 
 .big-logo {
-  grid-area: logo;
+  margin-top: 14%;
+  width: 7.5%;
+  height: auto;
 }
 
 /* .facts {

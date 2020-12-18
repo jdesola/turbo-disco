@@ -8,9 +8,10 @@ import store from '../store/index'
 import CatForm from '../views/CatForm'
 import Cats from '../views/CatView'
 import FeaturedCats from '../views/FeaturedCats'
-
-import SuccessStoriesForm from '../components/SuccessStoriesForm'
+import Tools from '../views/Tools'
 import SuccessStoriesView from '@/views/SuccessStoriesView'
+
+
 
 Vue.use(Router)
 
@@ -83,9 +84,9 @@ const router = new Router({
         }
       },
       {
-        path: "/tools/successStoryForm",
-        name: "successStoriesForm",
-        component: SuccessStoriesForm,
+        path: "/tools",
+        name: "tools",
+        component: Tools,
         meta: {
           requiresAuth: true
         }
