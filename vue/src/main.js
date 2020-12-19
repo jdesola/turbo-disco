@@ -24,7 +24,7 @@ new Vue({
 
   created () {
     var firebaseConfig = {
-      apiKey: "AIzaSyBDArk4REPhi-gKiixOp6eHcrlPryYoyho",
+      apiKey: "ADD_API_KEY_HERE",
       authDomain: "catch-file-uploader.firebaseapp.com",
       projectId: "catch-file-uploader",
       storageBucket: "catch-file-uploader.appspot.com",
